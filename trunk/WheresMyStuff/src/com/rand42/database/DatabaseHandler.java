@@ -40,12 +40,12 @@ public class DatabaseHandler
 		return login;
 	}
 	
-	public static boolean createUser(String email, String password)
+	public static boolean createUser(String name, String email, String password)
 	{
 		ParseUser user = new ParseUser();
 		user.setUsername(email);
 		user.setPassword(password);
-		
+		user.put("name", name);
 		user.signUpInBackground(new SignUpCallback() 
 		{
 			public void done(ParseException e)
