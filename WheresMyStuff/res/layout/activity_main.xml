@@ -26,7 +26,8 @@
 
         <Button
             android:id="@+id/submitButton"
-            android:layout_width="184dp"
+            android:layout_width="fill_parent"
+            android:paddingLeft="10px"
             android:layout_height="wrap_content"
             android:text="Login" 
             android:onClick="submitLogin"/>
@@ -37,7 +38,7 @@
 
         <TextView
             android:id="@+id/signUpView"
-            android:layout_width="306dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="No Account? Sign Up." />
