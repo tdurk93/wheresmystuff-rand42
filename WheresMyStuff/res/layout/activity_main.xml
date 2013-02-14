@@ -1,14 +1,45 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center" 
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <EditText 
+            android:id="@+id/emailField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email">
+  <requestFocus />
+            </EditText>
+
+        <EditText
+            android:id="@+id/passwordField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" 
+            android:hint="Password">
+
+           
+        </EditText>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:text="Login" 
+            android:onClick="submitLogin"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/signUpView"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="No Account? Sign Up." />
+
+    </LinearLayout>
