@@ -1,5 +1,7 @@
 package com.rand42.wheresmystuff;
 
+import com.rand42.database.DatabaseHandler;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -23,6 +25,8 @@ public class MainActivity extends Activity {
 	
 	public void submitLogin(View view)
 	{
+		DatabaseHandler db = DatabaseHandler.getHandler();
+		db.createUser("alexbettadapur@gmail.com", "biscuit1");
 		Log.i("MainActivity","Clicked");
 	}
 
