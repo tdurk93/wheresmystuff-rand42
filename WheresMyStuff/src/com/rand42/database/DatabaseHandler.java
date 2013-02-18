@@ -37,7 +37,7 @@ public class DatabaseHandler
 				}
 			}
 		});
-		return login;
+		return ParseUser.getCurrentUser()!=null;
 	}
 	
 	public static boolean createUser(String name, String email, String password)

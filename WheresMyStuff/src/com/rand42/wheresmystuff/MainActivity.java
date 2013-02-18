@@ -5,6 +5,8 @@ import com.rand42.database.DatabaseHandler;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -31,11 +33,21 @@ public class MainActivity extends Activity {
 		DatabaseHandler db = DatabaseHandler.getHandler();
 		EditText emailField = (EditText)findViewById(R.id.emailField);
 		EditText passwordField = (EditText)findViewById(R.id.passwordField);
-		db.login(emailField.getText().toString(), passwordField.getText().toString());
-		if(ParseUser.getCurrentUser()!=null)
+		boolean loginSuccess = db.login(emailField.getText().toString(), passwordField.getText().toString());
+		if(loginSuccess)
 		{
 			Log.i("MainActivity", ParseUser.getCurrentUser().getUsername());
 		}
+		else
+		{
+			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+			alertDialogBuilder.setTitle("Login Failed");
+			alertDialogBuilder.setMessage("Invalid username or password");
+			alertDialogBuilder.setCancelable(false);
+			AlertDialog dialog = alertDialogBuilder.create();
+			dialog.show();
+		}
+		
 		Log.i("MainActivity","Clicked");
 	}
 
