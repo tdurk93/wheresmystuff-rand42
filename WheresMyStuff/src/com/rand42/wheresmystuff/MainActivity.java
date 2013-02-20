@@ -15,10 +15,14 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
+	EditText emailField;
+	EditText passwordField;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		emailField = (EditText)findViewById(R.id.emailField);
+		passwordField = (EditText)findViewById(R.id.passwordField);
 	}
 
 	@Override
@@ -32,13 +36,13 @@ public class MainActivity extends Activity {
 	{
 		//Working properly. According to design standards? Needs data validation and better notification
 		DatabaseHandler db = DatabaseHandler.getHandler();
-		EditText emailField = (EditText)findViewById(R.id.emailField);
-		EditText passwordField = (EditText)findViewById(R.id.passwordField);
 		boolean loginSuccess = db.login(emailField.getText().toString(), passwordField.getText().toString());
 		if(loginSuccess)
 		{
 			Log.i("MainActivity", ParseUser.getCurrentUser().getUsername());
 			Intent i = new Intent(this, HomeActivity.class);
+			emailField.setText("");
+			passwordField.setText("");
 			startActivity(i);
 			
 		}

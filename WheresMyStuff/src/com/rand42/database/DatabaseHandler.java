@@ -1,5 +1,8 @@
 package com.rand42.database;
 
+import android.app.Activity;
+import android.util.Log;
+
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseUser;
@@ -20,7 +23,6 @@ public class DatabaseHandler
 			handler = new DatabaseHandler();
 		return handler;
 	}
-	
 	public static boolean login(String email, String password)
 	{
 		boolean login=false;
@@ -29,11 +31,12 @@ public class DatabaseHandler
 			public void done(ParseUser user, ParseException e)
 			{
 				if(user!=null)
-				{}
+				{
+				}
 					//success
 				else
 				{
-					//fail, check exception for details
+					Log.i("Database",""+e.getCode());
 				}
 			}
 		});
