@@ -42,6 +42,14 @@ public class MainActivity extends Activity {
 		{
 			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 			alertDialogBuilder.setTitle("Login Failed");
+			alertDialogBuilder.setPositiveButton("Ok",
+                     new DialogInterface.OnClickListener() {
+                         @Override
+                         public void onClick(DialogInterface dialog,
+                                 int which) {
+                             dialog.dismiss();
+                         }
+                     });
 			alertDialogBuilder.setMessage("Invalid username or password");
 			alertDialogBuilder.setCancelable(false);
 			AlertDialog dialog = alertDialogBuilder.create();
