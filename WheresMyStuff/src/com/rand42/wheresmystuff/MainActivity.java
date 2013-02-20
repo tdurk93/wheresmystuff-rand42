@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -37,6 +38,9 @@ public class MainActivity extends Activity {
 		if(loginSuccess)
 		{
 			Log.i("MainActivity", ParseUser.getCurrentUser().getUsername());
+			Intent i = new Intent(this, HomeActivity.class);
+			startActivity(i);
+			
 		}
 		else
 		{
