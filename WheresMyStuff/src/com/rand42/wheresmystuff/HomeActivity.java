@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
-
+/**
+ * Activity representing the home page for the logged in user
+ * @author Rand-42
+ *
+ */
 public class HomeActivity extends Activity {
 
 	@Override

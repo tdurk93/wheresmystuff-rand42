@@ -9,7 +9,11 @@ import com.parse.ParseUser;
 import com.parse.ParseException;
 import com.parse.RequestPasswordResetCallback;
 import com.parse.SignUpCallback;
-
+/**
+ * The DatabaseHandler is a singleton with Parse.com database read and write methods
+ * @author Rand-42
+ *
+ */
 public class DatabaseHandler 
 {
 	private static DatabaseHandler handler;
@@ -18,6 +22,10 @@ public class DatabaseHandler
 	{
 		
 	}
+	/**
+	 * Gets the Database Handler
+	 * @return The database handler
+	 */
 	public static DatabaseHandler getHandler()
 	{
 		if(handler==null)
@@ -25,7 +33,14 @@ public class DatabaseHandler
 		return handler;
 	}
 	
-	public static boolean createUser(String name, String email, String password)
+	/**
+	 * Creates a new user using the ParseUser methods
+	 * @param name The full name of the user
+	 * @param email Email address
+	 * @param password Password
+	 * @return A boolean indicating success
+	 */
+	public boolean createUser(String name, String email, String password)
 	{
 		ParseUser user = new ParseUser();
 		user.setUsername(email);
@@ -47,7 +62,12 @@ public class DatabaseHandler
 		});
 		return true;
 	}
-	public static boolean resetPassword(String email)
+	/**
+	 * Resets the password using ParseUser methods
+	 * @param email The email account of the associated account
+	 * @return A boolean indicating success
+	 */
+	public boolean resetPassword(String email)
 	{
 		ParseUser.requestPasswordResetInBackground(email, new RequestPasswordResetCallback()
 		{

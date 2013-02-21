@@ -4,6 +4,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.rand42.database.DatabaseHandler;
+import com.rand42.factories.DialogFactory;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -14,7 +15,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-
+/**
+ * The MainActivity asks the user to login
+ * @author Rand-42
+ *
+ */
 public class MainActivity extends Activity {
 
 	EditText emailField;
@@ -33,11 +38,19 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+	/**
+	 * Called when the new user button is clicked. Starts a new Activity to create a new user
+	 * @param view The clicked view
+	 */
 	public void newUserSignup(View view)
 	{
 		Intent newIntent = new Intent(this, NewUserActivity.class);
 		startActivity(newIntent);
 	}
+	/**
+	 * Called when the login button is clicked. Uses the ParseUser methods to log in the user. Calls either loginSuccess or loginFail
+	 * @param view The clicked view
+	 */
 	public void submitLogin(View view)
 	{
 		//Working properly. According to design standards? Needs data validation and better notification
@@ -57,6 +70,9 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
+	/**
+	 * Called when the user successfully logs in. Starts a new Activity for the logged in user
+	 */
 	public void loginSuccess()
 	{
 			Log.i("MainActivity", ParseUser.getCurrentUser().getUsername());
@@ -65,63 +81,27 @@ public class MainActivity extends Activity {
 			passwordField.setText("");
 			startActivity(i);
 	}
+	/**
+	 * Called when the user fails to log in. Displays Dialog box informing user of error
+	 * @param e The exception 
+	 */
 	public void loginFail(ParseException e)
 	{
-			AlertDialog dialog = createStandardDialog("Login Failed", "Invalid Username or Password");
+			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", "Invalid Username or Password",this);
 			dialog.show();
 	}
+	/**
+	 * Called when the reset button is clicked. Spawns a dialog that asks for email address. 
+	 * @param view The clicked view
+	 */
 	public void passwordReset(View view)
 	{
-		AlertDialog dialog = createResetDialog();
+		AlertDialog dialog = DialogFactory.createResetDialog(this);
 		dialog.show();
 	}
 	
-	public AlertDialog createStandardDialog(String title, String message)
-	{
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		alertDialogBuilder.setTitle(title);
-		alertDialogBuilder.setPositiveButton("Ok",
-                 new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface dialog,
-                             int which) {
-                         dialog.dismiss();
-                     }
-                 });
-		alertDialogBuilder.setMessage(message);
-		alertDialogBuilder.setCancelable(false);
-		return alertDialogBuilder.create();
-	}
 
-	public AlertDialog createResetDialog()
-	{
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		final EditText input = new EditText(this);
-		alertDialogBuilder.setView(input);
-		alertDialogBuilder.setTitle("Enter Email");
-		alertDialogBuilder.setPositiveButton("Ok",
-                 new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface dialog,
-                             int which) {
-                    	 DatabaseHandler db = DatabaseHandler.getHandler();
-                    	 db.resetPassword(input.getText().toString());
-                    	 AlertDialog infoDialog = createStandardDialog("","You will recieve an email shortly");
-                    	 infoDialog.show();
-                         dialog.dismiss();
-                     }
-                 });
-		alertDialogBuilder.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog,
-                            int which) {
-                  
-                        dialog.dismiss();
-                    }
-                });
-		alertDialogBuilder.setMessage("Enter your email");
-		alertDialogBuilder.setCancelable(false);
-		return alertDialogBuilder.create();
-	}
+	
+
+	
 }
