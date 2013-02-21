@@ -21,6 +21,7 @@ public class HomeActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_home, menu);
 		return true;
 	}
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
 		switch(item.getItemId())
