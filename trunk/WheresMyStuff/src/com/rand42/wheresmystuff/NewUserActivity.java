@@ -3,6 +3,7 @@ package com.rand42.wheresmystuff;
 import java.util.regex.Pattern;
 
 import com.rand42.database.DatabaseHandler;
+import com.rand42.factories.DialogFactory;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -12,6 +13,11 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
+/**
+ * Activity to create a new user in the system
+ * @author Rand-42
+ *
+ */
 public class NewUserActivity extends Activity {
 
 	EditText nameField;
@@ -41,7 +47,10 @@ public class NewUserActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_new_user, menu);
 		return true;
 	}
-	
+	/**
+	 * Called when the create button is clicked. Validates information and creates a new user 
+	 * @param view The clicked view
+	 */
 	public void createUser(View view)
 	{
 		String name = nameField.getText().toString();
@@ -52,34 +61,19 @@ public class NewUserActivity extends Activity {
 		{
 			DatabaseHandler db = DatabaseHandler.getHandler();
 			db.createUser(name,email,password);
-			AlertDialog dialog = createStandardDialog("Success","You will recieve a confirmation email");
+			AlertDialog dialog = DialogFactory.createStandardDialog("Success","You will recieve a confirmation email",this);
 			dialog.show();
 			
 		}
 		else
 		{
-			AlertDialog dialog = createStandardDialog("Error","Something went wrong. Is your email valid? Do your passwords match?");
+			AlertDialog dialog = DialogFactory.createStandardDialog("Error","Something went wrong. Is your email valid? Do your passwords match?",this);
 			dialog.show();
 		}
 			
 		
 	}
 
-	public AlertDialog createStandardDialog(String title, String message)
-	{
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		alertDialogBuilder.setTitle(title);
-		alertDialogBuilder.setPositiveButton("Ok",
-                 new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface dialog,
-                             int which) {
-                         dialog.dismiss();
-                     }
-                 });
-		alertDialogBuilder.setMessage(message);
-		alertDialogBuilder.setCancelable(false);
-		return alertDialogBuilder.create();
-	}
+	
 
 }
