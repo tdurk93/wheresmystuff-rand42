@@ -7,6 +7,7 @@ import android.app.Application;
 
 public class WheresMyStuffApplication extends Application
 {
+	@Override
 	public void onCreate()
 	{
 		//Connect to parse.com
