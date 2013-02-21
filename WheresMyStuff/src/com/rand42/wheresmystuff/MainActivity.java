@@ -67,14 +67,19 @@ public class MainActivity extends Activity {
 	}
 	public void loginFail(ParseException e)
 	{
-			AlertDialog dialog = createFailDialog();
+			AlertDialog dialog = createStandardDialog("Login Failed", "Invalid Username or Password");
 			dialog.show();
 	}
+	public void passwordReset(View view)
+	{
+		AlertDialog dialog = createResetDialog();
+		dialog.show();
+	}
 	
-	public AlertDialog createFailDialog()
+	public AlertDialog createStandardDialog(String title, String message)
 	{
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		alertDialogBuilder.setTitle("Login Failed");
+		alertDialogBuilder.setTitle(title);
 		alertDialogBuilder.setPositiveButton("Ok",
                  new DialogInterface.OnClickListener() {
                      @Override
@@ -83,9 +88,40 @@ public class MainActivity extends Activity {
                          dialog.dismiss();
                      }
                  });
-		alertDialogBuilder.setMessage("Invalid username or password");
+		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setCancelable(false);
 		return alertDialogBuilder.create();
 	}
 
+	public AlertDialog createResetDialog()
+	{
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		final EditText input = new EditText(this);
+		alertDialogBuilder.setView(input);
+		alertDialogBuilder.setTitle("Enter Email");
+		alertDialogBuilder.setPositiveButton("Ok",
+                 new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialog,
+                             int which) {
+                    	 DatabaseHandler db = DatabaseHandler.getHandler();
+                    	 db.resetPassword(input.getText().toString());
+                    	 AlertDialog infoDialog = createStandardDialog("","You will recieve an email shortly");
+                    	 infoDialog.show();
+                         dialog.dismiss();
+                     }
+                 });
+		alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                            int which) {
+                  
+                        dialog.dismiss();
+                    }
+                });
+		alertDialogBuilder.setMessage("Enter your email");
+		alertDialogBuilder.setCancelable(false);
+		return alertDialogBuilder.create();
+	}
 }

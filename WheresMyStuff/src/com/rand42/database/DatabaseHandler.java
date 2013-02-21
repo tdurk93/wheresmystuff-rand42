@@ -7,6 +7,7 @@ import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseUser;
 import com.parse.ParseException;
+import com.parse.RequestPasswordResetCallback;
 import com.parse.SignUpCallback;
 
 public class DatabaseHandler 
@@ -41,6 +42,24 @@ public class DatabaseHandler
 				else
 				{
 					//fail. details in e
+				}
+			}
+		});
+		return true;
+	}
+	public static boolean resetPassword(String email)
+	{
+		ParseUser.requestPasswordResetInBackground(email, new RequestPasswordResetCallback()
+		{
+			public void done(ParseException e)
+			{
+				if(e==null)
+				{
+					//success
+				}
+				else
+				{
+					//fail
 				}
 			}
 		});
