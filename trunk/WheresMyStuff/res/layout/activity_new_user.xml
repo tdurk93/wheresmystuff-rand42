@@ -5,6 +5,13 @@
         android:gravity="center" 
         android:orientation="vertical">
 
+          <EditText 
+            android:id="@+id/nameField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name">
+  <requestFocus />
+            </EditText>
         <EditText 
             android:id="@+id/emailField"
             android:layout_width="fill_parent"
@@ -23,25 +30,25 @@
 
            
         </EditText>
+        <EditText android:id="@+id/confirmField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Confirm Password">
+        </EditText>
 
         <Button
             android:id="@+id/submitButton"
             android:layout_width="fill_parent"
             android:paddingLeft="10px"
             android:layout_height="wrap_content"
-            android:text="Login" 
-            android:onClick="submitLogin"/>
+            android:text="Create Account" 
+            android:onClick="createUser"/>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 
-        <Button
-            android:id="@+id/signUpButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/newUser" 
-            android:onClick="newUserSignup"/>
 
     </LinearLayout>

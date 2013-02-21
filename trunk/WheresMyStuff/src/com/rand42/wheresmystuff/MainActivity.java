@@ -1,5 +1,7 @@
 package com.rand42.wheresmystuff;
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.rand42.database.DatabaseHandler;
 
@@ -31,40 +33,59 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	
+	public void newUserSignup(View view)
+	{
+		Intent newIntent = new Intent(this, NewUserActivity.class);
+		startActivity(newIntent);
+	}
 	public void submitLogin(View view)
 	{
 		//Working properly. According to design standards? Needs data validation and better notification
-		DatabaseHandler db = DatabaseHandler.getHandler();
-		boolean loginSuccess = db.login(emailField.getText().toString(), passwordField.getText().toString());
-		if(loginSuccess)
+		ParseUser.logInInBackground(emailField.getText().toString(),passwordField.getText().toString(), new LogInCallback()
 		{
+			public void done(ParseUser user, ParseException e)
+			{
+				if(user!=null)
+				{
+					loginSuccess();
+				}
+					
+				else
+				{
+					loginFail(e);
+				}
+			}
+		});
+	}
+	public void loginSuccess()
+	{
 			Log.i("MainActivity", ParseUser.getCurrentUser().getUsername());
 			Intent i = new Intent(this, HomeActivity.class);
 			emailField.setText("");
 			passwordField.setText("");
 			startActivity(i);
-			
-		}
-		else
-		{
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-			alertDialogBuilder.setTitle("Login Failed");
-			alertDialogBuilder.setPositiveButton("Ok",
-                     new DialogInterface.OnClickListener() {
-                         @Override
-                         public void onClick(DialogInterface dialog,
-                                 int which) {
-                             dialog.dismiss();
-                         }
-                     });
-			alertDialogBuilder.setMessage("Invalid username or password");
-			alertDialogBuilder.setCancelable(false);
-			AlertDialog dialog = alertDialogBuilder.create();
+	}
+	public void loginFail(ParseException e)
+	{
+			AlertDialog dialog = createFailDialog();
 			dialog.show();
-		}
-		
-		Log.i("MainActivity","Clicked");
+	}
+	
+	public AlertDialog createFailDialog()
+	{
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setTitle("Login Failed");
+		alertDialogBuilder.setPositiveButton("Ok",
+                 new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialog,
+                             int which) {
+                         dialog.dismiss();
+                     }
+                 });
+		alertDialogBuilder.setMessage("Invalid username or password");
+		alertDialogBuilder.setCancelable(false);
+		return alertDialogBuilder.create();
 	}
 
 }
