@@ -15,9 +15,8 @@
         <EditText 
             android:id="@+id/emailField"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email">
-  <requestFocus />
+            android:layout_height="wrap_content">
+
             </EditText>
 
         <EditText

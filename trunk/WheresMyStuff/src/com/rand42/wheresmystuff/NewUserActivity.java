@@ -52,26 +52,32 @@ public class NewUserActivity extends Activity {
 		{
 			DatabaseHandler db = DatabaseHandler.getHandler();
 			db.createUser(name,email,password);
-			AlertDialog dialog = createSuccessDialog();
+			AlertDialog dialog = createStandardDialog("Success","You will recieve a confirmation email");
 			dialog.show();
 			
 		}
+		else
+		{
+			AlertDialog dialog = createStandardDialog("Error","Something went wrong. Is your email valid? Do your passwords match?");
+			dialog.show();
+		}
+			
 		
 	}
-	public AlertDialog createSuccessDialog()
+
+	public AlertDialog createStandardDialog(String title, String message)
 	{
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		alertDialogBuilder.setTitle("Creation Successful");
+		alertDialogBuilder.setTitle(title);
 		alertDialogBuilder.setPositiveButton("Ok",
                  new DialogInterface.OnClickListener() {
                      @Override
                      public void onClick(DialogInterface dialog,
                              int which) {
                          dialog.dismiss();
-                         finish();
                      }
                  });
-		alertDialogBuilder.setMessage("Please Check Your Email to Verify Your Address");
+		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setCancelable(false);
 		return alertDialogBuilder.create();
 	}
