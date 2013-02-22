@@ -1,5 +1,7 @@
 package com.rand42.factories;
 
+import com.parse.ParseException;
+import com.parse.RequestPasswordResetCallback;
 import com.rand42.database.DatabaseHandler;
 
 import android.app.Activity;
@@ -38,6 +40,31 @@ public class DialogFactory {
 		return alertDialogBuilder.create();
 	}
 	/**
+	 * Creates a dialog designed to quit the current activity. Shows the message and quits the activity after ok is clicked
+	 * @param title Title
+	 * @param message Message 
+	 * @param caller Calling activity. Will be closed
+	 * @return Created dialog box
+	 */
+	public static AlertDialog createFinishDialog(String title, String message, Activity caller)
+	{
+		final Activity theCaller = caller;
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(caller);
+		alertDialogBuilder.setTitle(title);
+		alertDialogBuilder.setPositiveButton("Ok",
+                 new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialog,
+                             int which) {
+                         dialog.dismiss();
+                         theCaller.finish();
+                     }
+                 });
+		alertDialogBuilder.setMessage(message);
+		alertDialogBuilder.setCancelable(false);
+		return alertDialogBuilder.create();
+	}
+	/**
 	 * Creates a dialog to aid in password reset. Contains an input box, resets user passwords, and creates a message dialog on close
 	 * @param c The calling activity
 	 * @return The created dialog
@@ -55,10 +82,25 @@ public class DialogFactory {
                      public void onClick(DialogInterface dialog,
                              int which) {
                     	 DatabaseHandler db = DatabaseHandler.getHandler();
-                    	 db.resetPassword(input.getText().toString());
-                    	 AlertDialog infoDialog = DialogFactory.createStandardDialog("","You will recieve an email shortly",caller);
-                    	 infoDialog.show();
-                         dialog.dismiss();
+                    	 dialog.dismiss();
+                    	 db.resetPassword(input.getText().toString(), new RequestPasswordResetCallback()
+                    	 {
+                    		 public void done(ParseException e)
+                    		 {
+                    			 if(e==null)
+                    			 {
+                    				 AlertDialog infoDialog = DialogFactory.createStandardDialog("","You will recieve an email shortly",caller);
+                                	 infoDialog.show();
+                                     
+                    			 }
+                    			 else
+                    			 {
+                    				 AlertDialog infoDialog = DialogFactory.createStandardDialog("","A problem occured",caller);
+                                	 infoDialog.show();
+                    			 }
+                    		 }
+                    	 });
+                    	
                      }
                  });
 		alertDialogBuilder.setNegativeButton("Cancel",
@@ -71,7 +113,7 @@ public class DialogFactory {
                     }
                 });
 		alertDialogBuilder.setMessage("Enter your email");
-		alertDialogBuilder.setCancelable(false);
+		alertDialogBuilder.setCancelable(true);
 		return alertDialogBuilder.create();
 	}
 

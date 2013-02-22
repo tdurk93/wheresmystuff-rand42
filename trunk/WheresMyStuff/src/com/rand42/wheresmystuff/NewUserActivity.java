@@ -2,6 +2,8 @@ package com.rand42.wheresmystuff;
 
 import java.util.regex.Pattern;
 
+import com.parse.ParseException;
+import com.parse.SignUpCallback;
 import com.rand42.database.DatabaseHandler;
 import com.rand42.factories.DialogFactory;
 
@@ -60,9 +62,20 @@ public class NewUserActivity extends Activity {
 		if(pattern.matcher(email).matches()&&password.equals(confirm)) //valid email and matching passwords
 		{
 			DatabaseHandler db = DatabaseHandler.getHandler();
-			db.createUser(name,email,password);
-			AlertDialog dialog = DialogFactory.createStandardDialog("Success","You will recieve a confirmation email",this);
-			dialog.show();
+			db.createUser(name,email,password, new SignUpCallback()
+			{
+				public void done(ParseException e)
+				{
+					if(e==null)
+					{
+						createUserSuccess();
+					}
+					else
+					{
+						createUserFail(e);
+					}
+				}
+			});
 			
 		}
 		else
@@ -71,7 +84,23 @@ public class NewUserActivity extends Activity {
 			dialog.show();
 		}
 			
-		
+	}
+	/**
+	 * Called when creating a new user completed successfully
+	 */
+	public void createUserSuccess()
+	{
+		AlertDialog dialog = DialogFactory.createFinishDialog("Success","You will recieve a confirmation email",this);
+		dialog.show();
+	}
+	/**
+	 * Called when created a new user failed
+	 * @param e Exception, details included
+	 */
+	public void createUserFail(ParseException e)
+	{
+		AlertDialog dialog = DialogFactory.createStandardDialog("Error",e.getMessage(),this);
+		dialog.show();
 	}
 
 	
