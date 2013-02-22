@@ -1,0 +1,53 @@
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center" 
+        android:orientation="vertical">
+
+          <EditText 
+            android:id="@+id/nameField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name">
+  <requestFocus />
+            </EditText>
+        <EditText 
+            android:id="@+id/emailField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address">
+            </EditText>
+
+        <EditText
+            android:id="@+id/passwordField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" 
+            android:hint="Password">
+
+           
+        </EditText>
+        <EditText android:id="@+id/confirmField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Confirm Password">
+        </EditText>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="fill_parent"
+            android:paddingLeft="10px"
+            android:layout_height="wrap_content"
+            android:text="Create Account" 
+            android:onClick="createUser"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+    </LinearLayout>
