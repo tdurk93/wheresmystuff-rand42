@@ -1,4 +1,4 @@
-package com.rand42.database;
+package com.rand42.model;
 
 import android.app.Activity;
 import android.util.Log;

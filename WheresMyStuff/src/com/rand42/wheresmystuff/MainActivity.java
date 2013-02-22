@@ -3,8 +3,8 @@ package com.rand42.wheresmystuff;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.rand42.database.DatabaseHandler;
 import com.rand42.factories.DialogFactory;
+import com.rand42.model.DatabaseHandler;
 
 import android.os.Bundle;
 import android.app.Activity;
