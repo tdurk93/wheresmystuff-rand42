@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 /**
  * Activity representing the home page for the logged in user
  * @author Rand-42
@@ -17,6 +18,8 @@ public class HomeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		TextView textView = (TextView)findViewById(R.id.confirmText);
+		textView.setText("Logged in as "+ParseUser.getCurrentUser().getUsername());
 	}
 
 	@Override
