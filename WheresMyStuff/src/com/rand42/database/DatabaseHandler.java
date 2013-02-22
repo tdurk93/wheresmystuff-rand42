@@ -40,49 +40,30 @@ public class DatabaseHandler
 	 * @param password Password
 	 * @return A boolean indicating success
 	 */
-	public boolean createUser(String name, String email, String password)
+	public void login(String email, String password, LogInCallback callback)
+	{
+		ParseUser.logInInBackground(email,password,callback);
+	}
+	
+	public void createUser(String name, String email, String password, SignUpCallback callback)
 	{
 		ParseUser user = new ParseUser();
 		user.setUsername(email);
 		user.setPassword(password);
 		user.put("name", name);
-		user.signUpInBackground(new SignUpCallback() 
-		{
-			public void done(ParseException e)
-			{
-				if(e==null)
-				{
-					//success
-				}
-				else
-				{
-					//fail. details in e
-				}
-			}
-		});
-		return true;
+		user.signUpInBackground(callback); 
+		
+		
 	}
 	/**
 	 * Resets the password using ParseUser methods
 	 * @param email The email account of the associated account
 	 * @return A boolean indicating success
 	 */
-	public boolean resetPassword(String email)
+	public void resetPassword(String email, RequestPasswordResetCallback callback)
 	{
-		ParseUser.requestPasswordResetInBackground(email, new RequestPasswordResetCallback()
-		{
-			public void done(ParseException e)
-			{
-				if(e==null)
-				{
-					//success
-				}
-				else
-				{
-					//fail
-				}
-			}
-		});
-		return true;
+		ParseUser.requestPasswordResetInBackground(email, callback);
+
+		
 	}
 }

@@ -30,7 +30,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		emailField = (EditText)findViewById(R.id.emailField);
 		passwordField = (EditText)findViewById(R.id.passwordField);
+	
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,8 +55,8 @@ public class MainActivity extends Activity {
 	 */
 	public void submitLogin(View view)
 	{
-		//Working properly. According to design standards? Needs data validation and better notification
-		ParseUser.logInInBackground(emailField.getText().toString(),passwordField.getText().toString(), new LogInCallback()
+		DatabaseHandler db = DatabaseHandler.getHandler();
+		db.login(emailField.getText().toString(),passwordField.getText().toString(), new LogInCallback()
 		{
 			public void done(ParseUser user, ParseException e)
 			{
@@ -87,7 +89,7 @@ public class MainActivity extends Activity {
 	 */
 	public void loginFail(ParseException e)
 	{
-			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", "Invalid Username or Password",this);
+			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", e.getMessage(),this);
 			dialog.show();
 	}
 	/**
