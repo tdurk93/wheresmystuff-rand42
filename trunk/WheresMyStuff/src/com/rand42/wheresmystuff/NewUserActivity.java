@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 
 import com.parse.ParseException;
 import com.parse.SignUpCallback;
-import com.rand42.database.DatabaseHandler;
 import com.rand42.factories.DialogFactory;
+import com.rand42.model.DatabaseHandler;
 
 import android.os.Bundle;
 import android.app.Activity;
