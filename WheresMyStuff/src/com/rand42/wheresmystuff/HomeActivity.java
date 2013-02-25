@@ -41,5 +41,12 @@ public class HomeActivity extends Activity {
 			return true;
 		}
 	}
+	@Override
+	public void onBackPressed()
+	{
+		ParseUser.logOut();
+		this.finish();
+	}
+	
 
 }
