@@ -1,4 +1,4 @@
-package com.rand42.wheresmystuff;
+package com.rand42.views;
 
 import com.parse.ParseUser;
 
