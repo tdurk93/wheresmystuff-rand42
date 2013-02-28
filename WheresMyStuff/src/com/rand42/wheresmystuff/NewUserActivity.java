@@ -1,42 +1,46 @@
-package com.rand42.views;
+package com.rand42.wheresmystuff;
 
 import java.util.regex.Pattern;
 
+import com.parse.ParseException;
+import com.parse.SignUpCallback;
 import com.rand42.factories.DialogFactory;
+import com.rand42.model.DatabaseHandler;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import com.rand42.presenters.CreateUserPresenter;
 
 /**
  * Activity to create a new user in the system
  * @author Rand-42
  *
  */
-public class NewUserActivity extends Activity implements ICreateUserView {
+public class NewUserActivity extends Activity {
 
 	EditText nameField;
 	EditText emailField;
 	EditText passwordField;
 	EditText confirmField;
-    private CreateUserPresenter presenter;
-
+	private static final String EMAIL_PATTERN = 
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	Pattern pattern;
 	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_user);
-        presenter = new CreateUserPresenter(this);
 		
 		nameField = (EditText)findViewById(R.id.nameField);
 		emailField = (EditText)findViewById(R.id.emailField);
 		passwordField = (EditText)findViewById(R.id.passwordField);
 		confirmField = (EditText)findViewById(R.id.confirmField);
-
+		pattern = Pattern.compile(EMAIL_PATTERN);
 	}
 
 	@Override
@@ -55,48 +59,48 @@ public class NewUserActivity extends Activity implements ICreateUserView {
 		String email = emailField.getText().toString();
 		String password = passwordField.getText().toString();
 		String confirm = confirmField.getText().toString();
-
-		    presenter.createUserClick(name, email, password, confirm);
-
-
+		if(pattern.matcher(email).matches()&&password.equals(confirm)) //valid email and matching passwords
+		{
+			DatabaseHandler db = DatabaseHandler.getHandler();
+			db.createUser(name,email,password, new SignUpCallback()
+			{
+				public void done(ParseException e)
+				{
+					if(e==null)
+					{
+						createUserSuccess();
+					}
+					else
+					{
+						createUserFail(e);
+					}
+				}
+			});
+			
+		}
+		else
+		{
+			AlertDialog dialog = DialogFactory.createStandardDialog("Error","Something went wrong. Is your email valid? Do your passwords match?",this);
+			dialog.show();
+		}
+			
 	}
 	/**
 	 * Called when creating a new user completed successfully
 	 */
-	public void success()
+	public void createUserSuccess()
 	{
 		AlertDialog dialog = DialogFactory.createFinishDialog("Success","You will recieve a confirmation email",this);
 		dialog.show();
 	}
 	/**
-	 * Called when created a new user failed. Prompts appropriate dialogBox
-     * @param fail The reason fail was called
+	 * Called when created a new user failed
+	 * @param e Exception, details included
 	 */
-	public void fail(CreateUserPresenter.CreateUserFail fail)
+	public void createUserFail(ParseException e)
 	{
-        AlertDialog dialog;
-        switch(fail)
-        {
-            case invalidData:
-               dialog = DialogFactory.createStandardDialog("Error","Your passwords dont match, or your email is invalid",this);
-                dialog.show();
-                break;
-            case exists:
-                 dialog = DialogFactory.createStandardDialog("Error", "This email address already exists in our system",this);
-                dialog.show();
-                break;
-            case timeout:
-                dialog = DialogFactory.createStandardDialog("Error", "We could not connect to the database. Check your connection", this);
-                dialog.show();
-                break;
-            case unknown:
-                dialog = DialogFactory.createStandardDialog("Error", "Unknown Error. Try again later", this);
-                dialog.show();
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown enum value");
-        }
-
+		AlertDialog dialog = DialogFactory.createStandardDialog("Error",e.getMessage(),this);
+		dialog.show();
 	}
 
 	

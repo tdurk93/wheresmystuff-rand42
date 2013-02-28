@@ -1,4 +1,4 @@
-package com.rand42.views;
+package com.rand42.wheresmystuff;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -9,6 +9,7 @@ import com.rand42.model.DatabaseHandler;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;

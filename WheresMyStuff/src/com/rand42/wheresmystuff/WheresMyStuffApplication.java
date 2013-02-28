@@ -1,4 +1,4 @@
-package com.rand42.views;
+package com.rand42.wheresmystuff;
 
 import com.parse.Parse;
 import com.parse.ParseACL;
