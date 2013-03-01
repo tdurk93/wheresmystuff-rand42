@@ -15,7 +15,6 @@ public class WheresMyStuffApplication extends Application
 		ParseACL thisAcl = new ParseACL();
 		thisAcl.setPublicReadAccess(true);
 		ParseACL.setDefaultACL(thisAcl, true);
-		
 	}
 
 }

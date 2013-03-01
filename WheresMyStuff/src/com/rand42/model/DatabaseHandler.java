@@ -37,24 +37,30 @@ public class DatabaseHandler
 	 * Creates a new user using the ParseUser methods
 	 * @param name The full name of the user
 	 * @param email Email address
+	 * 
+
 	 * @param password Password
 	 * @return A boolean indicating success
 	 */
-	public void login(String email, String password, LogInCallback callback)
+	public User login(String email, String password)
 	{
-		ParseUser.logInInBackground(email,password,callback);
+		ParseUser.logInInBackground(email,password, new LogInCallback(){ public void done(ParseUser u, ParseException e){}  });
+		
+		return new User(ParseUser.getCurrentUser());
 	}
 	
-	public void createUser(String name, String email, String password, SignUpCallback callback)
+	public boolean createUser(String name, String email, String password)
 	{
 		ParseUser user = new ParseUser();
 		user.setUsername(email);
 		user.setPassword(password);
 		user.put("name", name);
-		user.signUpInBackground(callback); 
-		
-		
+		Pass def = new Pass();
+		user.signUpInBackground(def); 
+		return def.success;
 	}
+	
+		
 	/**
 	 * Resets the password using ParseUser methods
 	 * @param email The email account of the associated account
@@ -62,8 +68,18 @@ public class DatabaseHandler
 	 */
 	public void resetPassword(String email, RequestPasswordResetCallback callback)
 	{
-		ParseUser.requestPasswordResetInBackground(email, callback);
-
 		
+		ParseUser.requestPasswordResetInBackground(email, callback);
+	}
+	
+	private class Pass extends SignUpCallback{
+		
+		boolean success;
+		
+		@Override
+		public void done(ParseException e) {
+		// TODO Auto-generated method stub
+			success = e==null;
+		}
 	}
 }
