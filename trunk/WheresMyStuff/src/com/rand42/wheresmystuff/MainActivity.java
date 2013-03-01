@@ -1,10 +1,9 @@
 package com.rand42.wheresmystuff;
 
-import com.parse.LogInCallback;
-import com.parse.ParseException;
-import com.parse.ParseUser;
 import com.rand42.factories.DialogFactory;
 import com.rand42.model.DatabaseHandler;
+import com.rand42.model.LocalModel;
+import com.rand42.model.Model;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -22,15 +21,17 @@ import android.widget.EditText;
  */
 public class MainActivity extends Activity {
 
-	EditText emailField;
-	EditText passwordField;
+	private EditText emailField;
+	private EditText passwordField;
+	private Model model;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		emailField = (EditText)findViewById(R.id.emailField);
 		passwordField = (EditText)findViewById(R.id.passwordField);
-	
+		model = LocalModel.getModel();
 	}
 	
 
@@ -55,29 +56,19 @@ public class MainActivity extends Activity {
 	 */
 	public void submitLogin(View view)
 	{
-		DatabaseHandler db = DatabaseHandler.getHandler();
-		db.login(emailField.getText().toString(),passwordField.getText().toString(), new LogInCallback()
-		{
-			public void done(ParseUser user, ParseException e)
-			{
-				if(user!=null)
-				{
-					loginSuccess();
-				}
-					
-				else
-				{
-					loginFail(e);
-				}
-			}
-		});
+		
+		if(model.logIn(emailField.getText().toString(), passwordField.getText().toString()))
+			loginSuccess();
+		else
+			loginFail();
+			
 	}
 	/**
 	 * Called when the user successfully logs in. Starts a new Activity for the logged in user
 	 */
 	public void loginSuccess()
 	{
-			Log.i("MainActivity", ParseUser.getCurrentUser().getUsername());
+			Log.i("MainActivity", model.getUser().toString());
 			Intent i = new Intent(this, HomeActivity.class);
 			emailField.setText("");
 			passwordField.setText("");
@@ -87,9 +78,9 @@ public class MainActivity extends Activity {
 	 * Called when the user fails to log in. Displays Dialog box informing user of error
 	 * @param e The exception 
 	 */
-	public void loginFail(ParseException e)
+	public void loginFail()
 	{
-			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", e.getMessage(),this);
+			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", "Mnope",this); 
 			dialog.show();
 	}
 	/**
@@ -101,9 +92,5 @@ public class MainActivity extends Activity {
 		AlertDialog dialog = DialogFactory.createResetDialog(this);
 		dialog.show();
 	}
-	
-
-	
-
 	
 }

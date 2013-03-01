@@ -1,6 +1,7 @@
 package com.rand42.wheresmystuff;
 
-import com.parse.ParseUser;
+import com.rand42.model.LocalModel;
+import com.rand42.model.Model;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -14,12 +15,16 @@ import android.widget.TextView;
  */
 public class HomeActivity extends Activity {
 
+	private Model model;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		TextView textView = (TextView)findViewById(R.id.confirmText);
-		textView.setText("Logged in as "+ParseUser.getCurrentUser().getUsername());
+		model = LocalModel.getModel();
+
+		textView.setText("Logged in as "+ model.getUser());
 	}
 
 	@Override
@@ -28,13 +33,15 @@ public class HomeActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_home, menu);
 		return true;
 	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
+		//TODO: Stefano really doesn't like looking at this.
 		switch(item.getItemId())
 		{
 		case R.id.menu_logout:
-			ParseUser.logOut();
+			model.logOut();
 			this.finish();
 			return true;
 		default:
@@ -44,7 +51,7 @@ public class HomeActivity extends Activity {
 	@Override
 	public void onBackPressed()
 	{
-		ParseUser.logOut();
+		model.logOut();
 		this.finish();
 	}
 	

@@ -25,6 +25,7 @@ public class DialogFactory {
 	 */
 	public static AlertDialog createStandardDialog(String title, String message, Activity caller)
 	{
+		//TODO: Check if all these anonymous clicklisteners can be consolidated or parametrized
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(caller);
 		alertDialogBuilder.setTitle(title);
 		alertDialogBuilder.setPositiveButton("Ok",
@@ -51,6 +52,7 @@ public class DialogFactory {
 		final Activity theCaller = caller;
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(caller);
 		alertDialogBuilder.setTitle(title);
+		//TODO: Check if all these anonymous clicklisteners can be consolidated or parametrized
 		alertDialogBuilder.setPositiveButton("Ok",
                  new DialogInterface.OnClickListener() {
                      @Override
@@ -76,11 +78,11 @@ public class DialogFactory {
 		final EditText input = new EditText(caller);
 		alertDialogBuilder.setView(input);
 		alertDialogBuilder.setTitle("Enter Email");
+		//TODO: Check if all these anonymous clicklisteners can be consolidated or parametrized
 		alertDialogBuilder.setPositiveButton("Ok",
                  new DialogInterface.OnClickListener() {
                      @Override
-                     public void onClick(DialogInterface dialog,
-                             int which) {
+                     public void onClick(DialogInterface dialog, int which) {
                     	 DatabaseHandler db = DatabaseHandler.getHandler();
                     	 dialog.dismiss();
                     	 db.resetPassword(input.getText().toString(), new RequestPasswordResetCallback()
@@ -89,13 +91,13 @@ public class DialogFactory {
                     		 {
                     			 if(e==null)
                     			 {
-                    				 AlertDialog infoDialog = DialogFactory.createStandardDialog("","You will recieve an email shortly",caller);
+                    				 AlertDialog infoDialog = createStandardDialog("","You will recieve an email shortly",caller);
                                 	 infoDialog.show();
                                      
                     			 }
                     			 else
                     			 {
-                    				 AlertDialog infoDialog = DialogFactory.createStandardDialog("","A problem occured",caller);
+                    				 AlertDialog infoDialog = createStandardDialog("","A problem occured",caller);
                                 	 infoDialog.show();
                     			 }
                     		 }
