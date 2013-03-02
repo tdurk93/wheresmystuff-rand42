@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rand42.wheresmystuff"
+    package="com.rand42.views"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -9,13 +9,13 @@
         android:targetSdkVersion="17" />
 
     <application
-        android:name="com.rand42.wheresmystuff.WheresMyStuffApplication"
+        android:name="com.rand42.views.WheresMyStuffApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo" >
         <activity
-            android:name="com.rand42.wheresmystuff.MainActivity"
+            android:name=".LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.rand42.wheresmystuff.HomeActivity"
+            android:name="com.rand42.views.HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
         <activity
-            android:name="com.rand42.wheresmystuff.NewUserActivity"
+            android:name="com.rand42.views.NewUserActivity"
             android:label="@string/title_activity_new_user" >
         </activity>
         <activity android:name=".NewItemActivity"/>
