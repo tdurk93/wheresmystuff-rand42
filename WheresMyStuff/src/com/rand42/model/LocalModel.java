@@ -41,6 +41,8 @@ public class LocalModel implements Model{
 	public boolean logIn(String name, String password) {
 		currentUser = dbh.login(name, password);
 
+		while(!dbh.callFinished());
+		
 		if(!sm.check(name))
 			currentUser = null;
 		
