@@ -2,9 +2,8 @@ package com.rand42.presenters;
 
 import com.parse.ParseException;
 import com.parse.SignUpCallback;
-import com.rand42.factories.DialogFactory;
 import com.rand42.model.IModel;
-import com.rand42.views.INewUserView;
+import com.rand42.views.interfaces.INewUserView;
 
 import java.util.regex.Pattern;
 

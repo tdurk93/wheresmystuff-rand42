@@ -1,4 +1,4 @@
-package com.rand42.views;
+package com.rand42.views.interfaces;
 
 /**
  * Created with IntelliJ IDEA.

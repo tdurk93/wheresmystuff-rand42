@@ -1,9 +1,6 @@
 package com.rand42.views;
 
-import java.util.regex.Pattern;
-
 import com.rand42.factories.DialogFactory;
-import com.rand42.model.IModel;
 import com.rand42.model.LocalModel;
 
 import android.os.Bundle;
@@ -12,15 +9,16 @@ import android.app.AlertDialog;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import com.rand42.presenters.LoginPresenter;
 import com.rand42.presenters.NewUserPresenter;
+import com.rand42.views.interfaces.INewUserView;
 
 /**
  * Activity to create a new user in the system
  * @author Rand-42
  *TODO: Consolidate callbacks
  */
-public class NewUserActivity extends Activity implements INewUserView {
+public class NewUserActivity extends Activity implements INewUserView
+{
 
 	private EditText nameField;
 	private EditText emailField;

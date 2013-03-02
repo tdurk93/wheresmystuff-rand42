@@ -6,7 +6,7 @@ import com.parse.ParseUser;
 import com.rand42.model.DatabaseHandler;
 import com.rand42.model.IModel;
 import com.rand42.model.User;
-import com.rand42.views.ILoginView;
+import com.rand42.views.interfaces.ILoginView;
 
 /**
  * Created with IntelliJ IDEA.

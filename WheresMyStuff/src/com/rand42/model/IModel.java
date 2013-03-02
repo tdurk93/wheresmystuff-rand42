@@ -60,5 +60,7 @@ public interface IModel
      * @return true if under 3
      */
     boolean checkUserAttempts(String string);
+
+    void createItem(String name, String description, User owner);
 	
 }

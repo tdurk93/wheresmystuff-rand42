@@ -11,13 +11,15 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import com.rand42.presenters.LoginPresenter;
+import com.rand42.views.interfaces.ILoginView;
 
 /**
  * The LoginActivity asks the user to login
  * @author Rand-42
  *
  */
-public class LoginActivity extends Activity implements ILoginView {
+public class LoginActivity extends Activity implements ILoginView
+{
 
 	private EditText emailField;
 	private EditText passwordField;
@@ -26,7 +28,7 @@ public class LoginActivity extends Activity implements ILoginView {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		//super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
         emailField = (EditText)findViewById(R.id.emailField);
