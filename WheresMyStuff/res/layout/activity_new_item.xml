@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <EditText
+            android:id="@+id/itemNameField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name">
+        <requestFocus />
+    </EditText>
+    <EditText
+            android:id="@+id/itemDescField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lines="8"
+            android:hint="Description">
+    </EditText>
+
+
+
+    <Button
+            android:id="@+id/itemSubmitButton"
+            android:layout_width="fill_parent"
+            android:paddingLeft="10px"
+            android:layout_height="wrap_content"
+            android:text="Create Item"
+            android:onClick="createItem"/>
+
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+</LinearLayout>
