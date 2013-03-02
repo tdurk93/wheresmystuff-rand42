@@ -1,5 +1,7 @@
 package com.rand42.model;
 
+import com.parse.ParseObject;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alex
@@ -13,6 +15,7 @@ public class Item
     private User owner;
     private String description;
     private Location location;
+    private ParseObject parseObject;
 
     public Item(String name, User owner, String description, Location location)
     {
@@ -20,7 +23,19 @@ public class Item
         this.owner=owner;
         this.description=description;
         this.location=location;
+
+        parseObject = new ParseObject("Item");
+        parseObject.put("name",name);
+        parseObject.put("desc",description);
+        parseObject.put("owner",(ParseObject)owner.getParseUser());
+
+
     }
+    public Item(ParseObject target)
+    {
+
+    }
+
     public String getName()
     {return name;}
     public String getDescription()
@@ -29,6 +44,10 @@ public class Item
     {return owner;}
     public Location getLocation()
     {return location;}
+    public void saveInBackground()
+    {
+        parseObject.saveInBackground();
+    }
 
 
 }

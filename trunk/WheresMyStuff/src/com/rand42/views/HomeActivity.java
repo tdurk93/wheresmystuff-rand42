@@ -1,5 +1,7 @@
 package com.rand42.views;
 
+import android.content.Intent;
+import android.view.View;
 import com.rand42.model.IModel;
 import com.rand42.model.LocalModel;
 
@@ -44,6 +46,10 @@ public class HomeActivity extends Activity {
 			model.logOut();
 			this.finish();
 			return true;
+        case R.id.menu_addItem:
+            Intent i = new Intent(this, NewItemActivity.class);
+            startActivity(i);
+            return true;
 		default:
 			return true;
 		}
