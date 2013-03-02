@@ -17,6 +17,7 @@ import com.parse.SignUpCallback;
 public class DatabaseHandler 
 {
 	private static DatabaseHandler handler;
+	private Callback onCall;
 	
 	private DatabaseHandler()
 	{
@@ -49,6 +50,10 @@ public class DatabaseHandler
 		return new User(ParseUser.getCurrentUser());
 	}
 	
+	public boolean callFinished(){
+		return onCall != null && onCall.isFinished();
+	}
+	
 	public boolean createUser(String name, String email, String password)
 	{
 		ParseUser user = new ParseUser();
@@ -72,14 +77,39 @@ public class DatabaseHandler
 		ParseUser.requestPasswordResetInBackground(email, callback);
 	}
 	
-	private class Pass extends SignUpCallback{
+	private class Pass extends SignUpCallback implements Callback{
 		
 		boolean success;
+		boolean finished;
 		
 		@Override
 		public void done(ParseException e) {
 		// TODO Auto-generated method stub
 			success = e==null;
+			finished = true;
 		}
+		
+		public boolean isFinished(){
+			return finished;
+		}
+	}
+	
+	private class Enter extends LogInCallback implements Callback{
+
+		boolean success;
+		boolean finished;
+		@Override
+		public void done(ParseUser user, ParseException e) {
+			finished = true; 
+			success = e!=null;
+		}
+		
+		public boolean isFinished(){
+			return finished;
+		}
+	}
+	
+	private interface Callback{
+		boolean isFinished();
 	}
 }
