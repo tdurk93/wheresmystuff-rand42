@@ -8,12 +8,14 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import roboguice.activity.RoboActivity;
+
 /**
  * Activity representing the home page for the logged in user
  * @author Rand-42
  *
  */
-public class HomeActivity extends Activity {
+public class HomeActivity extends RoboActivity {
 
 	private IModel model;
 	
