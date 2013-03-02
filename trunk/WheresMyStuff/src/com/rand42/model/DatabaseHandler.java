@@ -45,7 +45,8 @@ public class DatabaseHandler
 	 */
 	public User login(String email, String password)
 	{
-		ParseUser.logInInBackground(email,password, new LogInCallback(){ public void done(ParseUser u, ParseException e){}  });
+		onCall = new Enter();
+		ParseUser.logInInBackground(email,password, (LogInCallback) onCall);
 		
 		return new User(ParseUser.getCurrentUser());
 	}
