@@ -2,9 +2,6 @@ package com.rand42.views;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.EditText;
-import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,10 +10,8 @@ import roboguice.inject.InjectView;
  * Time: 8:21 PM
  * To change this template use File | Settings | File Templates.
  */
-public class NewItemActivity extends RoboActivity
+public class NewItemActivity extends Activity
 {
-    @InjectView(R.id.itemNameField) private EditText nameField;
-    @InjectView(R.id.itemDescField) private EditText descField;
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
