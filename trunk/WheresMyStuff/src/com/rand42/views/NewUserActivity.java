@@ -14,18 +14,20 @@ import android.view.View;
 import android.widget.EditText;
 import com.rand42.presenters.LoginPresenter;
 import com.rand42.presenters.NewUserPresenter;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 /**
  * Activity to create a new user in the system
  * @author Rand-42
  *TODO: Consolidate callbacks
  */
-public class NewUserActivity extends Activity implements INewUserView {
+public class NewUserActivity extends RoboActivity implements INewUserView {
 
-	private EditText nameField;
-	private EditText emailField;
-	private EditText passwordField;
-	private EditText confirmField;
+	@InjectView(R.id.nameField) private EditText nameField;
+	@InjectView(R.id.emailField) private EditText emailField;
+	@InjectView(R.id.passwordField) private EditText passwordField;
+	@InjectView(R.id.confirmField) private EditText confirmField;
 	private NewUserPresenter presenter;
 	
 
@@ -34,11 +36,6 @@ public class NewUserActivity extends Activity implements INewUserView {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_user);
-		
-		nameField = (EditText)findViewById(R.id.nameField);
-		emailField = (EditText)findViewById(R.id.emailField);
-		passwordField = (EditText)findViewById(R.id.passwordField);
-        confirmField = (EditText)findViewById(R.id.confirmField);
 	    presenter = new NewUserPresenter(this, LocalModel.getModel());
 	}
 

@@ -11,25 +11,24 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import com.rand42.presenters.LoginPresenter;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 /**
  * The LoginActivity asks the user to login
  * @author Rand-42
  *
  */
-public class LoginActivity extends Activity implements ILoginView {
+public class LoginActivity extends RoboActivity implements ILoginView {
 
-	private EditText emailField;
-	private EditText passwordField;
+	@InjectView(R.id.emailField) private EditText emailField;
+	@InjectView(R.id.passwordField) private EditText passwordField;
 	private LoginPresenter presenter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-
-        emailField = (EditText)findViewById(R.id.emailField);
-		passwordField = (EditText)findViewById(R.id.passwordField);
 		presenter = new LoginPresenter(this, LocalModel.getModel());
 	}
 	
