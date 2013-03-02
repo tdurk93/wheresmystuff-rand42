@@ -17,7 +17,6 @@ import com.parse.SignUpCallback;
 public class DatabaseHandler 
 {
 	private static DatabaseHandler handler;
-	private Callback onCall;
 	
 	private DatabaseHandler()
 	{
@@ -33,44 +32,41 @@ public class DatabaseHandler
 			handler = new DatabaseHandler();
 		return handler;
 	}
-	
-	/**
-	 * Creates a new user using the ParseUser methods
-	 * @param name The full name of the user
-	 * @param email Email address
-	 * 
 
-	 * @param password Password
-	 * @return A boolean indicating success
-	 */
-	public User login(String email, String password)
+
+    /**
+     * Logs in on parse
+     * @param email  email
+     * @param password password
+     * @param callback  callback method to call when operation completes
+     */
+	public void login(String email, String password, LogInCallback callback)
 	{
-		onCall = new Enter();
-		ParseUser.logInInBackground(email,password, (LogInCallback) onCall);
-		
-		return new User(ParseUser.getCurrentUser());
+		ParseUser.logInInBackground(email,password, callback);
 	}
-	
-	public boolean callFinished(){
-		return onCall != null && onCall.isFinished();
-	}
-	
-	public boolean createUser(String name, String email, String password)
+
+    /**
+     * Creates a new user on parse
+     * @param email email
+     * @param name name
+     * @param password password
+     * @param callback method to call when operation finishes
+     */
+	public void createUser(String email, String name, String password, SignUpCallback callback)
 	{
 		ParseUser user = new ParseUser();
 		user.setUsername(email);
 		user.setPassword(password);
 		user.put("name", name);
-		Pass def = new Pass();
-		user.signUpInBackground(def); 
-		return def.success;
+		user.signUpInBackground(callback);
+
 	}
 	
 		
 	/**
 	 * Resets the password using ParseUser methods
 	 * @param email The email account of the associated account
-	 * @return A boolean indicating success
+	 * @param callback The method to call when the operation completes
 	 */
 	public void resetPassword(String email, RequestPasswordResetCallback callback)
 	{
@@ -78,7 +74,8 @@ public class DatabaseHandler
 		ParseUser.requestPasswordResetInBackground(email, callback);
 	}
 	
-	private class Pass extends SignUpCallback implements Callback{
+	/*private class Pass extends SignUpCallback
+    {
 		
 		boolean success;
 		boolean finished;
@@ -95,7 +92,8 @@ public class DatabaseHandler
 		}
 	}
 	
-	private class Enter extends LogInCallback implements Callback{
+	private class Enter extends LogInCallback
+    {
 
 		boolean success;
 		boolean finished;
@@ -108,9 +106,7 @@ public class DatabaseHandler
 		public boolean isFinished(){
 			return finished;
 		}
-	}
+	}    */
 	
-	private interface Callback{
-		boolean isFinished();
-	}
+
 }

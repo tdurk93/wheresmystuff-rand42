@@ -1,7 +1,7 @@
-package com.rand42.wheresmystuff;
+package com.rand42.views;
 
+import com.rand42.model.IModel;
 import com.rand42.model.LocalModel;
-import com.rand42.model.Model;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,7 +15,7 @@ import android.widget.TextView;
  */
 public class HomeActivity extends Activity {
 
-	private Model model;
+	private IModel model;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

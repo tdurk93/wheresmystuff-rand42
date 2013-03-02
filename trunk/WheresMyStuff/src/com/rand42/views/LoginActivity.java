@@ -1,37 +1,36 @@
-package com.rand42.wheresmystuff;
+package com.rand42.views;
 
 import com.rand42.factories.DialogFactory;
-import com.rand42.model.DatabaseHandler;
 import com.rand42.model.LocalModel;
-import com.rand42.model.Model;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import com.rand42.presenters.LoginPresenter;
+
 /**
- * The MainActivity asks the user to login
+ * The LoginActivity asks the user to login
  * @author Rand-42
  *
  */
-public class MainActivity extends Activity {
+public class LoginActivity extends Activity implements ILoginView {
 
 	private EditText emailField;
 	private EditText passwordField;
-	private Model model;
+	private LoginPresenter presenter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		emailField = (EditText)findViewById(R.id.emailField);
+		setContentView(R.layout.activity_login);
+
+        emailField = (EditText)findViewById(R.id.emailField);
 		passwordField = (EditText)findViewById(R.id.passwordField);
-		model = LocalModel.getModel();
+		presenter = new LoginPresenter(this, LocalModel.getModel());
 	}
 	
 
@@ -56,19 +55,13 @@ public class MainActivity extends Activity {
 	 */
 	public void submitLogin(View view)
 	{
-		
-		if(model.logIn(emailField.getText().toString(), passwordField.getText().toString()))
-			loginSuccess();
-		else
-			loginFail();
-			
+		presenter.logIn(emailField.getText().toString(), passwordField.getText().toString());
 	}
 	/**
 	 * Called when the user successfully logs in. Starts a new Activity for the logged in user
 	 */
 	public void loginSuccess()
 	{
-			Log.i("MainActivity", model.getUser().toString());
 			Intent i = new Intent(this, HomeActivity.class);
 			emailField.setText("");
 			passwordField.setText("");
@@ -80,7 +73,7 @@ public class MainActivity extends Activity {
 	 */
 	public void loginFail()
 	{
-			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", "Mnope",this); 
+			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", "Login Failed",this);
 			dialog.show();
 	}
 	/**

@@ -1,8 +1,8 @@
 package com.rand42.model;
 
-import java.util.*;
-import android.os.*;
-import android.util.Log;
+import com.parse.LogInCallback;
+import com.parse.SignUpCallback;
+
 /**
  * 
  * Here lies the in-memory model.
@@ -11,18 +11,19 @@ import android.util.Log;
  * @author Stefano
  *
  */
-public class LocalModel implements Model{
+public class LocalModel implements IModel
+{
 	
 	private DatabaseHandler dbh;
 	private User currentUser;
-	private static Model model;
+	private static IModel model;
 	private SecurityManager sm;
 	
 	/**
 	 * The local model is a singleton.
 	 * @return
 	 */
-	public static Model getModel(){
+	public static IModel getModel(){
 		if(model == null)
 			model = new LocalModel();
 		return model;
@@ -38,28 +39,32 @@ public class LocalModel implements Model{
 	
 	
 	@Override
-	public boolean logIn(String name, String password) {
-		currentUser = dbh.login(name, password);
 
-		while(!dbh.callFinished());
-		
-		if(!sm.check(name))
-			currentUser = null;
-		
-		return null != currentUser;
+	public void logIn(String name, String password, LogInCallback callback)
+    {
+		dbh.login(name, password, callback);
 	}
 
+
+    public boolean checkUserAttempts(String email)
+    {
+          return(sm.check(email));
+    }
+
 	@Override
-	public boolean addUser(String name, String email, String password){
-		
-		return dbh.createUser(name, email, password);
-		
+	public void addUser(String email, String name, String password, SignUpCallback callback)
+    {
+		dbh.createUser(email, name, password, callback);
 	}
 
 	@Override
 	public User getUser() {
 		return currentUser;
 	}
+    public void setUser(User user)
+    {
+        currentUser = user;
+    }
 
 	@Override
 	public void logOut() {

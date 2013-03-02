@@ -1,5 +1,8 @@
 package com.rand42.model;
 
+import com.parse.LogInCallback;
+import com.parse.SignUpCallback;
+
 /**
  * 
  * All Models are one and they are sacred.
@@ -7,18 +10,20 @@ package com.rand42.model;
  * @author Stefano
  *
  */
-public interface Model {
+public interface IModel
+{
 
 	/**
 	 * In this manner, the man of given name gave up
 	 * his word that he might pass and have his name
 	 * writ in the log of the Inn
 	 * 
-	 * @param name
-	 * @param password
-	 * @return
+	 *
+     * @param name
+     * @param password
+     * @return
 	 */
-	boolean logIn(String name, String password);
+	void logIn(String name, String password, LogInCallback callback);
 	
 	/**
 	 * In this manner, the uninitiated man of given
@@ -29,7 +34,7 @@ public interface Model {
 	 * @param password
 	 * @return
 	 */
-	boolean addUser(String email, String name, String password);
+	void addUser(String email, String name, String password, SignUpCallback callback);
 	
 	/**
 	 * In this manner is the man struck from the
@@ -42,5 +47,18 @@ public interface Model {
 	 * @return
 	 */
 	User getUser();
+
+    /**
+     * Sets the curerntUser
+     * @param user User
+     */
+    void setUser(User user);
+
+    /**
+     * Checks to see if user has logged in x amount of times (def 3)
+     * @param string email address to check
+     * @return true if under 3
+     */
+    boolean checkUserAttempts(String string);
 	
 }

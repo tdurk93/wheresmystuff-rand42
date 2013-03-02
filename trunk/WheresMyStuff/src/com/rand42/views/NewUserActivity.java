@@ -1,38 +1,35 @@
-package com.rand42.wheresmystuff;
+package com.rand42.views;
 
 import java.util.regex.Pattern;
 
 import com.rand42.factories.DialogFactory;
-import com.rand42.model.DatabaseHandler;
+import com.rand42.model.IModel;
 import com.rand42.model.LocalModel;
-import com.rand42.model.Model;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import com.rand42.presenters.LoginPresenter;
+import com.rand42.presenters.NewUserPresenter;
 
 /**
  * Activity to create a new user in the system
  * @author Rand-42
  *TODO: Consolidate callbacks
  */
-public class NewUserActivity extends Activity {
+public class NewUserActivity extends Activity implements INewUserView {
 
 	private EditText nameField;
 	private EditText emailField;
 	private EditText passwordField;
 	private EditText confirmField;
-	private Model model;
+	private NewUserPresenter presenter;
 	
-	private static final String EMAIL_PATTERN = 
-			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	private Pattern pattern;
-	 
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,9 +38,8 @@ public class NewUserActivity extends Activity {
 		nameField = (EditText)findViewById(R.id.nameField);
 		emailField = (EditText)findViewById(R.id.emailField);
 		passwordField = (EditText)findViewById(R.id.passwordField);
-		confirmField = (EditText)findViewById(R.id.confirmField);
-		pattern = Pattern.compile(EMAIL_PATTERN);
-		model = LocalModel.getModel();
+        confirmField = (EditText)findViewById(R.id.confirmField);
+	    presenter = new NewUserPresenter(this, LocalModel.getModel());
 	}
 
 	@Override
@@ -62,12 +58,7 @@ public class NewUserActivity extends Activity {
 		String email = emailField.getText().toString();
 		String password = passwordField.getText().toString();
 		String confirm = confirmField.getText().toString();
-		if(verify(email,password,confirm)) //valid email and matching passwords
-			if(model.addUser(name,email,password))
-				createUserSuccess();
-			else
-				createUserFail();
-	
+		presenter.createUser(email,name, password, confirm);
 	}
 	
 	/**
@@ -80,28 +71,11 @@ public class NewUserActivity extends Activity {
 	 * @param confirm
 	 * @return
 	 */
-	private boolean verify(String email, String password, String confirm){
-		
-		boolean valid = true;
-		
-		String errorMsg = "";
-		
-		if(! (valid = pattern.matcher(email).matches())) //trust me I got this. -S
-			errorMsg = "Email misformatted";
-		
-		if(!password.equals(confirm) && !(valid = false)) //short circuits wat -S
-			errorMsg = "Passwords don't match";
-		
-		
-		DialogFactory.createStandardDialog("Error", errorMsg, this).show();	
-		
-		return valid;
-		
-	}
+
 	/**
 	 * Called when creating a new user completed successfully
 	 */
-	public void createUserSuccess()
+	public void createSuccess()
 	{
 		AlertDialog dialog = DialogFactory.createFinishDialog("Success","You will recieve a confirmation email",this);
 		dialog.show();
@@ -110,9 +84,9 @@ public class NewUserActivity extends Activity {
 	 * Called when created a new user failed
 	 * @param e Exception, details included
 	 */
-	public void createUserFail()
+	public void createFail(String message)
 	{
-		AlertDialog dialog = DialogFactory.createStandardDialog("Error","User could not be created",this);
+		AlertDialog dialog = DialogFactory.createStandardDialog("Error",message,this);
 		dialog.show();
 	}
 
