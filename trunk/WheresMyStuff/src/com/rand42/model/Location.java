@@ -1,16 +1,19 @@
 package com.rand42.model;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Alex
- * Date: 3/1/13
- * Time: 8:17 PM
- * To change this template use File | Settings | File Templates.
+ * Stores coordinates
+ * @author Rand-42
  */
 public class Location
 {
     private int lat;
     private int longt;
+
+    /**
+     * Create a new location
+     * @param lat
+     * @param longt
+     */
     public Location(int lat, int longt)
     {
         this.lat=lat;
