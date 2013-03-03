@@ -3,7 +3,7 @@ package com.rand42.model;
 import com.parse.LogInCallback;
 import com.parse.SignUpCallback;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * 
@@ -18,7 +18,7 @@ public class LocalModel implements IModel
 	
 	private DatabaseHandler dbh;
 	private User currentUser;
-    private ArrayList<Item> userItems;
+    private Map<String, Item> userItems;
 	private static IModel model;
 	private SecurityManager sm;
 	
@@ -59,10 +59,26 @@ public class LocalModel implements IModel
     {
         Item item = new Item(name, owner, description, new Location(0,0));
         if(userItems==null)
-            userItems = new ArrayList<Item>();
-        userItems.add(item);
-        item.saveInBackground();
+            userItems = new HashMap<String, Item>();
+        DatabaseHandler dbh = DatabaseHandler.getHandler();
+        dbh.saveItem(item);
+        userItems.put(item.getUID(), item);
+    }
+    public Item getItem(String uid)
+    {
+        if(userItems.containsKey(uid))
+            return userItems.get(uid);
+       return null;
+    }
 
+    @Override
+    public Collection<Item> getUserItems(User user)
+    {
+        if(user==currentUser)
+            if(userItems!=null)
+            return userItems.values();
+        return null;
+        //TODO: Make Query to DB
     }
 
     @Override

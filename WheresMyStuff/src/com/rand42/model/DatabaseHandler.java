@@ -73,6 +73,15 @@ public class DatabaseHandler
 		
 		ParseUser.requestPasswordResetInBackground(email, callback);
 	}
+
+    /**
+     * Causes an item to save itself using the ParseObject it wraps
+* @param i  The item to save
+     */
+    public void saveItem(Item i)
+    {
+        i.saveInBackground();
+    }
 	
 	/*private class Pass extends SignUpCallback
     {

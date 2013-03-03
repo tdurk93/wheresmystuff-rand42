@@ -3,6 +3,9 @@ package com.rand42.model;
 import com.parse.LogInCallback;
 import com.parse.SignUpCallback;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * 
  * All Models are one and they are sacred.
@@ -61,6 +64,25 @@ public interface IModel
      */
     boolean checkUserAttempts(String string);
 
+    /**
+     * Creates a new Item
+     * @param name
+     * @param description
+     * @param owner
+     */
     void createItem(String name, String description, User owner);
-	
+
+    /**
+     * Returns the items associated with a user
+     * @param user User
+     * @return Items
+     */
+    Collection<Item> getUserItems(User user);
+
+    /**
+     * Gets an item with a UID
+     * @param uid uid
+     * @return item
+     */
+    Item getItem(String uid);
 }
