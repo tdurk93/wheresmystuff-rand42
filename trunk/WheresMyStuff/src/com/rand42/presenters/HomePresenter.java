@@ -2,28 +2,45 @@ package com.rand42.presenters;
 
 import com.rand42.model.IModel;
 import com.rand42.model.Item;
+import com.rand42.model.Requestor;
+import com.rand42.views.interfaces.IHomeView;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Alex
- * Date: 3/2/13
- * Time: 6:53 PM
- * To change this template use File | Settings | File Templates.
+ * Presenter for the HomeView. Requests user item data and therefore implements Requestor
+ * @author Rand-42
  */
-public class HomePresenter
+public class HomePresenter implements Requestor<Item>
 {
     private IModel model;
-    public HomePresenter(IModel model)
+    private IHomeView view;
+    public HomePresenter(IHomeView view, IModel model)
     {
+        this.view=view;
         this.model=model;
     }
-    public Collection<Item> getUserItems()
+
+    /**
+     * Makes the query to get the items associated with the current user
+     */
+    public void getUserItems()
     {
-       return model.getUserItems(model.getUser());
+       model.getUserItems(model.getUser(), this);
     }
+
+    /**
+     * Called when the getUserItems query completes
+     * @param items Query results
+     */
+    public void querySuccess(Collection<Item> items)
+    {
+        view.itemQuerySuccess(items);
+    }
+
+    /**
+     * Logs out the user
+     */
     public void logOut()
     {
         model.logOut();

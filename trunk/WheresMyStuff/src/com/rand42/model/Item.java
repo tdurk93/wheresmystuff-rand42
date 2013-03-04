@@ -2,7 +2,11 @@ package com.rand42.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
+
 
 import java.util.UUID;
 
@@ -45,12 +49,23 @@ public class Item
     }
 
     /**
-     * Create a new item from an existing database object
+     * Create a new item from an existing database object.
      * @param target
      */
     public Item(ParseObject target)
     {
-        //this.uid="";
+        target.fetchIfNeededInBackground(new GetCallback()  //target is often just a skeleton with no data. must load here
+        {
+            @Override
+            public void done(ParseObject parseObject, ParseException e)
+            {
+                name=parseObject.getString("name");
+                description=parseObject.getString("desc");
+                owner = new User((ParseUser)parseObject.getParseObject("owner"));
+                uid = parseObject.getString("uid");
+
+            }
+        });
     }
 
     public String getName()
