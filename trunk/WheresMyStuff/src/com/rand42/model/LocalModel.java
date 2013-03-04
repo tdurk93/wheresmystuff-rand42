@@ -1,7 +1,6 @@
 package com.rand42.model;
 
-import com.parse.LogInCallback;
-import com.parse.SignUpCallback;
+import com.parse.*;
 
 import java.util.*;
 
@@ -75,10 +74,37 @@ public class LocalModel implements IModel
     public Collection<Item> getUserItems(User user)
     {
         if(user==currentUser)
+        {
             if(userItems!=null)
             return userItems.values();
-        return null;
-        //TODO: Make Query to DB
+            else
+            {
+                Collection<Item> items = queryUserItems(currentUser);
+                for(Item i:items)
+                    userItems.put(i.getUID(), i);
+                return userItems.values();
+            }
+        }
+        else
+        {
+           return queryUserItems(user);
+        }
+    }
+    private Collection<Item> queryUserItems(User user)
+    {
+        final List<Item> results = new ArrayList<Item>();
+        DatabaseHandler dbh = DatabaseHandler.getHandler();
+        dbh.getUserItems(user, new FindCallback() {
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e) {
+                if(e==null)
+                {
+                    for(ParseObject po:parseObjects)
+                        results.add(new Item(po));
+                }
+            }
+        });
+        return results;
     }
 
     @Override

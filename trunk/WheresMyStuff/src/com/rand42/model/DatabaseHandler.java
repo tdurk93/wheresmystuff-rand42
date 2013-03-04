@@ -3,12 +3,8 @@ package com.rand42.model;
 import android.app.Activity;
 import android.util.Log;
 
-import com.parse.LogInCallback;
-import com.parse.Parse;
-import com.parse.ParseUser;
-import com.parse.ParseException;
-import com.parse.RequestPasswordResetCallback;
-import com.parse.SignUpCallback;
+import com.parse.*;
+
 /**
  * The DatabaseHandler is a singleton with Parse.com database read and write methods
  * @author Rand-42
@@ -61,6 +57,12 @@ public class DatabaseHandler
 		user.signUpInBackground(callback);
 
 	}
+    public void getUserItems(User user, FindCallback callback)
+    {
+        ParseQuery query = new ParseQuery("Item");
+        query.whereEqualTo("owner", user.getParseUser());
+        query.findInBackground(callback);
+    }
 	
 		
 	/**
