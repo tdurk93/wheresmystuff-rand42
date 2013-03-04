@@ -18,16 +18,19 @@ public class User {
 	private String email;
 	
 	public User(ParseUser target){
-		if(target == null){
-			name = "GeorgeBurdell";
-			id = "none";
-			email= "gBurdell@gatech.edu";
-		}
-		
-		user =target;
-		name = target.getUsername();
-		id = target.getObjectId();
-		email = target.getEmail();
+
+            target.fetchIfNeededInBackground(new GetCallback() //some targets may be skeletons without data. must load here
+            {
+                @Override
+                public void done(ParseObject parseObject, ParseException e)
+                {
+                    ParseUser parseUser = (ParseUser)parseObject;
+                    user =parseUser;
+                    name = parseUser.getUsername();
+                    id = parseUser.getObjectId();
+                    email = parseUser.getEmail();
+                }
+            });
 	}
 	
 	/**

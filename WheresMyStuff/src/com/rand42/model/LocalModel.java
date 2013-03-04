@@ -41,13 +41,12 @@ public class LocalModel implements IModel
 	
 	
 	@Override
-
 	public void logIn(String name, String password, LogInCallback callback)
     {
 		dbh.login(name, password, callback);
 	}
 
-
+    @Override
     public boolean checkUserAttempts(String email)
     {
           return(sm.check(email));
@@ -63,6 +62,7 @@ public class LocalModel implements IModel
         dbh.saveItem(item);
         userItems.put(item.getUID(), item);
     }
+    @Override
     public Item getItem(String uid)
     {
         if(userItems.containsKey(uid))
@@ -71,41 +71,47 @@ public class LocalModel implements IModel
     }
 
     @Override
-    public Collection<Item> getUserItems(User user)
+    public void getUserItems(User user, final Requestor<Item> requestor)
     {
-        if(user==currentUser)
+
+        if(user==currentUser&&userItems!=null)
         {
-            if(userItems!=null)
-            return userItems.values();
-            else
-            {
-                Collection<Item> items = queryUserItems(currentUser);
-                for(Item i:items)
-                    userItems.put(i.getUID(), i);
-                return userItems.values();
-            }
+            requestor.querySuccess(userItems.values());
         }
         else
         {
-           return queryUserItems(user);
-        }
-    }
-    private Collection<Item> queryUserItems(User user)
-    {
-        final List<Item> results = new ArrayList<Item>();
-        DatabaseHandler dbh = DatabaseHandler.getHandler();
-        dbh.getUserItems(user, new FindCallback() {
-            @Override
-            public void done(List<ParseObject> parseObjects, ParseException e) {
-                if(e==null)
-                {
-                    for(ParseObject po:parseObjects)
-                        results.add(new Item(po));
-                }
+
+            final boolean isCurrent=user==currentUser;
+            if(isCurrent)
+            {
+                userItems=new HashMap<String, Item>();
             }
-        });
-        return results;
+            DatabaseHandler dbh = DatabaseHandler.getHandler();
+            dbh.getUserItems(user, new FindCallback()
+            {
+                @Override
+                public void done(List<ParseObject> parseObjects, ParseException e)
+                {
+                    if(e==null)
+                    {
+                        List<Item> items = new ArrayList<Item>();
+                        for(ParseObject po:parseObjects)
+                        {
+                            Item i = new Item(po);
+                            items.add(i);
+                            if(isCurrent)
+                                userItems.put(i.getUID(),i);
+                        }
+                        requestor.querySuccess(items);
+
+                    }
+                }
+
+            });
+        }
+
     }
+
 
     @Override
 	public void addUser(String email, String name, String password, SignUpCallback callback)
@@ -117,6 +123,7 @@ public class LocalModel implements IModel
 	public User getUser() {
 		return currentUser;
 	}
+    @Override
     public void setUser(User user)
     {
         currentUser = user;
@@ -124,6 +131,7 @@ public class LocalModel implements IModel
 
 	@Override
 	public void logOut() {
+        userItems = null;
 		if(currentUser!= null) currentUser.logOut();
 		currentUser= null;
 	}

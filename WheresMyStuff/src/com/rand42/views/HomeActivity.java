@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.rand42.presenters.HomePresenter;
+import com.rand42.views.interfaces.IHomeView;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -25,7 +26,7 @@ import java.util.List;
  * @author Rand-42
  *
  */
-public class HomeActivity extends Activity implements AdapterView.OnItemClickListener
+public class HomeActivity extends Activity implements AdapterView.OnItemClickListener, IHomeView
 {
 
 	private HomePresenter presenter;
@@ -35,7 +36,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		presenter = new HomePresenter(LocalModel.getModel());
+		presenter = new HomePresenter(this,LocalModel.getModel());
         list = (ListView)findViewById(R.id.itemlist);
         list.setOnItemClickListener(this);
 	}
@@ -54,16 +55,14 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
 		getMenuInflater().inflate(R.menu.activity_home, menu);
 		return true;
 	}
+
+    /**
+     * Starts the process of populating the listview
+     */
     public void populateList()
     {
-        Collection<Item> items = presenter.getUserItems();
-        if(items!=null)
-        {
+         presenter.getUserItems();
 
-            Item[] itemsArr = Arrays.copyOf(items.toArray(), items.toArray().length, Item[].class);
-            ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, android.R.id.text1,itemsArr);
-            list.setAdapter(adapter);
-        }
     }
 	
 	@Override
@@ -100,5 +99,17 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
         Intent intent = new Intent(this, ViewItemActivity.class);
         intent.putExtra("UID", item.getUID());
         startActivity(intent);
+    }
+
+    @Override
+    public void itemQuerySuccess(Collection<Item> items)
+    {
+        if(items!=null)
+        {
+
+            Item[] itemsArr = Arrays.copyOf(items.toArray(), items.toArray().length, Item[].class);
+            ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, android.R.id.text1,itemsArr);
+            list.setAdapter(adapter);
+        }
     }
 }

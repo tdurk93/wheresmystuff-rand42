@@ -75,9 +75,10 @@ public interface IModel
     /**
      * Returns the items associated with a user
      * @param user User
+     * @param requestor The object that requested the data
      * @return Items
      */
-    Collection<Item> getUserItems(User user);
+    void getUserItems(User user, final Requestor<Item> requestor);
 
     /**
      * Gets an item with a UID

@@ -57,6 +57,12 @@ public class DatabaseHandler
 		user.signUpInBackground(callback);
 
 	}
+
+    /**
+     * Retrieves the items associated with a user
+     * @param user
+     * @param callback Method to call when operation completes
+     */
     public void getUserItems(User user, FindCallback callback)
     {
         ParseQuery query = new ParseQuery("Item");
