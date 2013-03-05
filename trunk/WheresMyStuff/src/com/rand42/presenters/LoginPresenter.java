@@ -52,7 +52,7 @@ public class LoginPresenter
                     }
                     else
                     {
-                        view.loginFail();
+                        view.loginFail(e.getMessage());
                         model.setUser(null);
                     }
 
@@ -60,7 +60,7 @@ public class LoginPresenter
             });
         }
         else
-            view.loginFail();
+            view.loginFail("You have attempted to login too many times. Try again later");
     }
 
 

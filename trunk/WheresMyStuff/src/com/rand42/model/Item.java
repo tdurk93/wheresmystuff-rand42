@@ -21,6 +21,7 @@ public class Item
     private User owner;
     private String description;
     private Location location;
+    private boolean lost;
     private ParseObject parseObject;
 
     /**
@@ -30,12 +31,13 @@ public class Item
      * @param description
      * @param location
      */
-    public Item(String name, User owner, String description, Location location)
+    public Item(String name, User owner, String description, Location location, boolean lost)
     {
         this.name=name;
         this.owner=owner;
         this.description=description;
         this.location=location;
+        this.lost=lost;
         uid = UUID.randomUUID().toString();
 
 
@@ -44,6 +46,7 @@ public class Item
         parseObject.put("desc",description);
         parseObject.put("owner",(ParseObject)owner.getParseUser());
         parseObject.put("uid", uid);
+        parseObject.put("lost",lost);
 
 
     }
@@ -63,6 +66,7 @@ public class Item
                 description=parseObject.getString("desc");
                 owner = new User((ParseUser)parseObject.getParseObject("owner"));
                 uid = parseObject.getString("uid");
+                lost = parseObject.getBoolean("lost");
 
             }
         });

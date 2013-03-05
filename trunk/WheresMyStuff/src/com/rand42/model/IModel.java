@@ -70,7 +70,7 @@ public interface IModel
      * @param description
      * @param owner
      */
-    void createItem(String name, String description, User owner);
+    void createItem(String name, String description, User owner, boolean lost);
 
     /**
      * Returns the items associated with a user

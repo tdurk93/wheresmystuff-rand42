@@ -17,13 +17,17 @@
     <EditText
             android:id="@+id/itemDescField"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="119dp"
             android:lines="8"
             android:hint="Description">
     </EditText>
 
 
-
+    <Switch
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="You Lost This"
+            android:id="@+id/lostSwitch" android:layout_gravity="left|center_vertical"/>
     <Button
             android:id="@+id/itemSubmitButton"
             android:layout_width="fill_parent"

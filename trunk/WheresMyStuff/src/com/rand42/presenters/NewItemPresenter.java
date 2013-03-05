@@ -22,9 +22,9 @@ public class NewItemPresenter
         this.model = model;
     }
 
-    public void createItem(String name, String description, User owner)
+    public void createItem(String name, String description, User owner, boolean lost)
     {
-        model.createItem(name, description, owner);
+        model.createItem(name, description, owner,lost);
     }
 
 }

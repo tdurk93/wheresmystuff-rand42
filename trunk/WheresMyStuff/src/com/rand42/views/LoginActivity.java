@@ -72,11 +72,11 @@ public class LoginActivity extends Activity implements ILoginView
 	}
 	/**
 	 * Called when the user fails to log in. Displays Dialog box informing user of error
-	 * @param e The exception 
-	 */
-	public void loginFail()
+     * @param message
+     */
+	public void loginFail(String message)
 	{
-			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", "Login Failed",this);
+			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", message,this);
 			dialog.show();
 	}
 	/**

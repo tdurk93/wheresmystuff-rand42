@@ -16,6 +16,7 @@ public interface ILoginView
 
     /**
      * Called if login failed
+     * @param message
      */
-    public void loginFail();
+    public void loginFail(String message);
 }

@@ -53,9 +53,9 @@ public class LocalModel implements IModel
     }
 
     @Override
-    public void createItem(String name, String description, User owner)
+    public void createItem(String name, String description, User owner, boolean lost)
     {
-        Item item = new Item(name, owner, description, new Location(0,0));
+        Item item = new Item(name, owner, description, new Location(0,0), lost);
         if(userItems==null)
             userItems = new HashMap<String, Item>();
         DatabaseHandler dbh = DatabaseHandler.getHandler();
