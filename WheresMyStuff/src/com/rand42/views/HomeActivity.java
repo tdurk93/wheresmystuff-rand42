@@ -1,32 +1,23 @@
 package com.rand42.views;
 
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.rand42.model.IModel;
-import com.rand42.model.Item;
-import com.rand42.model.LocalModel;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import com.rand42.presenters.HomePresenter;
-import com.rand42.views.interfaces.IHomeView;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Activity representing the home page for the logged in user
  * @author Rand-42
  *
  */
-public class HomeActivity extends Activity implements AdapterView.OnItemClickListener, IHomeView
+public class HomeActivity extends Activity
 {
 
 	private HomePresenter presenter;
@@ -36,16 +27,17 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		presenter = new HomePresenter(this,LocalModel.getModel());
-        list = (ListView)findViewById(R.id.itemlist);
-        list.setOnItemClickListener(this);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        ActionBar.Tab tab = actionBar.newTab().setText("Lost").setTabListener(new MyTabListener<LostItemListFragment>(this,"lost",LostItemListFragment.class));
+        actionBar.addTab(tab);
+        ActionBar.Tab tab2 = actionBar.newTab().setText("Found").setTabListener(new MyTabListener<LostItemListFragment>(this,"lost",LostItemListFragment.class));
+        actionBar.addTab(tab2);
 	}
-    @Override
-    protected void onStart()
-    {
-        super.onStart();
-       populateList();
-    }
+
 
 
 
@@ -59,11 +51,6 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
     /**
      * Starts the process of populating the listview
      */
-    public void populateList()
-    {
-         presenter.getUserItems();
-
-    }
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
@@ -92,24 +79,49 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
 	}
 
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+    public static class MyTabListener<T> implements ActionBar.TabListener
     {
-        Item item = (Item)adapterView.getItemAtPosition(i);
-        Intent intent = new Intent(this, ViewItemActivity.class);
-        intent.putExtra("UID", item.getUID());
-        startActivity(intent);
-    }
-
-    @Override
-    public void itemQuerySuccess(Collection<Item> items)
-    {
-        if(items!=null)
+        private Fragment mFragment;
+        private final Activity mActivity;
+        private final String mTag;
+        private final Class<T> mClass;
+        //private final int filter;
+        public MyTabListener(Activity activity, String tag, Class<T> clazz)
         {
+            mActivity =   activity;
+            mTag = tag;
+            mClass = clazz;
+            //this.filter=filter;
+        }
+        @Override
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction)
+        {
+            if(mFragment==null)
+            {
+                mFragment = Fragment.instantiate(mActivity, mClass.getName());
+                fragmentTransaction.add(android.R.id.content, mFragment, mTag);
 
-            Item[] itemsArr = Arrays.copyOf(items.toArray(), items.toArray().length, Item[].class);
-            ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, android.R.id.text1,itemsArr);
-            list.setAdapter(adapter);
+            }
+            else
+            {
+                fragmentTransaction.attach(mFragment);
+            }
+        }
+
+        @Override
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction)
+        {
+            if(mFragment!=null)
+            {
+                fragmentTransaction.detach(mFragment);
+            }
+        }
+
+
+        @Override
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction)
+        {
+            //To change body of implemented methods use File | Settings | File Templates.
         }
     }
 }
