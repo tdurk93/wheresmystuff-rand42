@@ -5,6 +5,7 @@ import com.rand42.model.Item;
 import com.rand42.model.Requestor;
 import com.rand42.views.interfaces.IHomeView;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -15,6 +16,10 @@ public class HomePresenter implements Requestor<Item>
 {
     private IModel model;
     private IHomeView view;
+    public static final int LOST_ITEMS=0;
+    public static final int FOUND_ITEMS=1;
+    public static final int ALL_ITEMS=2;
+    private int currentFilter;
     public HomePresenter(IHomeView view, IModel model)
     {
         this.view=view;
@@ -24,8 +29,9 @@ public class HomePresenter implements Requestor<Item>
     /**
      * Makes the query to get the items associated with the current user
      */
-    public void getUserItems()
+    public void getUserItems(int filter)
     {
+        currentFilter = filter;
        model.getUserItems(model.getUser(), this);
     }
 
@@ -35,6 +41,33 @@ public class HomePresenter implements Requestor<Item>
      */
     public void querySuccess(Collection<Item> items)
     {
+        ArrayList<Item> toRemove= new ArrayList<Item>();
+        switch(currentFilter)
+        {
+        case 0:
+            for(Item i:items)
+            {
+                if(!i.isLost())
+                {
+                    toRemove.add(i);
+                }
+            }
+            break;
+        case 1:
+            for(Item i:items)
+            {
+                if(i.isLost())
+                {
+                    toRemove.add(i);
+                }
+            }
+            break;
+        default:
+            break;
+        }
+        for(Item i:toRemove)
+            items.remove(i);
+
         view.itemQuerySuccess(items);
     }
 

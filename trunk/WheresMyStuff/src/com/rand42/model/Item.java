@@ -84,6 +84,10 @@ public class Item
     {
         return uid;
     }
+    public boolean isLost()
+    {
+        return lost;
+    }
 
     /**
      * Saves the item to the parse database
