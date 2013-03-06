@@ -86,4 +86,6 @@ public interface IModel
      * @return item
      */
     Item getItem(String uid);
+
+    void deleteItem(Item item);
 }

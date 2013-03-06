@@ -4,33 +4,32 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.widget.ListView;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.HomePresenter;
 
 /**
- * Activity representing the home page for the logged in user
+ * Activity representing the home page for the logged in user. Contains a actionbar tab with listFragments
  * @author Rand-42
  *
  */
 public class HomeActivity extends Activity
 {
-
-	private HomePresenter presenter;
-    private ListView list;
-	
+              private HomePresenter presenter;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-
+        presenter = new HomePresenter();
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayUseLogoEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle("Welcome ");
 
         ActionBar.Tab tab = actionBar.newTab().setText("Lost").setTabListener(new MyTabListener<LostItemListFragment>(this,"lost",LostItemListFragment.class));
         actionBar.addTab(tab);
@@ -65,7 +64,6 @@ public class HomeActivity extends Activity
         case R.id.menu_addItem:
             Intent i = new Intent(this, NewItemActivity.class);
             startActivity(i);
-            //populateList();
             return true;
 		default:
 			return true;
@@ -79,6 +77,10 @@ public class HomeActivity extends Activity
 	}
 
 
+    /**
+     * The TabListener for this Acitivty. Controls tab logic
+     * @param <T> Fragment Class
+     */
     public static class MyTabListener<T> implements ActionBar.TabListener
     {
         private Fragment mFragment;

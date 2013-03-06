@@ -2,12 +2,10 @@ package com.rand42.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.parse.GetCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseUser;
+import com.parse.*;
 
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -70,6 +68,7 @@ public class Item
 
             }
         });
+        parseObject = target;
     }
 
     public String getName()
@@ -107,4 +106,14 @@ public class Item
     }
 
 
+    public void deleteInBackground(DeleteCallback deleteCallback)
+    {
+        parseObject.deleteInBackground(deleteCallback);
+        //parseObject.
+    }
+
+    public void disconnect()
+    {
+        parseObject = null;
+    }
 }

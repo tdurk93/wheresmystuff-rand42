@@ -1,5 +1,6 @@
 package com.rand42.factories;
 
+import android.widget.ProgressBar;
 import com.parse.ParseException;
 import com.parse.RequestPasswordResetCallback;
 import com.rand42.model.DatabaseHandler;
@@ -40,6 +41,16 @@ public class DialogFactory {
 		alertDialogBuilder.setCancelable(false);
 		return alertDialogBuilder.create();
 	}
+    public static AlertDialog createIndeterminateProgressDialog(String title, String message, Activity caller)
+    {
+        AlertDialog.Builder aDB = new AlertDialog.Builder(caller);
+        aDB.setTitle(title);
+        final ProgressBar bar = new ProgressBar(caller);
+        bar.setIndeterminate(true);
+        aDB.setView(bar);
+        aDB.setMessage(message);
+        return aDB.create();
+    }
 	/**
 	 * Creates a dialog designed to quit the current activity. Shows the message and quits the activity after ok is clicked
 	 * @param title Title
