@@ -90,6 +90,11 @@ public class DatabaseHandler
     {
         i.saveInBackground();
     }
+
+    public void deleteItem(Item item, DeleteCallback deleteCallback)
+    {
+        item.deleteInBackground(deleteCallback);
+    }
 	
 	/*private class Pass extends SignUpCallback
     {

@@ -71,6 +71,22 @@ public class LocalModel implements IModel
     }
 
     @Override
+    public void deleteItem(final Item item)
+    {
+
+        DatabaseHandler dbh = DatabaseHandler.getHandler();
+        dbh.deleteItem(item, new DeleteCallback()
+        {
+            public void done(ParseException e)
+            {
+                item.disconnect();
+                userItems.remove(item);
+            }
+        });
+
+    }
+
+    @Override
     public void getUserItems(User user, final Requestor<Item> requestor)
     {
 

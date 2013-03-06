@@ -23,7 +23,7 @@ public class LoginActivity extends Activity implements ILoginView
 
 	private EditText emailField;
 	private EditText passwordField;
-
+    private AlertDialog progressDialog;
 	private LoginPresenter presenter;
 	
 	@Override
@@ -34,6 +34,7 @@ public class LoginActivity extends Activity implements ILoginView
         emailField = (EditText)findViewById(R.id.emailField);
 		passwordField = (EditText)findViewById(R.id.passwordField);
 		presenter = new LoginPresenter(this, LocalModel.getModel());
+        progressDialog = DialogFactory.createIndeterminateProgressDialog("Login","Logging in", this);
 	}
 	
 
@@ -58,6 +59,8 @@ public class LoginActivity extends Activity implements ILoginView
 	 */
 	public void submitLogin(View view)
 	{
+
+        progressDialog.show();
 		presenter.logIn(emailField.getText().toString(), passwordField.getText().toString());
 	}
 	/**
@@ -65,9 +68,11 @@ public class LoginActivity extends Activity implements ILoginView
 	 */
 	public void loginSuccess()
 	{
+
 			Intent i = new Intent(this, HomeActivity.class);
 			emailField.setText("");
 			passwordField.setText("");
+            progressDialog.hide();
 			startActivity(i);
 	}
 	/**

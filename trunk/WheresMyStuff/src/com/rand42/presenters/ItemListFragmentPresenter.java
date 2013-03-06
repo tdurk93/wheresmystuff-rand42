@@ -3,6 +3,7 @@ package com.rand42.presenters;
 import com.rand42.model.IModel;
 import com.rand42.model.Item;
 import com.rand42.model.Requestor;
+import com.rand42.model.User;
 import com.rand42.views.interfaces.IHomeView;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Collection;
  * Presenter for the HomeView. Requests user item data and therefore implements Requestor
  * @author Rand-42
  */
-public class HomePresenter implements Requestor<Item>
+public class ItemListFragmentPresenter implements Requestor<Item>
 {
     private IModel model;
     private IHomeView view;
@@ -20,7 +21,7 @@ public class HomePresenter implements Requestor<Item>
     public static final int FOUND_ITEMS=1;
     public static final int ALL_ITEMS=2;
     private int currentFilter;
-    public HomePresenter(IHomeView view, IModel model)
+    public ItemListFragmentPresenter(IHomeView view, IModel model)
     {
         this.view=view;
         this.model=model;
@@ -33,6 +34,10 @@ public class HomePresenter implements Requestor<Item>
     {
         currentFilter = filter;
        model.getUserItems(model.getUser(), this);
+    }
+    public void deleteItem(Item item)
+    {
+        model.deleteItem(item);
     }
 
     /**
@@ -71,11 +76,4 @@ public class HomePresenter implements Requestor<Item>
         view.itemQuerySuccess(items);
     }
 
-    /**
-     * Logs out the user
-     */
-    public void logOut()
-    {
-        model.logOut();
-    }
 }
