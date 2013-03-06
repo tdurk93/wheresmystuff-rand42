@@ -105,6 +105,7 @@ public class HomeActivity extends Activity
             else
             {
                 fragmentTransaction.attach(mFragment);
+                fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out );
             }
         }
 

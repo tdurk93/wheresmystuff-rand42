@@ -34,9 +34,15 @@ public class LostItemListFragment extends Fragment implements IHomeView, Adapter
         list = (ListView)view.findViewById(R.id.itemlist);
         list.setOnItemClickListener(this);
         presenter = new HomePresenter(this, LocalModel.getModel());
-        this.populateList();
         return view;
     }
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        populateList();
+    }
+
 
     public void populateList()
     {
