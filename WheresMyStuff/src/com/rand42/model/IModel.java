@@ -87,5 +87,5 @@ public interface IModel
      */
     Item getItem(String uid);
 
-    void deleteItem(Item item);
+    void deleteItem(Item item, Requestor<Item> requestor);
 }

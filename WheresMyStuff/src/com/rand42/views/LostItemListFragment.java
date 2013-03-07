@@ -1,5 +1,6 @@
 package com.rand42.views;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.rand42.factories.DialogFactory;
 import com.rand42.model.Item;
 import com.rand42.model.LocalModel;
 import com.rand42.presenters.ItemListFragmentPresenter;
@@ -23,6 +25,7 @@ public class LostItemListFragment extends Fragment implements IHomeView, Adapter
     private ListView list;
     private ItemListFragmentPresenter presenter;
     private ArrayAdapter<Item> adapter;
+    private AlertDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -33,6 +36,7 @@ public class LostItemListFragment extends Fragment implements IHomeView, Adapter
         registerForContextMenu(list);
         presenter = new ItemListFragmentPresenter(this, LocalModel.getModel());
         adapter = new ArrayAdapter<Item>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1);
+        progressDialog = DialogFactory.createIndeterminateProgressDialog("Delete","Deleting", this.getActivity());
         return view;
     }
 
@@ -48,7 +52,7 @@ public class LostItemListFragment extends Fragment implements IHomeView, Adapter
      */
     public void populateList()
     {
-        presenter.getUserItems(ItemListFragmentPresenter.FOUND_ITEMS);
+        presenter.getUserItems();
     }
 
 
@@ -59,9 +63,12 @@ public class LostItemListFragment extends Fragment implements IHomeView, Adapter
         {
 
             Item[] itemsArr = Arrays.copyOf(items.toArray(), items.toArray().length, Item[].class);
+            adapter.clear();
             adapter.addAll(itemsArr);
+            adapter.notifyDataSetChanged();
             list.setAdapter(adapter);
         }
+        progressDialog.hide();
     }
 
     /**
@@ -101,7 +108,7 @@ public class LostItemListFragment extends Fragment implements IHomeView, Adapter
                 break;
             case 1:
                 presenter.deleteItem(selectedItem);
-                populateList();
+                progressDialog.show();
                 break;
         }
 

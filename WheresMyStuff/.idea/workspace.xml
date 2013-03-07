@@ -27,21 +27,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" line="94" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="3542ddf8-9f5e-4559-940e-9d908c36335e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/Parse-1.1.15.jar" />
-      <change type="DELETED" beforePath="C:\Users\Alex\SkyDrive\WheresMyStuff\libs\Parse-1.1.11.jar" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\presenters\HomePresenter.java" afterPath="$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/DatabaseHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/factories/DialogFactory.java" afterPath="$PROJECT_DIR$/src/com/rand42/factories/DialogFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/HomeActivity.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/HomeActivity.java" />
+    <list default="true" readonly="true" id="3542ddf8-9f5e-4559-940e-9d908c36335e" name="Default" comment="&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/IModel.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/IModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/Item.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java" afterPath="$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/LoginActivity.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/LostItemListFragment.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/LostItemListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WheresMyStuff.iml" afterPath="$PROJECT_DIR$/WheresMyStuff.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_view_item.xml" afterPath="$PROJECT_DIR$/res/layout/activity_view_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WheresMyStuff.iws" />
@@ -51,21 +42,21 @@
     <file path="/User.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362432223748" ignored="false" />
     <file path="/fragment.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362612311718" ignored="false" />
     <file path="/TestClass.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362182396547" ignored="false" />
-    <file path="/LocalModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362612517264" ignored="false" />
+    <file path="/LocalModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362665394879" ignored="false" />
     <file path="/Model.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362186555212" ignored="false" />
     <file path="/LoginCallback.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362186220522" ignored="false" />
     <file path="/DatabaseHandler.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362612379736" ignored="false" />
-    <file path="/Item.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362612637798" ignored="false" />
+    <file path="/Item.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362664615174" ignored="false" />
     <file path="/Location.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362344559735" ignored="false" />
     <file path="/NewItem.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362187363748" ignored="false" />
-    <file path="/Dummy.txt" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362601346657" ignored="false" />
+    <file path="/Dummy.txt" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362618232050" ignored="false" />
     <file path="/activity_new_item.xml" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362187537414" ignored="false" />
     <file path="/ILoginPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362250070262" ignored="false" />
     <file path="/ILoginView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362254908626" ignored="false" />
     <file path="/LoginActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362607639919" ignored="false" />
     <file path="/LoginPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362511546893" ignored="false" />
     <file path="/HomeActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362608371069" ignored="false" />
-    <file path="/IModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362610104871" ignored="false" />
+    <file path="/IModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362618196271" ignored="false" />
     <file path="/NewUserPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362254877779" ignored="false" />
     <file path="$PROJECT_DIR$/src/com/rand42/presenters/INewUserView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362252313149" ignored="false" />
     <file path="$PROJECT_DIR$/gen/com/rand42/views/INewUserView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362252338405" ignored="false" />
@@ -82,10 +73,10 @@
     <file path="/IHomeView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362432627534" ignored="false" />
     <file path="/Requestor.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362432286961" ignored="false" />
     <file path="/LostItemFragment.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362598401478" ignored="false" />
-    <file path="/LostItemListFragment.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362610238846" ignored="false" />
+    <file path="/LostItemListFragment.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362665752415" ignored="false" />
     <file path="/activity_login.xml" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362601837762" ignored="false" />
     <file path="/DialogFactory.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362607559778" ignored="false" />
-    <file path="/ItemListFragmentPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362610098817" ignored="false" />
+    <file path="/ItemListFragmentPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362617920442" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +91,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -135,7 +126,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -148,7 +139,16 @@
       <file leaf-file-name="LostItemListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/rand42/views/LostItemListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="87" selection-start="2407" selection-end="2407" vertical-scroll-proportion="0.0">
+            <state line="70" column="30" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fragment.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Eclipse/sdk/platforms/android-17/android.jar!/android/app/Fragment.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="141" column="16" selection-start="5836" selection-end="5836" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -157,7 +157,7 @@
       <file leaf-file-name="HomeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/rand42/views/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="25" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0">
+            <state line="54" column="21" selection-start="1727" selection-end="1727" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -175,7 +175,16 @@
       <file leaf-file-name="ItemListFragmentPresenter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="22" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0">
+            <state line="39" column="0" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Requestor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/Requestor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="16" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -184,19 +193,21 @@
       <file leaf-file-name="IModel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/rand42/model/IModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="20" selection-start="1829" selection-end="1829" vertical-scroll-proportion="0.0">
+            <state line="89" column="56" selection-start="1865" selection-end="1865" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocalModel.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LocalModel.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="30" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0">
+            <state line="81" column="0" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.33333334">
               <folding>
-                <element signature="e#1677#1867#0" expanded="true" />
-                <element signature="e#1856#1857#0" expanded="true" />
+                <element signature="e#1710#1934#0" expanded="true" />
+                <element signature="e#1923#1924#0" expanded="true" />
+                <element signature="e#2449#3153#0" expanded="true" />
+                <element signature="e#3137#3138#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -205,34 +216,16 @@
       <file leaf-file-name="DatabaseHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/rand42/model/DatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="45" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.0">
+            <state line="26" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Item.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Item.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/rand42/model/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="10" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.6367615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DialogFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/factories/DialogFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="28" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/views/LoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="7" selection-start="1778" selection-end="1778" vertical-scroll-proportion="0.0">
+            <state line="70" column="52" selection-start="1908" selection-end="1908" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -258,19 +251,20 @@
         <option value="$PROJECT_DIR$/src/com/rand42/views/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/presenters/HomePresenter.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/views/HomeActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/model/IModel.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/views/LostItemListFragment.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/model/DatabaseHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/model/IModel.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/model/Item.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/views/LostItemListFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
-    <option name="height" value="1040" />
+    <option name="x" value="-1928" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -298,7 +292,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -378,6 +371,10 @@
               <option name="myItemId" value="rand42" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -418,6 +415,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,8 +438,8 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -488,6 +486,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -513,19 +524,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -671,18 +669,26 @@
       <created>1362601354157</created>
       <updated>1362601354157</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated to newest version of parse. Tried to implement delete&#10;">
+      <created>1362613144130</created>
+      <updated>1362613144130</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Files werent added&#10;">
+      <created>1362617870132</created>
+      <updated>1362617870132</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39002267" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.389755" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33936653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -692,8 +698,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3986637" sideWeight="0.6099773" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3478261" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19103523" sideWeight="0.610245" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34075725" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32817504" sideWeight="0.6013363" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32817504" sideWeight="0.6013363" order="2" side_tool="false" content_ui="tabs" />
@@ -742,7 +748,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tabs still useless, but fixed list logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -762,6 +768,9 @@
     <MESSAGE value="Can now get items correctly from database. Made a new interface Requestor. Should be used in classes that need data from the database" />
     <MESSAGE value="Added uesless tab view that shows the same list&#10;" />
     <MESSAGE value="Tabs still useless, but fixed list logic" />
+    <MESSAGE value="Updated to newest version of parse. Tried to implement delete&#10;" />
+    <MESSAGE value="Files werent added&#10;" />
+    <MESSAGE value="&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -771,27 +780,17 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files (x86)/Eclipse/sdk/platforms/android-17/android.jar!/android/widget/ArrayAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="11" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Eclipse/sdk/platforms/android-17/android.jar!/android/widget/ListView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="16" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Eclipse/sdk/platforms/android-17/android.jar!/android/view/View.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="907" column="19" selection-start="40768" selection-end="40768" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_view_item.xml">
-      <provider editor-type-id="text-editor">
-        <state line="19" column="15" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0" />
-      </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="19" column="15" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
@@ -802,11 +801,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_login.xml">
-      <provider editor-type-id="text-editor">
-        <state line="28" column="15" selection-start="858" selection-end="858" vertical-scroll-proportion="-19.04" />
-      </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="28" column="15" selection-start="858" selection-end="858" vertical-scroll-proportion="-19.04" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/factories/DialogFactory.java">
@@ -823,9 +822,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/HomeActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/IModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="25" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0">
+        <state line="89" column="56" selection-start="1865" selection-end="1865" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/Requestor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="16" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -837,48 +843,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="22" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0">
+        <state line="70" column="52" selection-start="1908" selection-end="1908" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/LostItemListFragment.java">
+    <entry file="jar://C:/Program Files (x86)/Eclipse/sdk/platforms/android-17/android.jar!/android/app/Fragment.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="87" selection-start="2407" selection-end="2407" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/IModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="20" selection-start="1829" selection-end="1829" vertical-scroll-proportion="0.0">
+        <state line="141" column="16" selection-start="5836" selection-end="5836" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/model/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="45" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.0">
+        <state line="26" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="21" selection-start="1727" selection-end="1727" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/LostItemListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="30" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="30" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0">
+        <state line="81" column="0" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.33333334">
           <folding>
-            <element signature="e#1677#1867#0" expanded="true" />
-            <element signature="e#1856#1857#0" expanded="true" />
+            <element signature="e#1710#1934#0" expanded="true" />
+            <element signature="e#1923#1924#0" expanded="true" />
+            <element signature="e#2449#3153#0" expanded="true" />
+            <element signature="e#3137#3138#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="10" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.6367615">
-          <folding />
         </state>
       </provider>
     </entry>

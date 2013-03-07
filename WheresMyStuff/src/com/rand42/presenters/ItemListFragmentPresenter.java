@@ -17,10 +17,10 @@ public class ItemListFragmentPresenter implements Requestor<Item>
 {
     private IModel model;
     private IHomeView view;
-    public static final int LOST_ITEMS=0;
+   /* public static final int LOST_ITEMS=0;
     public static final int FOUND_ITEMS=1;
     public static final int ALL_ITEMS=2;
-    private int currentFilter;
+    pivate int currentFilter;*/
     public ItemListFragmentPresenter(IHomeView view, IModel model)
     {
         this.view=view;
@@ -30,14 +30,14 @@ public class ItemListFragmentPresenter implements Requestor<Item>
     /**
      * Makes the query to get the items associated with the current user
      */
-    public void getUserItems(int filter)
+    public void getUserItems()
     {
-        currentFilter = filter;
+       // currentFilter = filter;
        model.getUserItems(model.getUser(), this);
     }
     public void deleteItem(Item item)
     {
-        model.deleteItem(item);
+        model.deleteItem(item,this);
     }
 
     /**
@@ -46,33 +46,6 @@ public class ItemListFragmentPresenter implements Requestor<Item>
      */
     public void querySuccess(Collection<Item> items)
     {
-        ArrayList<Item> toRemove= new ArrayList<Item>();
-        switch(currentFilter)
-        {
-        case 0:
-            for(Item i:items)
-            {
-                if(!i.isLost())
-                {
-                    toRemove.add(i);
-                }
-            }
-            break;
-        case 1:
-            for(Item i:items)
-            {
-                if(i.isLost())
-                {
-                    toRemove.add(i);
-                }
-            }
-            break;
-        default:
-            break;
-        }
-        for(Item i:toRemove)
-            items.remove(i);
-
         view.itemQuerySuccess(items);
     }
 
