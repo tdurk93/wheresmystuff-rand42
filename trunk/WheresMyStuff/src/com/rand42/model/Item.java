@@ -21,6 +21,7 @@ public class Item
     private Location location;
     private boolean lost;
     private ParseObject parseObject;
+    private String parseID;
 
     /**
      * Create a new Item from scratch
@@ -112,8 +113,4 @@ public class Item
         //parseObject.
     }
 
-    public void disconnect()
-    {
-        parseObject = null;
-    }
 }
