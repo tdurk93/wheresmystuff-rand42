@@ -20,13 +20,22 @@ import java.util.Collection;
 /**
  * A Fragment to view Items in a list. Can populate itself
  */
-public class LostItemListFragment extends Fragment implements IHomeView, AdapterView.OnItemClickListener
+public class ItemListFragment extends Fragment implements IHomeView, AdapterView.OnItemClickListener
 {
     private ListView list;
     private ItemListFragmentPresenter presenter;
     private ArrayAdapter<Item> adapter;
     private AlertDialog progressDialog;
+    //private int filter;
 
+    public static final ItemListFragment newInstance(int filter)
+    {
+        ItemListFragment fragment = new ItemListFragment();
+        Bundle bdl = new Bundle(1);
+        bdl.putInt("filter",filter);
+        fragment.setArguments(bdl);
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -34,11 +43,12 @@ public class LostItemListFragment extends Fragment implements IHomeView, Adapter
         list = (ListView)view.findViewById(R.id.itemlist);
         list.setOnItemClickListener(this);
         registerForContextMenu(list);
-        presenter = new ItemListFragmentPresenter(this, LocalModel.getModel());
+        presenter = new ItemListFragmentPresenter(this, LocalModel.getModel(),getArguments().getInt("filter"));
         adapter = new ArrayAdapter<Item>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1);
         progressDialog = DialogFactory.createIndeterminateProgressDialog("Delete","Deleting", this.getActivity());
         return view;
     }
+
 
     @Override
     public void onStart()

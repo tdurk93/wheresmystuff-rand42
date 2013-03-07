@@ -56,6 +56,7 @@ public class Item
      */
     public Item(ParseObject target)
     {
+        if(!target.isDataAvailable())
         target.fetchIfNeededInBackground(new GetCallback()  //target is often just a skeleton with no data. must load here
         {
             @Override
@@ -69,6 +70,14 @@ public class Item
 
             }
         });
+        else
+        {
+            name=target.getString("name");
+            description=target.getString("desc");
+            owner = new User((ParseUser)target.getParseObject("owner"));
+            uid = target.getString("uid");
+            lost = target.getBoolean("lost");
+        }
         parseObject = target;
     }
 

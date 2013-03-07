@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.rand42.model.LocalModel;
 import com.rand42.presenters.HomePresenter;
+import com.rand42.presenters.ItemListFragmentPresenter;
 
 /**
  * Activity representing the home page for the logged in user. Contains a actionbar tab with listFragments
@@ -31,9 +31,9 @@ public class HomeActivity extends Activity
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle("Welcome ");
 
-        ActionBar.Tab tab = actionBar.newTab().setText("Lost").setTabListener(new MyTabListener<LostItemListFragment>(this,"lost",LostItemListFragment.class));
+        ActionBar.Tab tab = actionBar.newTab().setText("Lost").setTabListener(new MyTabListener<ItemListFragment>(this,"lost",ItemListFragmentPresenter.LOST_ITEMS,ItemListFragment.class));
         actionBar.addTab(tab);
-        ActionBar.Tab tab2 = actionBar.newTab().setText("Found").setTabListener(new MyTabListener<LostItemListFragment>(this,"lost",LostItemListFragment.class));
+        ActionBar.Tab tab2 = actionBar.newTab().setText("Found").setTabListener(new MyTabListener<ItemListFragment>(this,"lost",ItemListFragmentPresenter.FOUND_ITEMS,ItemListFragment.class));
         actionBar.addTab(tab2);
 	}
 
@@ -87,20 +87,20 @@ public class HomeActivity extends Activity
         private final Activity mActivity;
         private final String mTag;
         private final Class<T> mClass;
-        //private final int filter;
-        public MyTabListener(Activity activity, String tag, Class<T> clazz)
+        private final int filter;
+        public MyTabListener(Activity activity, String tag, int filter, Class<T> clazz)
         {
             mActivity =   activity;
             mTag = tag;
             mClass = clazz;
-            //this.filter=filter;
+            this.filter=filter;
         }
         @Override
         public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction)
         {
             if(mFragment==null)
             {
-                mFragment = Fragment.instantiate(mActivity, mClass.getName());
+                mFragment = ItemListFragment.newInstance(filter);
                 fragmentTransaction.add(android.R.id.content, mFragment, mTag);
 
             }

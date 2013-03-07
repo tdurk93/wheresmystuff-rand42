@@ -8,6 +8,7 @@ import com.rand42.views.interfaces.IHomeView;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Presenter for the HomeView. Requests user item data and therefore implements Requestor
@@ -17,14 +18,15 @@ public class ItemListFragmentPresenter implements Requestor<Item>
 {
     private IModel model;
     private IHomeView view;
-   /* public static final int LOST_ITEMS=0;
+    public static final int LOST_ITEMS=0;
     public static final int FOUND_ITEMS=1;
     public static final int ALL_ITEMS=2;
-    pivate int currentFilter;*/
-    public ItemListFragmentPresenter(IHomeView view, IModel model)
+    private int filter;
+    public ItemListFragmentPresenter(IHomeView view, IModel model, int filter)
     {
         this.view=view;
         this.model=model;
+        this.filter=filter;
     }
 
     /**
@@ -46,7 +48,20 @@ public class ItemListFragmentPresenter implements Requestor<Item>
      */
     public void querySuccess(Collection<Item> items)
     {
-        view.itemQuerySuccess(items);
+        List<Item> toRemove = new ArrayList();
+        Collection<Item> filteredItems = new ArrayList<Item>();
+        for(Item i:items)
+        {
+            if(filter==LOST_ITEMS)
+                if(i.isLost())
+                    filteredItems.add(i);
+            if(filter==FOUND_ITEMS)
+                if(!i.isLost())
+                    filteredItems.add(i);
+        }
+
+
+        view.itemQuerySuccess(filteredItems);
     }
 
 }
