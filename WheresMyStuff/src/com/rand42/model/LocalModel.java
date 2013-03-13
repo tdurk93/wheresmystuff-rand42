@@ -91,18 +91,14 @@ public class LocalModel implements IModel
     {
 
         if(user==currentUser&&userItems!=null)
-        {
             requestor.querySuccess(userItems.values());
-        }
         else
         {
-
             final boolean isCurrent=user==currentUser;
             if(isCurrent)
-            {
                 userItems=new HashMap<String, Item>();
-            }
-            DatabaseHandler dbh = DatabaseHandler.getHandler();
+     
+            
             dbh.getUserItems(user, new FindCallback()
             {
                 @Override
@@ -132,9 +128,14 @@ public class LocalModel implements IModel
     @Override
 	public void addUser(String email, String name, String password, SignUpCallback callback)
     {
-		dbh.createUser(email, name, password, callback);
+    	addUser(email,name,password,false,callback);
 	}
 
+    @Override
+    public void addUser(String email, String name, String password, boolean status, SignUpCallback callback){
+    	dbh.createUser(email, name, password, status, callback);
+    }
+    
 	@Override
 	public User getUser() {
 		return currentUser;
@@ -152,7 +153,11 @@ public class LocalModel implements IModel
 		currentUser= null;
 	}
 
-
-	
+	@Override
+	public void promoteUser(String email, FindCallback callback){
+        //I'm getting real tired of these gorram anonymous callbacks yo. -S
+		dbh.promoteUser(email, callback);
+	}
+		
 
 }

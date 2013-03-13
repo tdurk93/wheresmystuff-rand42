@@ -54,7 +54,7 @@ public class HomeActivity extends Activity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-		//TODO: Stefano really doesn't like looking at this.
+		//TODO: Stefano really doesn't like looking at this. Like for real.
 		switch(item.getItemId())
 		{
 		case R.id.menu_logout:

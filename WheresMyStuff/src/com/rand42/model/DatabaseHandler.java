@@ -1,5 +1,8 @@
 package com.rand42.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.util.Log;
 
@@ -48,14 +51,14 @@ public class DatabaseHandler
      * @param password password
      * @param callback method to call when operation finishes
      */
-	public void createUser(String email, String name, String password, SignUpCallback callback)
+	public void createUser(String email, String name, String password, boolean status, SignUpCallback callback)
 	{
 		ParseUser user = new ParseUser();
 		user.setUsername(email);
 		user.setPassword(password);
 		user.put("name", name);
 		user.signUpInBackground(callback);
-
+		user.put("ADMIN", status);
 	}
 
     /**
@@ -70,15 +73,85 @@ public class DatabaseHandler
         query.findInBackground(callback);
     }
 	
+    public List<User> getUserList(FindCallback callbacks){
+    	//TODO: Finish getting user lists for admin stuff
+    	ParseQuery query = ParseUser.getQuery();	
+    	
+    	List<User> output = null;
+    	try {
+			List<ParseObject> foo = query.find();
+			output = new ArrayList<User>();
+			for(ParseObject o : foo)
+				output.add(new User((ParseUser) o));
+		} catch (ParseException e) {
+			//TODO: What else?
+			e.printStackTrace();
+		}
+    	
+    	return output;
+    }
 		
+    //TODO: Stop repeating the same shit. This is silly.
+    private List<ParseObject> search(String field, String target) throws ParseException{
+    	
+    	ParseQuery query = ParseUser.getQuery();
+    	query.whereEqualTo(field, target);
+    	
+    	return query.find();
+    }
+    
+    private List<ParseObject> put(String field, String target, String key, Object value) throws ParseException{
+    	
+    	List<ParseObject> foo = search(field,target);
+    	if(foo!= null && !foo.isEmpty())
+    		for(ParseObject o : foo)
+    			o.put(key, value);
+    	return foo;
+    	
+    }
+    
+    public void promoteUser(String email, FindCallback callback){
+    	
+    	try{
+    		callback.done(put("email", email, "Admin", true), null);
+    	
+    	}catch(ParseException e){
+    		callback.done(null, e);
+    	}
+    	
+    }
+    
+    public void lockUser(String name, FindCallback callback){
+    	
+    	try{
+    		callback.done(put("name", name, "Lock", true), null);
+    	}catch(ParseException e){
+    		callback.done(null, e);
+    	}
+    	
+    }
+    
+    public void deleteUser(String name, FindCallback callback){
+    	
+    	try{
+    		List<ParseObject> foo = search("name", name);
+    		if(foo!= null && !foo.isEmpty())
+    			for(ParseObject o : foo)
+    				o.deleteInBackground();
+    		
+    		callback.done(foo, null);
+    		
+    	}catch(ParseException e){
+    		callback.done(null, e);
+    	}
+    	
+    }
 	/**
 	 * Resets the password using ParseUser methods
 	 * @param email The email account of the associated account
 	 * @param callback The method to call when the operation completes
 	 */
-	public void resetPassword(String email, RequestPasswordResetCallback callback)
-	{
-		
+	public void resetPassword(String email, RequestPasswordResetCallback callback){
 		ParseUser.requestPasswordResetInBackground(email, callback);
 	}
 
@@ -95,40 +168,6 @@ public class DatabaseHandler
     {
         item.deleteInBackground(deleteCallback);
     }
-	
-	/*private class Pass extends SignUpCallback
-    {
-		
-		boolean success;
-		boolean finished;
-		
-		@Override
-		public void done(ParseException e) {
-		// TODO Auto-generated method stub
-			success = e==null;
-			finished = true;
-		}
-		
-		public boolean isFinished(){
-			return finished;
-		}
-	}
-	
-	private class Enter extends LogInCallback
-    {
-
-		boolean success;
-		boolean finished;
-		@Override
-		public void done(ParseUser user, ParseException e) {
-			finished = true; 
-			success = e!=null;
-		}
-		
-		public boolean isFinished(){
-			return finished;
-		}
-	}    */
 	
 
 }

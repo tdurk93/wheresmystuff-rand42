@@ -31,6 +31,8 @@
             android:name="com.rand42.views.NewUserActivity"
             android:label="@string/title_activity_new_user" >
         </activity>
+        <activity android:name=".NewItemActivity"/>
+        <activity android:name=".ViewItemActivity"/>
     </application>
 
 </manifest>

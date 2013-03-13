@@ -109,6 +109,8 @@ public class ItemListFragment extends Fragment implements IHomeView, AdapterView
     @Override
     public boolean onContextItemSelected(MenuItem item)
     {
+    	
+    	//TODO: Fix this shit.
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
         Item selectedItem = adapter.getItem(info.position);
         switch(item.getItemId())

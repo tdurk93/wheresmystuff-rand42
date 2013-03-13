@@ -16,6 +16,7 @@ public class User {
 	private String name;
 	private String id;
 	private String email;
+	private boolean isAdmin;
 	
 	public User(ParseUser target){
 
@@ -29,6 +30,7 @@ public class User {
                     name = parseUser.getUsername();
                     id = parseUser.getObjectId();
                     email = parseUser.getEmail();
+                    isAdmin = parseUser.getBoolean("ADMIN"); //I hope this works -S
                 }
             });
 	}
@@ -40,8 +42,8 @@ public class User {
 	public String getName(){
 		return name;
 	}
-    public ParseUser getParseUser()
-    {
+	
+    public ParseUser getParseUser(){
         return user;
     }
 	
@@ -73,6 +75,10 @@ public class User {
 	 */
 	public void logOut(){
 		user.logOut();
+	}
+	
+	public boolean isAdmin(){
+		return isAdmin;
 	}
 	
 }

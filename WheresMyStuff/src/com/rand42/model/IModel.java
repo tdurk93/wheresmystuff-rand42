@@ -1,5 +1,6 @@
 package com.rand42.model;
 
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.SignUpCallback;
 
@@ -16,6 +17,8 @@ import java.util.List;
 public interface IModel
 {
 
+	//TODO: Grrrr.
+	
 	/**
 	 * In this manner, the man of given name gave up
 	 * his word that he might pass and have his name
@@ -39,6 +42,24 @@ public interface IModel
 	 */
 	void addUser(String email, String name, String password, SignUpCallback callback);
 	
+	/**
+	 * In this manner is the uninitiated man given
+	 * name granted status
+	 * @param email
+	 * @param name
+	 * @param password
+	 * @param admin
+	 * @param callback
+	 */
+	void addUser(String email, String name, String password, boolean admin, SignUpCallback callback);
+	
+	/**
+	 * In this manner is the man given name granted status.
+	 * May he watch over us all.
+	 * @param email
+	 * @param name
+	 */
+	void promoteUser(String email, FindCallback callback);
 	/**
 	 * In this manner is the man struck from the
 	 * Log of the Inn
@@ -88,4 +109,5 @@ public interface IModel
     Item getItem(String uid);
 
     void deleteItem(Item item, Requestor<Item> requestor);
+
 }

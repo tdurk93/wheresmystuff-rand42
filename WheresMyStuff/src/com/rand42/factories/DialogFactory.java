@@ -90,6 +90,7 @@ public class DialogFactory {
 		alertDialogBuilder.setView(input);
 		alertDialogBuilder.setTitle("Enter Email");
 		//TODO: Check if all these anonymous clicklisteners can be consolidated or parametrized
+		//TODO: Get this callback stuff the hell outta here.
 		alertDialogBuilder.setPositiveButton("Ok",
                  new DialogInterface.OnClickListener() {
                      @Override
