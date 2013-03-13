@@ -22,6 +22,7 @@ public class ItemListFragmentPresenter implements Requestor<Item>
     public static final int FOUND_ITEMS=1;
     public static final int ALL_ITEMS=2;
     private int filter;
+    
     public ItemListFragmentPresenter(IHomeView view, IModel model, int filter)
     {
         this.view=view;

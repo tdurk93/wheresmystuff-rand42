@@ -1,22 +1,18 @@
 package com.rand42.presenters;
 
-import com.parse.ParseException;
-import com.parse.SignUpCallback;
-import com.rand42.model.IModel;
-import com.rand42.views.interfaces.INewUserView;
-
+import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Alex
- * Date: 3/2/13
- * Time: 2:16 PM
- * To change this template use File | Settings | File Templates.
- */
-public class NewUserPresenter
-{
-    private final INewUserView view;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.SignUpCallback;
+import com.rand42.model.IModel;
+import com.rand42.views.interfaces.ICreateAdminView;
+
+public class CreateAdminPresenter {
+
+    private final ICreateAdminView view;
     private final IModel model;
 
     private static final String EMAIL_PATTERN =
@@ -28,8 +24,7 @@ public class NewUserPresenter
      * @param view Associated view
      * @param model Associated model
      */
-    public NewUserPresenter(INewUserView view, IModel model)
-    {
+    public CreateAdminPresenter(ICreateAdminView view, IModel model){
        this.view=view;
        this.model=model;
        pattern = Pattern.compile(EMAIL_PATTERN);
@@ -42,16 +37,13 @@ public class NewUserPresenter
      * @param password password
      * @param confirm  confirm
      */
-    public void createUser(String email, String name, String password, String confirm)
-    {
+    
+    public void createAdmin(String email, String name, String password, String confirm){
         String errorMsg;
         if((errorMsg=verify(email, password, confirm))!="")
-        {
-            view.createFail(errorMsg);
-        }
+        	view.createFail(errorMsg);
         else
-        {
-            model.addUser(email, name, password, new SignUpCallback()
+            model.addUser(email, name, password, true, new SignUpCallback()
             {
                public void done(ParseException e)
                {
@@ -62,11 +54,20 @@ public class NewUserPresenter
 
                }
             });
-        }
-
     }
-    private String verify(String email, String password, String confirm){
 
+    public void promoteToAdmin(String email){
+    	model.promoteUser(email, new FindCallback(){
+
+			@Override
+			public void done(List<ParseObject> arg0, ParseException arg1) {
+				// TODO Auto-generated method stub
+				
+			} 
+			});
+    }
+    
+    private String verify(String email, String password, String confirm){
 
         String errorMsg = "";
 

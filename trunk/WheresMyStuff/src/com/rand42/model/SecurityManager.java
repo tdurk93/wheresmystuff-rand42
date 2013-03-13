@@ -10,6 +10,8 @@ import java.util.*;
  */
 public class SecurityManager {
 
+	//TODO: Lockout users based on locked status
+	
 	private HashMap<String, Integer> lockouts = new HashMap<String,Integer>();
 	private static SecurityManager defaultInstance;
 	private final int LOCK = 3; //three attempts at login
