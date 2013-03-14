@@ -142,6 +142,17 @@ public class DatabaseHandler
   {
       ParseUser.getCurrentUser().deleteInBackground();
   }
+
+    public void getLockouts(FindCallback findCallback)
+    {
+        ParseQuery query = new ParseQuery("LockedUsers");
+        query.findInBackground(findCallback);
+    }
+    public void getDeletions(FindCallback findCallback)
+    {
+        ParseQuery query = new ParseQuery("QueuedDelete");
+        query.findInBackground(findCallback);
+    }
 	
 	/*private class Pass extends SignUpCallback
     {

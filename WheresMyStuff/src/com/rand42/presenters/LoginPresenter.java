@@ -47,21 +47,23 @@ public class LoginPresenter
                     if(u!=null)
                     {
                         User user = new User(u);
-                        if(!model.isUserLocked(user))
-                        {
-                            model.setCurrentUser(new User(u));
-                            view.loginSuccess(model.getCurrentUser().isAdmin());
-                            model.resetAttempts(email);
-                        }
-                       else if(model.isUserQueued(user))
+                        if(model.isUserQueued(user))
                         {
                             model.performUserDelete(user);
                             view.loginFail("Your account has been deleted");
                         }
-                        else
+                       else if(model.isUserLocked(user))
                         {
                             view.loginFail("Your account has been locked");
                             model.setCurrentUser(null);
+                        }
+
+                        else
+                        {
+                            model.setCurrentUser(new User(u));
+                            view.loginSuccess(model.getCurrentUser().isAdmin());
+                            model.resetAttempts(email);
+
                         }
 
                     }

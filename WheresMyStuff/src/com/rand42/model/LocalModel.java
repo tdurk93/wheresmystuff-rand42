@@ -144,7 +144,7 @@ public class LocalModel implements IModel
     public void performUserDelete(User user)
     {
         ParseObject queuedUser =sm.performDelete(user.getEmail());
-        if(queuedUser.get("users")==currentUser)
+        //if(queuedUser.get("users")==currentUser)
         dbh.deleteCurrentUser();
     }
 
