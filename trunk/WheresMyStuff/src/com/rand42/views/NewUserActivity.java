@@ -25,6 +25,7 @@ public class NewUserActivity extends Activity implements INewUserView
 	private EditText passwordField;
 	private EditText confirmField;
 	private NewUserPresenter presenter;
+    private boolean adminCreation;
 	
 
 
@@ -38,6 +39,7 @@ public class NewUserActivity extends Activity implements INewUserView
 		passwordField = (EditText)findViewById(R.id.passwordField);
         confirmField = (EditText)findViewById(R.id.confirmField);
 	    presenter = new NewUserPresenter(this, LocalModel.getModel());
+        adminCreation = getIntent().getBooleanExtra("isAdmin",false);
 	}
 
 	@Override
@@ -56,7 +58,7 @@ public class NewUserActivity extends Activity implements INewUserView
 		String email = emailField.getText().toString();
 		String password = passwordField.getText().toString();
 		String confirm = confirmField.getText().toString();
-		presenter.createUser(email,name, password, confirm);
+		presenter.createUser(email,name, password,  confirm, adminCreation);
 	}
 	
 	/**

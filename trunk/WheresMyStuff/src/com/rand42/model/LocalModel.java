@@ -87,18 +87,111 @@ public class LocalModel implements IModel
     }
 
     @Override
+    public void resetAttempts(String email)
+    {
+        sm.reset(email);
+    }
+
+    @Override
+    public void getUser(String email, final Requestor<User> requestor)
+    {
+        DatabaseHandler dbh = DatabaseHandler.getHandler();
+        dbh.getUser(email, new FindCallback()
+        {
+           public void done(List<ParseObject> results, ParseException e)
+           {
+               if(e==null)
+               {
+                   List<User> processedResults = new ArrayList<User>();
+                   processedResults.add(new User( ((ParseUser)results.get(0))) );
+                   requestor.querySuccess(processedResults);
+               }
+           }
+        });
+    }
+
+    @Override
+    public void lockUser(User currentUser)
+    {
+        DatabaseHandler dbh = DatabaseHandler.getHandler();
+        ParseObject lockedUser = dbh.lockUser(currentUser);
+        sm.lockUser(lockedUser);
+    }
+
+    @Override
+    public void unlockUser(User currentUser)
+    {
+        ParseObject unlockedUser = sm.unlockUser(currentUser.getEmail());
+        DatabaseHandler dbh = DatabaseHandler.getHandler();
+        dbh.unlockUser(unlockedUser);
+
+    }
+
+    @Override
+    public boolean isUserLocked(User user)
+    {
+        return sm.isUserLocked(user);
+    }
+
+    @Override
+    public void queueUserDelete(User user)
+    {
+        ParseObject queuedUser = dbh.queueForDelete(user);
+        sm.queueDelete(queuedUser);
+    }
+
+    @Override
+    public void performUserDelete(User user)
+    {
+        ParseObject queuedUser =sm.performDelete(user.getEmail());
+        if(queuedUser.get("users")==currentUser)
+        dbh.deleteCurrentUser();
+    }
+
+    @Override
+    public boolean isUserQueued(User user)
+    {
+        return sm.isUserQueued(user);
+    }
+
+    public void getAllUsers(final Requestor<User> requestor)
+    {
+        DatabaseHandler dbh = DatabaseHandler.getHandler();
+        dbh.getAllUsers(new FindCallback()
+        {
+            public void done(List<ParseObject> results, ParseException e)
+            {
+                List<User> processedResults = new ArrayList<User>();
+                if(e==null)
+                {
+                    for(ParseObject o:results)
+                    {
+                        ParseUser u = (ParseUser)o;
+                        processedResults.add(new User(u));
+                    }
+                    requestor.querySuccess(processedResults);
+                }
+            }
+        });
+
+    }
+    @Override
     public void getUserItems(User user, final Requestor<Item> requestor)
     {
 
         if(user==currentUser&&userItems!=null)
+        {
             requestor.querySuccess(userItems.values());
+        }
         else
         {
+
             final boolean isCurrent=user==currentUser;
             if(isCurrent)
+            {
                 userItems=new HashMap<String, Item>();
-     
-            
+            }
+            DatabaseHandler dbh = DatabaseHandler.getHandler();
             dbh.getUserItems(user, new FindCallback()
             {
                 @Override
@@ -126,22 +219,18 @@ public class LocalModel implements IModel
 
 
     @Override
-	public void addUser(String email, String name, String password, SignUpCallback callback)
+	public void addUser(String email, String name, String password, boolean isAdmin, SignUpCallback callback)
     {
-    	addUser(email,name,password,false,callback);
+		dbh.createUser(email, name, password, isAdmin, callback);
 	}
 
-    @Override
-    public void addUser(String email, String name, String password, boolean status, SignUpCallback callback){
-    	dbh.createUser(email, name, password, status, callback);
-    }
-    
+
 	@Override
-	public User getUser() {
+	public User getCurrentUser() {
 		return currentUser;
 	}
     @Override
-    public void setUser(User user)
+    public void setCurrentUser(User user)
     {
         currentUser = user;
     }
@@ -153,11 +242,7 @@ public class LocalModel implements IModel
 		currentUser= null;
 	}
 
-	@Override
-	public void promoteUser(String email, FindCallback callback){
-        //I'm getting real tired of these gorram anonymous callbacks yo. -S
-		dbh.promoteUser(email, callback);
-	}
-		
+
+	
 
 }

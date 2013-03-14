@@ -32,6 +32,6 @@ public class HomePresenter
      */
     public String getUserName()
     {
-        return model.getUser().getName();
+        return model.getCurrentUser().getName();
     }
 }

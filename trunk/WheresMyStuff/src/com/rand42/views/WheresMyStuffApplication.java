@@ -5,6 +5,7 @@ import com.parse.ParseACL;
 
 import android.app.Application;
 
+
 public class WheresMyStuffApplication extends Application
 {
 	@Override
@@ -15,6 +16,7 @@ public class WheresMyStuffApplication extends Application
 		ParseACL thisAcl = new ParseACL();
 		thisAcl.setPublicReadAccess(true);
 		ParseACL.setDefaultACL(thisAcl, true);
-	}
+
+    }
 
 }

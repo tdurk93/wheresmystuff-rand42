@@ -3,7 +3,6 @@ package com.rand42.presenters;
 import com.rand42.model.IModel;
 import com.rand42.model.Item;
 import com.rand42.model.Requestor;
-import com.rand42.model.User;
 import com.rand42.views.interfaces.IHomeView;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class ItemListFragmentPresenter implements Requestor<Item>
     public void getUserItems()
     {
        // currentFilter = filter;
-       model.getUserItems(model.getUser(), this);
+       model.getUserItems(model.getCurrentUser(), this);
     }
     public void deleteItem(Item item)
     {
@@ -63,6 +62,12 @@ public class ItemListFragmentPresenter implements Requestor<Item>
 
 
         view.itemQuerySuccess(filteredItems);
+    }
+
+    @Override
+    public void queryFail(String message)
+    {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 
 }

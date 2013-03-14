@@ -11,8 +11,9 @@ public interface ILoginView
 {
     /**
      * Called if login was successful
+     * @param isAdmin
      */
-    public void loginSuccess();
+    public void loginSuccess(boolean isAdmin);
 
     /**
      * Called if login failed
