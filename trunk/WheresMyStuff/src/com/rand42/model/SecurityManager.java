@@ -1,4 +1,6 @@
 package com.rand42.model;
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 
 import java.util.*;
@@ -85,4 +87,29 @@ public class SecurityManager {
     {
         return queuedDelete.containsKey(user.getEmail());
     }
+
+    public void loadQueues()
+    {
+        DatabaseHandler.getHandler().getLockouts(new FindCallback()
+        {
+
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e)
+            {
+                for(ParseObject o:parseObjects)
+                    lockedUsers.put(o.getString("username"), o);
+            }
+        }
+        );
+        DatabaseHandler.getHandler().getDeletions(new FindCallback()
+        {
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e)
+            {
+                for(ParseObject o:parseObjects)
+                    queuedDelete.put(o.getString("username"), o);
+            }
+        });
+    }
+
 }
