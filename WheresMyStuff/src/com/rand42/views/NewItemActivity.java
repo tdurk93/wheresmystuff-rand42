@@ -34,7 +34,7 @@ public class NewItemActivity extends Activity implements INewItemView
 
     public void createItem(View view)
     {
-        presenter.createItem(nameField.getText().toString(), descField.getText().toString(), LocalModel.getModel().getUser(), lostSwitch.isChecked());
+        presenter.createItem(nameField.getText().toString(), descField.getText().toString(), LocalModel.getModel().getCurrentUser(), lostSwitch.isChecked());
         this.finish();
     }
     @Override

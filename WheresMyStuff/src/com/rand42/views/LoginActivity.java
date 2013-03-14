@@ -35,6 +35,7 @@ public class LoginActivity extends Activity implements ILoginView
 		passwordField = (EditText)findViewById(R.id.passwordField);
 		presenter = new LoginPresenter(this, LocalModel.getModel());
         progressDialog = DialogFactory.createIndeterminateProgressDialog("Login","Logging in", this);
+
 	}
 	
 
@@ -65,11 +66,12 @@ public class LoginActivity extends Activity implements ILoginView
 	}
 	/**
 	 * Called when the user successfully logs in. Starts a new Activity for the logged in user
-	 */
-	public void loginSuccess()
+     * @param isAdmin
+     */
+	public void loginSuccess(boolean isAdmin)
 	{
 
-			Intent i = new Intent(this, HomeActivity.class);
+			Intent i = new Intent(this, isAdmin?AdminActivity.class:HomeActivity.class);
 			emailField.setText("");
 			passwordField.setText("");
             progressDialog.hide();
@@ -83,6 +85,7 @@ public class LoginActivity extends Activity implements ILoginView
 	{
 			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", message,this);
 			dialog.show();
+            progressDialog.hide();
 	}
 	/**
 	 * Called when the reset button is clicked. Spawns a dialog that asks for email address. 

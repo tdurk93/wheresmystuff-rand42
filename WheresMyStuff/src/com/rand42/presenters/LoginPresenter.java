@@ -36,7 +36,7 @@ public class LoginPresenter
      * @param email  email
      * @param password password
      */
-    public void logIn(String email, String password)
+    public void logIn(final String email, String password)
     {
         if(model.checkUserAttempts(email))
         {
@@ -46,14 +46,29 @@ public class LoginPresenter
                 {
                     if(u!=null)
                     {
-                        model.setUser(new User(u));
-                        view.loginSuccess();
+                        User user = new User(u);
+                        if(!model.isUserLocked(user))
+                        {
+                            model.setCurrentUser(new User(u));
+                            view.loginSuccess(model.getCurrentUser().isAdmin());
+                            model.resetAttempts(email);
+                        }
+                       else if(model.isUserQueued(user))
+                        {
+                            model.performUserDelete(user);
+                            view.loginFail("Your account has been deleted");
+                        }
+                        else
+                        {
+                            view.loginFail("Your account has been locked");
+                            model.setCurrentUser(null);
+                        }
 
                     }
                     else
                     {
                         view.loginFail(e.getMessage());
-                        model.setUser(null);
+                        model.setCurrentUser(null);
                     }
 
                 }

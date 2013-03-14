@@ -42,7 +42,7 @@ public class NewUserPresenter
      * @param password password
      * @param confirm  confirm
      */
-    public void createUser(String email, String name, String password, String confirm)
+    public void createUser(String email, String name, String password, String confirm, boolean isAdmin)
     {
         String errorMsg;
         if((errorMsg=verify(email, password, confirm))!="")
@@ -51,12 +51,15 @@ public class NewUserPresenter
         }
         else
         {
-            model.addUser(email, name, password, new SignUpCallback()
+            model.addUser(email, name, password, isAdmin, new SignUpCallback()
             {
                public void done(ParseException e)
                {
                     if(e==null)
+                    {
                         view.createSuccess();
+
+                    }
                    else
                         view.createFail(e.getMessage());
 

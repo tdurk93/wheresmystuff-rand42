@@ -1,5 +1,6 @@
 package com.rand42.model;
 
+import android.util.Log;
 import com.parse.*;
 
 /**
@@ -16,10 +17,12 @@ public class User {
 	private String name;
 	private String id;
 	private String email;
-	private boolean isAdmin;
-	
-	public User(ParseUser target){
+    private boolean isAdmin;
+    private boolean active;
 
+    public User(ParseUser target){
+
+            if(!target.isDataAvailable())
             target.fetchIfNeededInBackground(new GetCallback() //some targets may be skeletons without data. must load here
             {
                 @Override
@@ -27,12 +30,27 @@ public class User {
                 {
                     ParseUser parseUser = (ParseUser)parseObject;
                     user =parseUser;
-                    name = parseUser.getUsername();
+                    name = parseUser.getString("name");
                     id = parseUser.getObjectId();
-                    email = parseUser.getEmail();
-                    isAdmin = parseUser.getBoolean("ADMIN"); //I hope this works -S
+                    email = parseUser.getUsername();
+                    isAdmin = parseUser.getBoolean("admin");
                 }
             });
+        else
+            {
+                user = target;
+                name = target.getString("name");
+                id = target.getObjectId();
+                email = target.getUsername();
+                isAdmin = target.getBoolean("admin");
+                active=true;
+                if(SecurityManager.getSecurityManager().isUserQueued(this))
+                    active=false;
+
+
+            }
+
+
 	}
 	
 	/**
@@ -42,8 +60,8 @@ public class User {
 	public String getName(){
 		return name;
 	}
-	
-    public ParseUser getParseUser(){
+    public ParseUser getParseUser()
+    {
         return user;
     }
 	
@@ -67,8 +85,13 @@ public class User {
 	 * Selfexplanatory
 	 */
 	public String toString(){
-		return name;
+		return email;
 	}
+    public boolean isAdmin()
+    {
+        return isAdmin;
+    }
+
 	
 	/**
 	 * Selfexplanatory
@@ -76,9 +99,14 @@ public class User {
 	public void logOut(){
 		user.logOut();
 	}
-	
-	public boolean isAdmin(){
-		return isAdmin;
-	}
-	
+    public void setInactive()
+    {
+        active=false;
+    }
+
+
+    public boolean isActive()
+    {
+        return active;
+    }
 }

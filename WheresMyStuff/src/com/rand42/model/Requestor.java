@@ -9,4 +9,5 @@ import java.util.Collection;
 public interface Requestor<T>
 {
     public void querySuccess(Collection<T> items);
+    public void queryFail(String message);
 }

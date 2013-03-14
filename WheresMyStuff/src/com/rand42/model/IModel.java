@@ -1,6 +1,5 @@
 package com.rand42.model;
 
-import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.SignUpCallback;
 
@@ -17,8 +16,6 @@ import java.util.List;
 public interface IModel
 {
 
-	//TODO: Grrrr.
-	
 	/**
 	 * In this manner, the man of given name gave up
 	 * his word that he might pass and have his name
@@ -40,26 +37,8 @@ public interface IModel
 	 * @param password
 	 * @return
 	 */
-	void addUser(String email, String name, String password, SignUpCallback callback);
+	void addUser(String email, String name, String password, boolean isAdmin, SignUpCallback callback);
 	
-	/**
-	 * In this manner is the uninitiated man given
-	 * name granted status
-	 * @param email
-	 * @param name
-	 * @param password
-	 * @param admin
-	 * @param callback
-	 */
-	void addUser(String email, String name, String password, boolean admin, SignUpCallback callback);
-	
-	/**
-	 * In this manner is the man given name granted status.
-	 * May he watch over us all.
-	 * @param email
-	 * @param name
-	 */
-	void promoteUser(String email, FindCallback callback);
 	/**
 	 * In this manner is the man struck from the
 	 * Log of the Inn
@@ -70,13 +49,14 @@ public interface IModel
 	 * In this manner is the man of the Log returned.
 	 * @return
 	 */
-	User getUser();
+	User getCurrentUser();
+    void getAllUsers(Requestor<User> requestor);
 
     /**
      * Sets the curerntUser
      * @param user User
      */
-    void setUser(User user);
+    void setCurrentUser(User user);
 
     /**
      * Checks to see if user has logged in x amount of times (def 3)
@@ -109,5 +89,19 @@ public interface IModel
     Item getItem(String uid);
 
     void deleteItem(Item item, Requestor<Item> requestor);
+
+    void resetAttempts(String email);
+
+    void getUser(String email, Requestor<User> requestor);
+
+    void lockUser(User currentUser);
+    void unlockUser(User currentUser);
+
+    boolean isUserLocked(User user);
+
+    void queueUserDelete(User user);
+    void performUserDelete(User user);
+
+    boolean isUserQueued(User user);
 
 }

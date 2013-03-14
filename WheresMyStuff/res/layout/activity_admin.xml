@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Go To Regular User Functions"
+            android:id="@+id/homeButton" android:layout_gravity="center" android:onClick="regularClick"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="View Users"
+            android:id="@+id/viewUserButton" android:layout_gravity="center" android:onClick="viewClick"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Create New Admin"
+            android:id="@+id/newAdminButton" android:layout_gravity="center" android:onClick="createClick"/>
+</LinearLayout>
