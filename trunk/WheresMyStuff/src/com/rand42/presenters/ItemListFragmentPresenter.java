@@ -35,11 +35,11 @@ public class ItemListFragmentPresenter implements Requestor<Item>
     public void getUserItems()
     {
        // currentFilter = filter;
-       model.getUserItems(model.getCurrentUser(), this);
+       model.getUserItems(model.getCurrentUser());
     }
     public void deleteItem(Item item)
     {
-        model.deleteItem(item,this);
+        model.deleteItem(item);
     }
 
     /**

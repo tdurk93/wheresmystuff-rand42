@@ -1,3 +1,4 @@
+/*
 package com.rand42.model;
 
 import android.app.Activity;
@@ -141,6 +142,11 @@ public class DatabaseHandler
   public void deleteCurrentUser()
   {
       ParseUser.getCurrentUser().deleteInBackground();
+  }
+  public void dequeueUser(ParseObject user)
+  {
+      if(user.getClassName().equals("QueuedUsers"))
+          user.deleteInBackground();
   }
 
     public void getLockouts(FindCallback findCallback)

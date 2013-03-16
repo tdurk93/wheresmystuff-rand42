@@ -1,5 +1,6 @@
 package com.rand42.views;
 
+import android.content.Context;
 import com.parse.Parse;
 import com.parse.ParseACL;
 
@@ -9,15 +10,19 @@ import com.rand42.model.LocalModel;
 
 public class WheresMyStuffApplication extends Application
 {
+    private static Context context;
 	@Override
 	public void onCreate()
 	{
-		//Connect to parse.com
-		Parse.initialize(this, "KoYndP2ZTbsZI02r1s7vOFVBZGMATSQdIOxnG3BU", "Cgz0sIyzHfdCZe4Sd0d5NsFqKQcnLZQPk7FMkdAM");
-		ParseACL thisAcl = new ParseACL();
-		thisAcl.setPublicReadAccess(true);
-		ParseACL.setDefaultACL(thisAcl, true);
-        com.rand42.model.SecurityManager.getSecurityManager().loadQueues();
+        super.onCreate();
+        WheresMyStuffApplication.context = getApplicationContext();
+
     }
+
+    public static Context getAppContext()
+    {
+        return WheresMyStuffApplication.context;
+    }
+
 
 }

@@ -49,7 +49,7 @@ public class CallbackFactory {
         {
             public void done(ParseException e)
             {
-                userItems.remove(item.getUID());
+                userItems.remove(item.getID());
                 requestor.querySuccess(userItems.values());
             }
         });

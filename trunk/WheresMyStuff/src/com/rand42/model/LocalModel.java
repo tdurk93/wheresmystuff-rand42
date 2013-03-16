@@ -1,6 +1,8 @@
 package com.rand42.model;
 
-import com.parse.*;
+import com.rand42.database.ItemsDataSource;
+import com.rand42.database.UsersDataSource;
+import com.rand42.views.WheresMyStuffApplication;
 
 import java.util.*;
 
@@ -15,9 +17,10 @@ import java.util.*;
 public class LocalModel implements IModel
 {
 	
-	private DatabaseHandler dbh;
+	private ItemsDataSource ids;
+    private UsersDataSource uds;
 	private User currentUser;
-    private Map<String, Item> userItems;
+    //private Map<String, Item> userItems;
 	private static IModel model;
 	private SecurityManager sm;
 	
@@ -35,15 +38,17 @@ public class LocalModel implements IModel
 	 * We really need to have less of these
 	 */
 	private LocalModel(){
-		dbh = DatabaseHandler.getHandler();
+		ids = new ItemsDataSource(WheresMyStuffApplication.getAppContext());
+        uds = new UsersDataSource(WheresMyStuffApplication.getAppContext());
 		sm = SecurityManager.getSecurityManager();
 	}
 	
 	
 	@Override
-	public void logIn(String name, String password, LogInCallback callback)
+	public boolean logIn(String email, String password)
     {
-		dbh.login(name, password, callback);
+		currentUser = uds.loginUser(email,password);
+        return currentUser ==null;
 	}
 
     @Override
@@ -55,35 +60,19 @@ public class LocalModel implements IModel
     @Override
     public void createItem(String name, String description, User owner, boolean lost)
     {
-        Item item = new Item(name, owner, description, new Location(0,0), lost);
-        if(userItems==null)
-            userItems = new HashMap<String, Item>();
-        DatabaseHandler dbh = DatabaseHandler.getHandler();
-        dbh.saveItem(item);
-        userItems.put(item.getUID(), item);
+        ids.createItem(name,description,owner,lost);
     }
     @Override
-    public Item getItem(String uid)
+    public Item getItemById(long id)
     {
-        if(userItems.containsKey(uid))
-            return userItems.get(uid);
+        //need ids method
        return null;
     }
 
     @Override
-    public void deleteItem(final Item item, final Requestor<Item> requestor)
+    public void deleteItem(Item item)
     {
-
-        DatabaseHandler dbh = DatabaseHandler.getHandler();
-        dbh.deleteItem(item, new DeleteCallback()
-        {
-            public void done(ParseException e)
-            {
-                userItems.remove(item.getUID());
-                requestor.querySuccess(userItems.values());
-            }
-        });
-
+        ids.deleteItem(item.getID());
     }
 
     @Override
@@ -93,135 +82,64 @@ public class LocalModel implements IModel
     }
 
     @Override
-    public void getUser(String email, final Requestor<User> requestor)
+    public User getUser(String email)
     {
-        DatabaseHandler dbh = DatabaseHandler.getHandler();
-        dbh.getUser(email, new FindCallback()
-        {
-           public void done(List<ParseObject> results, ParseException e)
-           {
-               if(e==null)
-               {
-                   List<User> processedResults = new ArrayList<User>();
-                   processedResults.add(new User( ((ParseUser)results.get(0))) );
-                   requestor.querySuccess(processedResults);
-               }
-           }
-        });
+        return uds.getUserByEmail(email);
     }
 
     @Override
     public void lockUser(User currentUser)
     {
-        DatabaseHandler dbh = DatabaseHandler.getHandler();
-        ParseObject lockedUser = dbh.lockUser(currentUser);
-        sm.lockUser(lockedUser);
+        //TODO implement
     }
 
     @Override
     public void unlockUser(User currentUser)
     {
-        ParseObject unlockedUser = sm.unlockUser(currentUser.getEmail());
-        DatabaseHandler dbh = DatabaseHandler.getHandler();
-        dbh.unlockUser(unlockedUser);
+        //TODO implement
 
     }
 
     @Override
     public boolean isUserLocked(User user)
     {
-        return sm.isUserLocked(user);
+        return false;
+        //TODO implement or delete
     }
 
     @Override
     public void queueUserDelete(User user)
     {
-        ParseObject queuedUser = dbh.queueForDelete(user);
-        sm.queueDelete(queuedUser);
+
     }
 
     @Override
     public void performUserDelete(User user)
     {
-        ParseObject queuedUser =sm.performDelete(user.getEmail());
-        //if(queuedUser.get("users")==currentUser)
-        dbh.deleteCurrentUser();
+
     }
 
     @Override
     public boolean isUserQueued(User user)
     {
-        return sm.isUserQueued(user);
+          return false;
     }
 
-    public void getAllUsers(final Requestor<User> requestor)
+    public List<User> getAllUsers()
     {
-        DatabaseHandler dbh = DatabaseHandler.getHandler();
-        dbh.getAllUsers(new FindCallback()
-        {
-            public void done(List<ParseObject> results, ParseException e)
-            {
-                List<User> processedResults = new ArrayList<User>();
-                if(e==null)
-                {
-                    for(ParseObject o:results)
-                    {
-                        ParseUser u = (ParseUser)o;
-                        processedResults.add(new User(u));
-                    }
-                    requestor.querySuccess(processedResults);
-                }
-            }
-        });
-
+        return uds.getAllUsers();
     }
     @Override
-    public void getUserItems(User user, final Requestor<Item> requestor)
+    public List<Item> getUserItems(User user)
     {
-
-        if(user==currentUser&&userItems!=null)
-        {
-            requestor.querySuccess(userItems.values());
-        }
-        else
-        {
-
-            final boolean isCurrent=user==currentUser;
-            if(isCurrent)
-            {
-                userItems=new HashMap<String, Item>();
-            }
-            DatabaseHandler dbh = DatabaseHandler.getHandler();
-            dbh.getUserItems(user, new FindCallback()
-            {
-                @Override
-                public void done(List<ParseObject> parseObjects, ParseException e)
-                {
-                    if(e==null)
-                    {
-                        List<Item> items = new ArrayList<Item>();
-                        for(ParseObject po:parseObjects)
-                        {
-                            Item i = new Item(po);
-                            items.add(i);
-                            if(isCurrent)
-                                userItems.put(po.getString("uid"),i);
-                        }
-                        requestor.querySuccess(items);
-
-                    }
-                }
-
-            });
-        }
-
+        return ids.getAllUserItems(user);
     }
 
 
     @Override
-	public void addUser(String email, String name, String password, boolean isAdmin, SignUpCallback callback)
+	public void addUser(String email, String name, String password, boolean isAdmin)
     {
-		dbh.createUser(email, name, password, isAdmin, callback);
+		uds.createUser(name,email,password, isAdmin);
 	}
 
 
@@ -237,9 +155,7 @@ public class LocalModel implements IModel
 
 	@Override
 	public void logOut() {
-        userItems = null;
-		if(currentUser!= null) currentUser.logOut();
-		currentUser= null;
+      currentUser = null;
 	}
 
 
