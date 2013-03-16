@@ -92,7 +92,7 @@ public class ItemListFragment extends Fragment implements IHomeView, AdapterView
     {
         Item item = (Item)adapterView.getItemAtPosition(i);
         Intent intent = new Intent(this.getActivity(), ViewItemActivity.class);
-        intent.putExtra("UID", item.getUID());
+        intent.putExtra("UID", item.getID());
         startActivity(intent);
     }
     @Override

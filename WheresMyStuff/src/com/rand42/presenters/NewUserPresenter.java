@@ -1,7 +1,5 @@
 package com.rand42.presenters;
 
-import com.parse.ParseException;
-import com.parse.SignUpCallback;
 import com.rand42.model.IModel;
 import com.rand42.views.interfaces.INewUserView;
 
@@ -51,20 +49,7 @@ public class NewUserPresenter
         }
         else
         {
-            model.addUser(email, name, password, isAdmin, new SignUpCallback()
-            {
-               public void done(ParseException e)
-               {
-                    if(e==null)
-                    {
-                        view.createSuccess();
-
-                    }
-                   else
-                        view.createFail(e.getMessage());
-
-               }
-            });
+            model.addUser(email, name, password, isAdmin);
         }
 
     }

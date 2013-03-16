@@ -1,9 +1,7 @@
 package com.rand42.model;
 
-import com.parse.LogInCallback;
 import com.parse.SignUpCallback;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,22 +20,25 @@ public interface IModel
 	 * writ in the log of the Inn
 	 * 
 	 *
-     * @param name
+     *
+     *
+     * @param email
      * @param password
      * @return
 	 */
-	void logIn(String name, String password, LogInCallback callback);
+	boolean logIn(String email, String password);
 	
 	/**
 	 * In this manner, the uninitiated man of given
 	 * name might be enlightened.
 	 * 
-	 * @param email
-	 * @param name
-	 * @param password
-	 * @return
+	 *
+     * @param email
+     * @param name
+     * @param password
+     * @return
 	 */
-	void addUser(String email, String name, String password, boolean isAdmin, SignUpCallback callback);
+	void addUser(String email, String name, String password, boolean isAdmin);
 	
 	/**
 	 * In this manner is the man struck from the
@@ -50,7 +51,7 @@ public interface IModel
 	 * @return
 	 */
 	User getCurrentUser();
-    void getAllUsers(Requestor<User> requestor);
+    List<User> getAllUsers();
 
     /**
      * Sets the curerntUser
@@ -75,24 +76,24 @@ public interface IModel
 
     /**
      * Returns the items associated with a user
+     *
      * @param user User
-     * @param requestor The object that requested the data
      * @return Items
      */
-    void getUserItems(User user, final Requestor<Item> requestor);
+    List<Item> getUserItems(User user);
 
     /**
      * Gets an item with a UID
-     * @param uid uid
-     * @return item
+     *
+     * @param id@return item
      */
-    Item getItem(String uid);
+    Item getItemById(long id);
 
-    void deleteItem(Item item, Requestor<Item> requestor);
+    void deleteItem(Item item);
 
     void resetAttempts(String email);
 
-    void getUser(String email, Requestor<User> requestor);
+    User getUser(String email);
 
     void lockUser(User currentUser);
     void unlockUser(User currentUser);

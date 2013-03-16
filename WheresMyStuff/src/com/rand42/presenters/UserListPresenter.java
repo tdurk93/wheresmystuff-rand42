@@ -47,7 +47,7 @@ public class UserListPresenter implements Requestor<User>
     }
     public void getUsers()
     {
-        model.getAllUsers(this);
+        model.getAllUsers();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class ViewUserPresenter implements Requestor<User>
 
     public void loadUser(String email)
     {
-        model.getUser(email, this);
+        model.getUser(email);
     }
 
     @Override

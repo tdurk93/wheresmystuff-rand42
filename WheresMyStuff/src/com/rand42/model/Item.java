@@ -1,11 +1,8 @@
 package com.rand42.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import com.parse.*;
 
 
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -14,71 +11,20 @@ import java.util.UUID;
  */
 public class Item
 {
-    private String uid;
+    private long id;
     private String name;
     private User owner;
     private String description;
     private Location location;
     private boolean lost;
-    private ParseObject parseObject;
-    private String parseID;
 
-    /**
-     * Create a new Item from scratch
-     * @param name
-     * @param owner
-     * @param description
-     * @param location
-     */
-    public Item(String name, User owner, String description, Location location, boolean lost)
+    public Item(String name, String description, User owner,  long id, boolean lost)
     {
-        this.name=name;
-        this.owner=owner;
-        this.description=description;
-        this.location=location;
-        this.lost=lost;
-        uid = UUID.randomUUID().toString();
-
-
-        parseObject = new ParseObject("Item");
-        parseObject.put("name",name);
-        parseObject.put("desc",description);
-        parseObject.put("owner",(ParseObject)owner.getParseUser());
-        parseObject.put("uid", uid);
-        parseObject.put("lost",lost);
-
-
-    }
-
-    /**
-     * Create a new item from an existing database object.
-     * @param target
-     */
-    public Item(ParseObject target)
-    {
-        if(!target.isDataAvailable())
-        target.fetchIfNeededInBackground(new GetCallback()  //target is often just a skeleton with no data. must load here
-        {
-            @Override
-            public void done(ParseObject parseObject, ParseException e)
-            {
-                name=parseObject.getString("name");
-                description=parseObject.getString("desc");
-                owner = new User((ParseUser)parseObject.getParseObject("owner"));
-                uid = parseObject.getString("uid");
-                lost = parseObject.getBoolean("lost");
-
-            }
-        });
-        else
-        {
-            name=target.getString("name");
-            description=target.getString("desc");
-            owner = new User((ParseUser)target.getParseObject("owner"));
-            uid = target.getString("uid");
-            lost = target.getBoolean("lost");
-        }
-        parseObject = target;
+        this.description = description;
+        this.owner = owner;
+        this.name = name;
+        this.id = id;
+        this.lost = lost;
     }
 
     public String getName()
@@ -89,21 +35,13 @@ public class Item
     {return owner;}
     public Location getLocation()
     {return location;}
-    public String getUID()
+    public long getID()
     {
-        return uid;
+        return id;
     }
     public boolean isLost()
     {
         return lost;
-    }
-
-    /**
-     * Saves the item to the parse database
-     */
-    public void saveInBackground()
-    {
-        parseObject.saveInBackground();
     }
 
     /**
@@ -113,13 +51,6 @@ public class Item
     public String toString()
     {
         return name;
-    }
-
-
-    public void deleteInBackground(DeleteCallback deleteCallback)
-    {
-        parseObject.deleteInBackground(deleteCallback);
-        //parseObject.
     }
 
 }
