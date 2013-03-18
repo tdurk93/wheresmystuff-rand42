@@ -88,7 +88,7 @@ public class SecurityManager {
         return queuedDelete.containsKey(user.getEmail());
     }
 
-    public void loadQueues()
+  /*  public void loadQueues()
     {
         DatabaseHandler.getHandler().getLockouts(new FindCallback()
         {
@@ -110,6 +110,6 @@ public class SecurityManager {
                     queuedDelete.put(o.getString("username"), o);
             }
         });
-    }
+    }*/
 
 }

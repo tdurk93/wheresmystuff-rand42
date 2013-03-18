@@ -7,12 +7,14 @@ import android.util.Log;
 import com.parse.*;
 import com.rand42.views.WheresMyStuffApplication;
 
+*/
 /**
  * The DatabaseHandler is a singleton with Parse.com database read and write methods
  * @author Rand-42
  *
- */
-public class DatabaseHandler 
+ *//*
+
+public class DatabaseHandler
 {
 	private static DatabaseHandler handler;
 
@@ -23,10 +25,12 @@ public class DatabaseHandler
     {
 
     }
-	/**
+	*/
+/**
 	 * Gets the Database Handler
 	 * @return The database handler
-	 */
+	 *//*
+
 	public static DatabaseHandler getHandler()
 	{
 		if(handler==null)
@@ -35,24 +39,28 @@ public class DatabaseHandler
 	}
 
 
-    /**
+    */
+/**
      * Logs in on parse
      * @param email  email
      * @param password password
      * @param callback  callback method to call when operation completes
-     */
+     *//*
+
 	public void login(String email, String password, LogInCallback callback)
 	{
 		ParseUser.logInInBackground(email,password, callback);
 	}
 
-    /**
+    */
+/**
      * Creates a new user on parse
      * @param email email
      * @param name name
      * @param password password
      * @param callback method to call when operation finishes
-     */
+     *//*
+
 	public void createUser(String email, String name, String password, boolean isAdmin, SignUpCallback callback)
 	{
 		ParseUser user = new ParseUser();
@@ -65,11 +73,13 @@ public class DatabaseHandler
 	}
 
 
-    /**
+    */
+/**
      * Retrieves the items associated with a user
      * @param user
      * @param callback Method to call when operation completes
-     */
+     *//*
+
     public void getUserItems(User user, FindCallback callback)
     {
         ParseQuery query = new ParseQuery("Item");
@@ -78,21 +88,25 @@ public class DatabaseHandler
     }
 	
 		
-	/**
+	*/
+/**
 	 * Resets the password using ParseUser methods
 	 * @param email The email account of the associated account
 	 * @param callback The method to call when the operation completes
-	 */
+	 *//*
+
 	public void resetPassword(String email, RequestPasswordResetCallback callback)
 	{
 		
 		ParseUser.requestPasswordResetInBackground(email, callback);
 	}
 
-    /**
+    */
+/**
      * Causes an item to save itself using the ParseObject it wraps
 * @param i  The item to save
-     */
+     *//*
+
     public void saveItem(Item i)
     {
         i.saveInBackground();
@@ -160,7 +174,8 @@ public class DatabaseHandler
         query.findInBackground(findCallback);
     }
 	
-	/*private class Pass extends SignUpCallback
+	*/
+/*private class Pass extends SignUpCallback
     {
 		
 		boolean success;
@@ -192,7 +207,9 @@ public class DatabaseHandler
 		public boolean isFinished(){
 			return finished;
 		}
-	}    */
+	}    *//*
+
 	
 
 }
+*/

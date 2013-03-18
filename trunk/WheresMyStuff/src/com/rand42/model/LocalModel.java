@@ -18,7 +18,8 @@ public class LocalModel implements IModel
 {
 	
 	private ItemsDataSource ids;
-    private UsersDataSource uds;
+    private UsersDataSource
+            uds;
 	private User currentUser;
     //private Map<String, Item> userItems;
 	private static IModel model;
@@ -41,14 +42,17 @@ public class LocalModel implements IModel
 		ids = new ItemsDataSource(WheresMyStuffApplication.getAppContext());
         uds = new UsersDataSource(WheresMyStuffApplication.getAppContext());
 		sm = SecurityManager.getSecurityManager();
+        uds.open();
+        ids.open();
 	}
 	
 	
 	@Override
 	public boolean logIn(String email, String password)
     {
+
 		currentUser = uds.loginUser(email,password);
-        return currentUser ==null;
+        return currentUser != null;
 	}
 
     @Override
@@ -137,9 +141,9 @@ public class LocalModel implements IModel
 
 
     @Override
-	public void addUser(String email, String name, String password, boolean isAdmin)
+	public boolean addUser(String email, String name, String password, boolean isAdmin)
     {
-		uds.createUser(name,email,password, isAdmin);
+		return uds.createUser(name,email,password, isAdmin);
 	}
 
 

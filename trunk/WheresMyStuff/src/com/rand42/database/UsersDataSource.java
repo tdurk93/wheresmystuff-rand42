@@ -44,7 +44,7 @@ public class UsersDataSource
     }
 
 
-    public void createUser(String name, String email, String password, boolean isAdmin)
+    public boolean createUser(String name, String email, String password, boolean isAdmin)
     {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NAME, name);
@@ -54,6 +54,7 @@ public class UsersDataSource
         values.put(MySQLiteHelper.COLUMN_ENABLED,1);
 
         long insertId = database.insert(MySQLiteHelper.TABLE_USERS, null,values);
+        return insertId !=-1;
 
 
 
@@ -104,6 +105,9 @@ public class UsersDataSource
     {
         if(cursor.isAfterLast())
             return null;
+        if(cursor.isBeforeFirst())
+                cursor.moveToNext();
+
         User user = new User(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)),
                 cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_EMAIL)),
                 cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_PASSWORD)),

@@ -38,7 +38,7 @@ public interface IModel
      * @param password
      * @return
 	 */
-	void addUser(String email, String name, String password, boolean isAdmin);
+	boolean addUser(String email, String name, String password, boolean isAdmin);
 	
 	/**
 	 * In this manner is the man struck from the

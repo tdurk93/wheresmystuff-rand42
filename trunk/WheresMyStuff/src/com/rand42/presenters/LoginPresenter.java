@@ -36,7 +36,12 @@ public class LoginPresenter
         if(model.checkUserAttempts(email))
         {
             //TODO: MOVE OUT
-            model.logIn(email, password);
+           if(model.logIn(email, password))
+           {
+               view.loginSuccess(model.getCurrentUser().isAdmin());
+           }
+           else
+               view.loginFail("Invalid Creds");
         }
         else
             view.loginFail("You have attempted to login too many times. Try again later");

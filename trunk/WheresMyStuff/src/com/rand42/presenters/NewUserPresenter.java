@@ -49,7 +49,12 @@ public class NewUserPresenter
         }
         else
         {
-            model.addUser(email, name, password, isAdmin);
+            if(model.addUser(email, name, password, isAdmin))
+            {
+                view.createSuccess();
+            }
+            else
+                view.createFail("Username already exists");
         }
 
     }
