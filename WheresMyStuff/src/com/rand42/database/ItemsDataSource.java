@@ -60,7 +60,7 @@ public class ItemsDataSource
     public List<Item> getAllUserItems(User user)
     {
         List<Item> items = new ArrayList<Item>();
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_ITEMS, allColumns, MySQLiteHelper.COLUMN_ID+"=?",new String[]{user.getID()+""},null,null,null);
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_ITEMS, allColumns, MySQLiteHelper.COLUMN_USER+"=?",new String[]{user.getID()+""},null,null,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast())
         {
@@ -75,20 +75,23 @@ public class ItemsDataSource
     /**
      * Makes a user from a database cursor
      * @param cursor The database cursor
+     *
      * @return The created user
      */
     private Item cursorToItem(Cursor cursor)
     {
-        int userId = cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID));
-        Cursor userCursor = database.query(MySQLiteHelper.TABLE_USERS, allColumns, MySQLiteHelper.COLUMN_ID+"=?", new String[]{userId+""}, null,null,null);
+        int userId = cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_USER));
+        Cursor userCursor = database.query(MySQLiteHelper.TABLE_USERS,  new String[]{MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NAME, MySQLiteHelper.COLUMN_EMAIL, MySQLiteHelper.COLUMN_PASSWORD
+                , MySQLiteHelper.COLUMN_ENABLED, MySQLiteHelper.COLUMN_ADMIN}, MySQLiteHelper.COLUMN_ID+"=?", new String[]{userId+""}, null,null,null);
 
+        userCursor.moveToFirst();
         User user = new User(userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)),
                 userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_EMAIL)),
                 userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_PASSWORD)),
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ADMIN))==1,
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)));
 
-        Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)), user, cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),true);
+        Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)), user, cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),(cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_LOST))==1)?true:false);
         return item;
 
 

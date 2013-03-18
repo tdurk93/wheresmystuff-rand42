@@ -93,8 +93,8 @@ public class LoginActivity extends Activity implements ILoginView
 	 */
 	public void passwordReset(View view)
 	{
-		AlertDialog dialog = DialogFactory.createResetDialog(this);
-		dialog.show();
+		//AlertDialog dialog = DialogFactory.createResetDialog(this);
+		//dialog.show();
 	}
 	
 }

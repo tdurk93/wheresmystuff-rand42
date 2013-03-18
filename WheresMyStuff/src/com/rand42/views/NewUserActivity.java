@@ -77,7 +77,7 @@ public class NewUserActivity extends Activity implements INewUserView
 	 */
 	public void createSuccess()
 	{
-		AlertDialog dialog = DialogFactory.createFinishDialog("Success","You will recieve a confirmation email",this);
+		AlertDialog dialog = DialogFactory.createFinishDialog("Success","Account Created Successfully",this);
 		dialog.show();
 	}
 	/**

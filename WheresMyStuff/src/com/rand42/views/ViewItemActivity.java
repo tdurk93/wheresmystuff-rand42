@@ -20,7 +20,7 @@ public class ViewItemActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_item);
         Bundle bundle = getIntent().getExtras();
-        //Item i = LocalModel.getModel().getItemById(bundle.getString("UID"));
+        Item i = LocalModel.getModel().getItemById(bundle.getInt("ID"));
         TextView uidView = (TextView)findViewById(R.id.textView);
         //uidView.setText(i.getName());
 

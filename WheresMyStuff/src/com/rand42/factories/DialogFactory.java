@@ -3,7 +3,7 @@ package com.rand42.factories;
 import android.widget.ProgressBar;
 import com.parse.ParseException;
 import com.parse.RequestPasswordResetCallback;
-import com.rand42.model.DatabaseHandler;
+//import com.rand42.model.DatabaseHandler;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -82,7 +82,7 @@ public class DialogFactory {
 	 * @param c The calling activity
 	 * @return The created dialog
 	 */
-	public static AlertDialog createResetDialog(Activity c)
+	/*public static AlertDialog createResetDialog(Activity c)
 	{
 		final Activity caller = c;
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(caller);
@@ -130,5 +130,5 @@ public class DialogFactory {
 		alertDialogBuilder.setCancelable(true);
 		return alertDialogBuilder.create();
 	}
-
+*/
 }

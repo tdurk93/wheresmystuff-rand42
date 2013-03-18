@@ -28,10 +28,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     public static final String COLUMN_ENABLED="enabled";
     public static final String COLUMN_LOST = "lost";
 
-    private static final String DATABASE_MAKE = "create table "+TABLE_ITEMS+"("+COLUMN_ID
-            +" integer primary key autoincrement, "+COLUMN_DESC+" text not null, "+COLUMN_LOST+" integer not null, "+COLUMN_USER+" integer not null, " +
-            "foreign key("+COLUMN_USER+") references "+TABLE_USERS+"("+COLUMN_ID+") on delete cascade);"+
-            "create table "+TABLE_USERS+"("+COLUMN_ID
+    private static final String DATABASE_MAKE = "create  antable "+TABLE_ITEMS+"("+COLUMN_ID
+            +" integer primary key autoincrement, "+COLUMN_NAME+" text not null, "+COLUMN_DESC+" text not null, "+COLUMN_LOST+" integer not null, "+COLUMN_USER+" integer not null, " +
+            "foreign key("+COLUMN_USER+") references "+TABLE_USERS+"("+COLUMN_ID+") on delete cascade);";
+
+    private static final String USERS_MAKE =  "create table "+TABLE_USERS+"("+COLUMN_ID
             +" integer primary key autoincrement, "+COLUMN_EMAIL+" text not null unique, "+COLUMN_NAME+" text not null, "+COLUMN_PASSWORD+" text not null, "+
             COLUMN_ADMIN+" integer, "+COLUMN_ENABLED+" integer);";
 
@@ -48,12 +49,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sqLiteDatabase)
     {
         sqLiteDatabase.execSQL(DATABASE_MAKE);
+        sqLiteDatabase.execSQL(USERS_MAKE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2)
     {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_USERS);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_ITEMS);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_USERS);
         onCreate(sqLiteDatabase);
     }

@@ -12,15 +12,15 @@ import com.rand42.factories.DialogFactory;
 import com.rand42.model.Item;
 import com.rand42.model.LocalModel;
 import com.rand42.presenters.ItemListFragmentPresenter;
-import com.rand42.views.interfaces.IHomeView;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * A Fragment to view Items in a list. Can populate itself
  */
-public class ItemListFragment extends Fragment implements IHomeView, AdapterView.OnItemClickListener
+public class ItemListFragment extends Fragment implements  AdapterView.OnItemClickListener
 {
     private ListView list;
     private ItemListFragmentPresenter presenter;
@@ -43,7 +43,7 @@ public class ItemListFragment extends Fragment implements IHomeView, AdapterView
         list = (ListView)view.findViewById(R.id.itemlist);
         list.setOnItemClickListener(this);
         registerForContextMenu(list);
-        presenter = new ItemListFragmentPresenter(this, LocalModel.getModel(),getArguments().getInt("filter"));
+        presenter = new ItemListFragmentPresenter(LocalModel.getModel(),getArguments().getInt("filter"));
         adapter = new ArrayAdapter<Item>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1);
         progressDialog = DialogFactory.createIndeterminateProgressDialog("Delete","Deleting", this.getActivity());
         return view;
@@ -62,13 +62,7 @@ public class ItemListFragment extends Fragment implements IHomeView, AdapterView
      */
     public void populateList()
     {
-        presenter.getUserItems();
-    }
-
-
-    @Override
-    public void itemQuerySuccess(Collection<Item> items)
-    {
+       List<Item> items =  presenter.getUserItems();
         if(items!=null)
         {
 
@@ -78,7 +72,7 @@ public class ItemListFragment extends Fragment implements IHomeView, AdapterView
             adapter.notifyDataSetChanged();
             list.setAdapter(adapter);
         }
-        progressDialog.hide();
+        //progressDialog.hide();
     }
 
     /**
@@ -92,7 +86,7 @@ public class ItemListFragment extends Fragment implements IHomeView, AdapterView
     {
         Item item = (Item)adapterView.getItemAtPosition(i);
         Intent intent = new Intent(this.getActivity(), ViewItemActivity.class);
-        intent.putExtra("UID", item.getID());
+        intent.putExtra("ID", item.getID());
         startActivity(intent);
     }
     @Override
