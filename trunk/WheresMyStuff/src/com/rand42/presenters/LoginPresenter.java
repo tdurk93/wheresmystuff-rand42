@@ -38,7 +38,10 @@ public class LoginPresenter
             //TODO: MOVE OUT
            if(model.logIn(email, password))
            {
-               view.loginSuccess(model.getCurrentUser().isAdmin());
+               if(!model.getCurrentUser().isActive())
+                   view.loginFail("Your account has been locked");
+               else
+                   view.loginSuccess(model.getCurrentUser().isAdmin());
            }
            else
                view.loginFail("Invalid Creds");

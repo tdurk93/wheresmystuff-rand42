@@ -59,7 +59,7 @@ public class UsersDataSource
 
 
     }
-    public User getUserById(int id)
+    public User getUserById(long id)
     {
         Cursor cursor = database.query(MySQLiteHelper.TABLE_USERS, allColumns, MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""}, null,null,null);
         return cursorToUser(cursor);
@@ -77,9 +77,10 @@ public class UsersDataSource
             return null;
         return cursorToUser(cursor);
     }
-    public void deleteUser(String email)
+    public boolean deleteUser(long id)
     {
-        int rowsAffected = database.delete(MySQLiteHelper.TABLE_USERS,  "email=?", new String[]{email});
+        int rowsAffected = database.delete(MySQLiteHelper.TABLE_USERS,  MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""});
+        return rowsAffected !=0;
     }
     public List<User> getAllUsers()
     {
@@ -112,8 +113,22 @@ public class UsersDataSource
                 cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_EMAIL)),
                 cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_PASSWORD)),
                 cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ADMIN))==1,
-                cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)));
+                cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
+                cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ENABLED))==1);
 
         return user;
+    }
+
+    public void lockUser(long id)
+    {
+        ContentValues values = new ContentValues();
+        values.put(MySQLiteHelper.COLUMN_ENABLED, 0);
+        database.update(MySQLiteHelper.TABLE_USERS, values, MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""} );
+    }
+    public void unlockUser(long id)
+    {
+        ContentValues values = new ContentValues();
+        values.put(MySQLiteHelper.COLUMN_ENABLED, 1);
+        database.update(MySQLiteHelper.TABLE_USERS, values, MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""} );
     }
 }

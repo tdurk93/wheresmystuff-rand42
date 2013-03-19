@@ -95,15 +95,10 @@ public interface IModel
     void resetAttempts(String email);
 
     User getUser(String email);
+    User getUser(long id);
 
     void lockUser(User currentUser);
     void unlockUser(User currentUser);
 
-    boolean isUserLocked(User user);
-
-    void queueUserDelete(User user);
-    void performUserDelete(User user);
-
-    boolean isUserQueued(User user);
-
+    boolean deleteUser(User user);
 }

@@ -40,7 +40,7 @@ public class SecurityManager {
 	 * After the third login attempt the user
 	 * is locked out.
 	 * 
-	 * @param user
+	 * @param username email
 	 * @return
 	 */
 	public boolean check(String username){
@@ -61,55 +61,5 @@ public class SecurityManager {
     {
 		lockouts = new HashMap<String,Integer>();
 	}
-
-    public void lockUser(ParseObject lockedUser)
-    {
-       lockedUsers.put(lockedUser.getString("username"), lockedUser);
-    }
-    public ParseObject unlockUser(String email)
-    {
-        return lockedUsers.remove(email);
-    }
-    public void queueDelete(ParseObject queuedUser)
-    {
-        queuedDelete.put(queuedUser.getString("username"), queuedUser);
-    }
-    public ParseObject performDelete(String email)
-    {
-        return queuedDelete.remove(email);
-    }
-
-    public boolean isUserLocked(User user)
-    {
-        return lockedUsers.containsKey(user.getEmail());
-    }
-    public boolean isUserQueued(User user)
-    {
-        return queuedDelete.containsKey(user.getEmail());
-    }
-
-  /*  public void loadQueues()
-    {
-        DatabaseHandler.getHandler().getLockouts(new FindCallback()
-        {
-
-            @Override
-            public void done(List<ParseObject> parseObjects, ParseException e)
-            {
-                for(ParseObject o:parseObjects)
-                    lockedUsers.put(o.getString("username"), o);
-            }
-        }
-        );
-        DatabaseHandler.getHandler().getDeletions(new FindCallback()
-        {
-            @Override
-            public void done(List<ParseObject> parseObjects, ParseException e)
-            {
-                for(ParseObject o:parseObjects)
-                    queuedDelete.put(o.getString("username"), o);
-            }
-        });
-    }*/
 
 }

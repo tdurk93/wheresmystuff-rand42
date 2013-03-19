@@ -12,5 +12,4 @@ import com.rand42.model.User;
 public interface IViewUserView
 {
 
-    public void presentData(User u, boolean userLocked);
 }

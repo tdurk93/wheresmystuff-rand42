@@ -63,7 +63,7 @@ public class UserListActivity extends Activity implements IUserListView, Adapter
     {
        User clicked =  (User)adapterView.getItemAtPosition(i);
         Intent intent = new Intent(this, ViewUserActivity.class);
-       intent.putExtra("email",clicked.getEmail());
+       intent.putExtra("id",clicked.getID());
         startActivity(intent);
     }
 }
