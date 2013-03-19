@@ -24,40 +24,45 @@
     </option>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" line="135" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" line="122" />
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="3542ddf8-9f5e-4559-940e-9d908c36335e" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\factories\CallbackFactory.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/interfaces/IUserListView.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/interfaces/IUserListView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/IModel.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/IModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/interfaces/IViewUserView.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/interfaces/IViewUserView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java" afterPath="$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/presenters/LoginPresenter.java" afterPath="$PROJECT_DIR$/src/com/rand42/presenters/LoginPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/model/User.java" afterPath="$PROJECT_DIR$/src/com/rand42/model/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/UserListActivity.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/UserListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/presenters/UserListPresenter.java" afterPath="$PROJECT_DIR$/src/com/rand42/presenters/UserListPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/WheresMyStuffApplication.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/WheresMyStuffApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java" afterPath="$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/views/ViewUserActivity.java" afterPath="$PROJECT_DIR$/src/com/rand42/views/ViewUserActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/presenters/ViewUserPresenter.java" afterPath="$PROJECT_DIR$/src/com/rand42/presenters/ViewUserPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WheresMyStuff.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.xml" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362183130675" ignored="false" />
     <file path="$PROJECT_DIR$/../TestAndroid/res/layout/main.xml" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1361323094641" ignored="false" />
-    <file path="/User.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363364667168" ignored="false" />
+    <file path="/User.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363711287422" ignored="false" />
     <file path="/fragment.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363403606317" ignored="false" />
     <file path="/TestClass.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362182396547" ignored="false" />
-    <file path="/LocalModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363671875748" ignored="false" />
+    <file path="/LocalModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363712277672" ignored="false" />
     <file path="/Model.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362186555212" ignored="false" />
     <file path="/LoginCallback.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362186220522" ignored="false" />
     <file path="/DatabaseHandler.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363362547759" ignored="false" />
     <file path="/Item.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363627472174" ignored="false" />
     <file path="/Location.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362344559735" ignored="false" />
     <file path="/NewItem.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362187363748" ignored="false" />
-    <file path="/Dummy.txt" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363672120950" ignored="false" />
+    <file path="/Dummy.txt" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363672975381" ignored="false" />
     <file path="/activity_new_item.xml" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362187537414" ignored="false" />
     <file path="/ILoginPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362250070262" ignored="false" />
     <file path="/ILoginView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362254908626" ignored="false" />
     <file path="/LoginActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363241353225" ignored="false" />
-    <file path="/LoginPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363444343200" ignored="false" />
+    <file path="/LoginPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363710969716" ignored="false" />
     <file path="/HomeActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362666597028" ignored="false" />
-    <file path="/IModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363671826192" ignored="false" />
+    <file path="/IModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363712267432" ignored="false" />
     <file path="/NewUserPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363533391759" ignored="false" />
     <file path="$PROJECT_DIR$/src/com/rand42/presenters/INewUserView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362252313149" ignored="false" />
     <file path="$PROJECT_DIR$/gen/com/rand42/views/INewUserView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362252338405" ignored="false" />
@@ -84,15 +89,15 @@
     <file path="/ViewUsersActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363227997970" ignored="false" />
     <file path="/IViiewUsersView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363226506955" ignored="false" />
     <file path="/UserListPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363672823651" ignored="false" />
-    <file path="/SecurityManager.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363244272492" ignored="false" />
-    <file path="/ViewUserActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363242508338" ignored="false" />
-    <file path="/ViewUserPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363242183367" ignored="false" />
+    <file path="/SecurityManager.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363712502573" ignored="false" />
+    <file path="/ViewUserActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363712373873" ignored="false" />
+    <file path="/ViewUserPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363712327829" ignored="false" />
     <file path="/IViewUserView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363233025038" ignored="false" />
-    <file path="/UserListActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363672856950" ignored="false" />
+    <file path="/UserListActivity.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363710473317" ignored="false" />
     <file path="/WheresMyStuffApplication.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363672699084" ignored="false" />
     <file path="/MySQLiteHelper.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363672666722" ignored="false" />
-    <file path="/UsersDataSource.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363533351874" ignored="false" />
-    <file path="/ItemsDataSource.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363671856700" ignored="false" />
+    <file path="/UsersDataSource.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363712241488" ignored="false" />
+    <file path="/ItemsDataSource.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363711368766" ignored="false" />
     <file path="/ItemListFragment.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1363671989491" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,8 +113,23 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java" line="110" class="com.rand42.database.UsersDataSource" package="com.rand42.database">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -144,22 +164,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java" line="109" class="com.rand42.database.UsersDataSource" package="com.rand42.database">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -169,19 +174,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ItemsDataSource.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java">
+      <file leaf-file-name="LocalModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="31" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.0">
+            <state line="22" column="29" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQLiteHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/database/MySQLiteHelper.java">
+      <file leaf-file-name="SecurityManager.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="43" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
+            <state line="46" column="74" selection-start="1189" selection-end="1189" vertical-scroll-proportion="1.0042194">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersDataSource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="32" selection-start="2731" selection-end="2731" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="74" column="24" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/IModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="100" column="38" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginPresenter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/LoginPresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="36" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -196,64 +237,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/views/AdminActivity.java">
+      <file leaf-file-name="ViewUserActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/views/ViewUserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+            <state line="50" column="103" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserListFragmentPresenter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/UserListFragmentPresenter.java">
+      <file leaf-file-name="ViewUserPresenter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ViewUserPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
+            <state line="50" column="47" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserListPresenter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/UserListPresenter.java">
+      <file leaf-file-name="ItemsDataSource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="29" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="22" selection-start="2458" selection-end="2458" vertical-scroll-proportion="-6.32">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserListActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/views/UserListActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="50" selection-start="1709" selection-end="1709" vertical-scroll-proportion="1.1696607">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IUserListView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/views/interfaces/IUserListView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="4" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NewUserActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/views/NewUserActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
+            <state line="103" column="96" selection-start="3856" selection-end="3856" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -269,22 +274,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/presenters/NewUserPresenter.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/views/NewUserActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/views/interfaces/IHomeView.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/model/Item.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/views/ViewItemActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/model/IModel.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/views/ItemListFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/database/MySQLiteHelper.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/views/WheresMyStuffApplication.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/presenters/UserListPresenter.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/views/UserListActivity.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/views/interfaces/IUserListView.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/views/UserListActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/views/interfaces/IViewUserView.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/presenters/LoginPresenter.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/model/User.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/presenters/ViewUserPresenter.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/views/ViewUserActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/model/IModel.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/model/LocalModel.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java" />
       </list>
     </option>
   </component>
@@ -320,7 +325,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -524,6 +528,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -545,8 +550,8 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -595,19 +600,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -633,6 +625,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -814,7 +819,11 @@
       <created>1363672142121</created>
       <updated>1363672142121</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="default admin, admins can view users">
+      <created>1363673016129</created>
+      <updated>1363673016129</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -825,7 +834,7 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.389755" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1792873" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33853006" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -835,7 +844,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21771611" sideWeight="0.610245" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18569905" sideWeight="0.8207127" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33964366" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32817504" sideWeight="0.610245" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -885,7 +894,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Item details implemented (item recall)&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="default admin, admins can view users" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -915,6 +924,7 @@
     <MESSAGE value="SQLite implemented" />
     <MESSAGE value="SQLite better implemented. admin and item details non functional&#10;" />
     <MESSAGE value="Item details implemented (item recall)&#10;" />
+    <MESSAGE value="default admin, admins can view users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -924,95 +934,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/NewItemActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/ViewItemActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="585" selection-end="627" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/IModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="12" selection-start="1734" selection-end="1734" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="15" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1011#1017#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/ItemListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="41" selection-start="4081" selection-end="4081" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Eclipse/sdk/platforms/android-17/android.jar!/android/database/sqlite/SQLiteDatabase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="35" selection-start="6374" selection-end="6374" vertical-scroll-proportion="-1.3340164">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="31" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/database/MySQLiteHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="43" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/WheresMyStuffApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="18" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/AdminActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/UserListFragmentPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/UserListPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="29" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="22" selection-start="2458" selection-end="2458" vertical-scroll-proportion="-6.32">
           <folding />
         </state>
       </provider>
@@ -1031,9 +955,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/views/UserListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="50" selection-start="1709" selection-end="1709" vertical-scroll-proportion="1.1696607">
+        <state line="68" column="73" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/interfaces/IViewUserView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/WheresMyStuffApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="18" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="24" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/database/ItemsDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="96" selection-start="3856" selection-end="3856" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/LoginPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="36" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="32" selection-start="2731" selection-end="2731" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ViewUserPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="47" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/views/ViewUserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="103" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/IModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="38" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/LocalModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="29" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="74" selection-start="1189" selection-end="1189" vertical-scroll-proportion="1.0042194">
           <folding />
         </state>
       </provider>

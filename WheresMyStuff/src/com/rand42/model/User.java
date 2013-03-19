@@ -21,13 +21,14 @@ public class User {
     private String password;
 
 
-    public User(String name, String email, String password, boolean admin,  long id )
+    public User(String name, String email, String password, boolean admin,  long id, boolean active )
     {
         isAdmin = admin;
         this.email = email;
         this.password = password;
         this.id = id;
         this.name = name;
+        this.active = active;
     }
 
     /**
@@ -69,9 +70,9 @@ public class User {
 	 * Selfexplanatory
 	 */
 
-    public void setInactive()
+    public void setActive(boolean activity)
     {
-        active=false;
+        active=activity;
     }
 
 

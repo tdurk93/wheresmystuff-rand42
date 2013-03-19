@@ -100,7 +100,8 @@ public class ItemsDataSource
                 userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_EMAIL)),
                 userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_PASSWORD)),
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ADMIN))==1,
-                userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)));
+                userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
+                userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ENABLED))==1);
 
         Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)),
                 user,

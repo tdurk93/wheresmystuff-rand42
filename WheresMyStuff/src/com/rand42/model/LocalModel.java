@@ -21,7 +21,6 @@ public class LocalModel implements IModel
     private UsersDataSource
             uds;
 	private User currentUser;
-    //private Map<String, Item> userItems;
 	private static IModel model;
 	private SecurityManager sm;
 	
@@ -90,44 +89,32 @@ public class LocalModel implements IModel
     {
         return uds.getUserByEmail(email);
     }
+    public User getUser(long id)
+    {
+        return uds.getUserById(id);
+    }
 
     @Override
     public void lockUser(User currentUser)
     {
-        //TODO implement
+        uds.lockUser(currentUser.getID());
     }
 
     @Override
     public void unlockUser(User currentUser)
     {
-        //TODO implement
+        uds.unlockUser(currentUser.getID());
 
     }
+
+
 
     @Override
-    public boolean isUserLocked(User user)
+    public boolean deleteUser(User user)
     {
-        return false;
-        //TODO implement or delete
+         return uds.deleteUser(user.getID());
     }
 
-    @Override
-    public void queueUserDelete(User user)
-    {
-
-    }
-
-    @Override
-    public void performUserDelete(User user)
-    {
-
-    }
-
-    @Override
-    public boolean isUserQueued(User user)
-    {
-          return false;
-    }
 
     public List<User> getAllUsers()
     {

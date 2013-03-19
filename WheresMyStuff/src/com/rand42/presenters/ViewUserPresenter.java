@@ -15,7 +15,7 @@ import java.util.Collection;
  * Time: 11:37 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ViewUserPresenter implements Requestor<User>
+public class ViewUserPresenter
 {
     private final IModel model;
     private final IViewUserView view;
@@ -26,24 +26,11 @@ public class ViewUserPresenter implements Requestor<User>
         this.view = view;
     }
 
-    public void loadUser(String email)
+    public User loadUser(long id)
     {
-        model.getUser(email);
+        return model.getUser(id);
     }
 
-    @Override
-    public void querySuccess(Collection<User> users)
-    {
-        User[] usersArr = Arrays.copyOf(users.toArray(), users.toArray().length, User[].class);
-
-        view.presentData(usersArr[0], model.isUserLocked(usersArr[0]));
-    }
-
-    @Override
-    public void queryFail(String message)
-    {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
 
     public void lockUser(User currentUser)
     {
@@ -55,9 +42,9 @@ public class ViewUserPresenter implements Requestor<User>
         model.unlockUser(user);
     }
 
-    public void deleteUser(User currentUser)
+    public boolean deleteUser(User currentUser)
     {
-        currentUser.setInactive();
-        model.queueUserDelete(currentUser);
+
+        return model.deleteUser(currentUser);
     }
 }

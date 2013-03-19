@@ -7,6 +7,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.rand42.factories.DialogFactory;
 import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.presenters.ViewUserPresenter;
@@ -37,30 +38,25 @@ public class ViewUserActivity extends Activity implements IViewUserView, Compoun
 
 
         presenter = new ViewUserPresenter(LocalModel.getModel(), this);
-        String email = getIntent().getStringExtra("email");
-        loadData(email);
+        long id = getIntent().getExtras().getLong("id");
+        loadUser(id);
     }
 
-    private void loadData(String email)
+    private void loadUser(long id)
     {
-       presenter.loadUser(email);
-    }
-
-
-    @Override
-    public void presentData(User u, boolean userLocked)
-    {
+        User u = presenter.loadUser(id);
         currentUser = u;
         nameView.setText(u.getName());
         emailView.setText(u.getEmail());
         adminView.setText(u.isAdmin()?"Administrator":"Standard User");
-        lockSwitch.setChecked(userLocked);
+        lockSwitch.setChecked(!u.isActive());
         lockSwitch.setOnCheckedChangeListener(this);
     }
+
     public void deleteClick(View view)
     {
-        presenter.deleteUser(currentUser);
-        this.finish();
+        if(presenter.deleteUser(currentUser));
+        DialogFactory.createFinishDialog("Success", "User deleted", this).show();
     }
 
     @Override
