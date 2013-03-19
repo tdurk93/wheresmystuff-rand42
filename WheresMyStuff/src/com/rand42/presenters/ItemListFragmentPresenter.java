@@ -47,9 +47,9 @@ public class ItemListFragmentPresenter
         return filteredItems;
 
     }
-    public void deleteItem(Item item)
+    public boolean deleteItem(Item item)
     {
-        model.deleteItem(item);
+        return model.deleteItem(item);
     }
 
 

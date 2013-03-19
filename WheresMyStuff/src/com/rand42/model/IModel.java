@@ -85,11 +85,12 @@ public interface IModel
     /**
      * Gets an item with a UID
      *
-     * @param id@return item
+     * @param id
+     * @return item
      */
     Item getItemById(long id);
 
-    void deleteItem(Item item);
+    boolean deleteItem(Item item);
 
     void resetAttempts(String email);
 

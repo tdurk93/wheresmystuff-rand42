@@ -69,14 +69,14 @@ public class LocalModel implements IModel
     @Override
     public Item getItemById(long id)
     {
-        //need ids method
-       return null;
+        return ids.getItemById(id);
     }
 
+
     @Override
-    public void deleteItem(Item item)
+    public boolean deleteItem(Item item)
     {
-        ids.deleteItem(item.getID());
+        return ids.deleteItem(item.getID());
     }
 
     @Override
