@@ -16,6 +16,7 @@ public class WheresMyStuffApplication extends Application
 	{
         super.onCreate();
         WheresMyStuffApplication.context = getApplicationContext();
+        LocalModel.getModel().addUser("admin","admin","admin",true);
 
     }
 

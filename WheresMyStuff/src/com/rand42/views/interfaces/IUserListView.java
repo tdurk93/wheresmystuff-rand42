@@ -13,5 +13,5 @@ import java.util.Collection;
  */
 public interface IUserListView
 {
-    public void userQuerySuccess(Collection<User> users);
+
 }
