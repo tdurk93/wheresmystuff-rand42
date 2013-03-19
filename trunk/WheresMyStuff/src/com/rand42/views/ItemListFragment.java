@@ -86,7 +86,7 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
     {
         Item item = (Item)adapterView.getItemAtPosition(i);
         Intent intent = new Intent(this.getActivity(), ViewItemActivity.class);
-        intent.putExtra("ID", item.getID());
+        intent.putExtra("item", item.getID());
         startActivity(intent);
     }
     @Override
@@ -113,8 +113,12 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
                 //edit;
                 break;
             case 1:
-                presenter.deleteItem(selectedItem);
-                progressDialog.show();
+               if(presenter.deleteItem(selectedItem));
+            {
+                DialogFactory.createStandardDialog("Success", "Item deleted", getActivity()).show();
+                populateList();
+            }
+
                 break;
         }
 

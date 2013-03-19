@@ -53,9 +53,10 @@ public class ItemsDataSource
 
 
     }
-    public void deleteItem(long id)
+    public boolean deleteItem(long id)
     {
         int rowsAffected = database.delete(MySQLiteHelper.TABLE_ITEMS,  MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""});
+        return rowsAffected !=0;
     }
     public List<Item> getAllUserItems(User user)
     {
@@ -71,6 +72,11 @@ public class ItemsDataSource
         cursor.close();
         return items;
     }
+    public Item getItemById(long id)
+    {
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_ITEMS, allColumns, MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""},null,null,null);
+        return cursorToItem(cursor);
+    }
 
     /**
      * Makes a user from a database cursor
@@ -80,6 +86,11 @@ public class ItemsDataSource
      */
     private Item cursorToItem(Cursor cursor)
     {
+        if(cursor.isAfterLast())
+            return null;
+        if(cursor.isBeforeFirst())
+            cursor.moveToFirst();
+
         int userId = cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_USER));
         Cursor userCursor = database.query(MySQLiteHelper.TABLE_USERS,  new String[]{MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NAME, MySQLiteHelper.COLUMN_EMAIL, MySQLiteHelper.COLUMN_PASSWORD
                 , MySQLiteHelper.COLUMN_ENABLED, MySQLiteHelper.COLUMN_ADMIN}, MySQLiteHelper.COLUMN_ID+"=?", new String[]{userId+""}, null,null,null);
@@ -91,7 +102,11 @@ public class ItemsDataSource
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ADMIN))==1,
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)));
 
-        Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)), user, cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),(cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_LOST))==1)?true:false);
+        Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)),
+                user,
+                cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
+                (cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_LOST))==1)?true:false);
+
         return item;
 
 
