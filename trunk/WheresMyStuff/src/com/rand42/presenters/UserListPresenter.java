@@ -7,6 +7,7 @@ import com.rand42.views.interfaces.IUserListView;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,7 +16,7 @@ import java.util.Collection;
  * Time: 10:03 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserListPresenter implements Requestor<User>
+public class UserListPresenter
 {
     private final IModel model;
     private final IUserListView view;
@@ -27,32 +28,9 @@ public class UserListPresenter implements Requestor<User>
     }
 
 
-    @Override
-    public void querySuccess(Collection<User> users)
+    public List<User> getUsers()
     {
-        ArrayList<User> toRemove = new ArrayList<User>();
-        for(User u:users)
-        {
-            if(!u.isActive())
-            {
-                toRemove.add(u);
-            }
-            if(u.getEmail().equals(model.getCurrentUser().getEmail()))
-                toRemove.add(u);
-        }
-        for(User u:toRemove)
-            users.remove(u);
-
-        view.userQuerySuccess(users);
-    }
-    public void getUsers()
-    {
-        model.getAllUsers();
+       return model.getAllUsers();
     }
 
-    @Override
-    public void queryFail(String message)
-    {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
 }

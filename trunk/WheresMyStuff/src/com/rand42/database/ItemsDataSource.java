@@ -56,7 +56,7 @@ public class ItemsDataSource
     public boolean deleteItem(long id)
     {
         int rowsAffected = database.delete(MySQLiteHelper.TABLE_ITEMS,  MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""});
-        return rowsAffected !=0;
+        return rowsAffected != 0;
     }
     public List<Item> getAllUserItems(User user)
     {

@@ -14,6 +14,7 @@ import com.rand42.views.interfaces.IUserListView;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -45,11 +46,7 @@ public class UserListActivity extends Activity implements IUserListView, Adapter
 
     public void populateList()
     {
-        presenter.getUsers();
-    }
-    @Override
-    public void userQuerySuccess(Collection<User> users)
-    {
+       List<User> users= presenter.getUsers();
         if(users!=null)
         {
 
@@ -59,7 +56,6 @@ public class UserListActivity extends Activity implements IUserListView, Adapter
             adapter.notifyDataSetChanged();
             list.setAdapter(adapter);
         }
-        //progressDialog.hide();
     }
 
     @Override
