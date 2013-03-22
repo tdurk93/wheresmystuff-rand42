@@ -61,9 +61,9 @@ public class LocalModel implements IModel
     }
 
     @Override
-    public void createItem(String name, String description, User owner, boolean lost)
+    public void createItem(String name, String description, User owner, Date date, boolean lost)
     {
-        ids.createItem(name,description,owner,lost);
+        ids.createItem(name,description,owner, date, lost);
     }
     @Override
     public Item getItemById(long id)
