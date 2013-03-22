@@ -3,6 +3,7 @@ package com.rand42.model;
 import com.parse.*;
 
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -18,13 +19,18 @@ public class Item
     private Location location;
     private boolean lost;
 
-    public Item(String name, String description, User owner,  long id, boolean lost)
+
+
+    private Date date;
+
+    public Item(String name, String description, User owner, Date date, long id, boolean lost)
     {
         this.description = description;
         this.owner = owner;
         this.name = name;
         this.id = id;
         this.lost = lost;
+        this.date=date;
     }
 
     public String getName()
@@ -42,6 +48,15 @@ public class Item
     public boolean isLost()
     {
         return lost;
+    }
+    public Date getDate()
+    {
+        return date;
+    }
+
+    public void setDate(Date date)
+    {
+        this.date = date;
     }
 
     /**

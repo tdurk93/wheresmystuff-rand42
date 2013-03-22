@@ -17,17 +17,38 @@
     <EditText
             android:id="@+id/itemDescField"
             android:layout_width="fill_parent"
-            android:layout_height="119dp"
+            android:layout_height="70dp"
             android:lines="8"
             android:hint="Description">
     </EditText>
 
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/dateTextView" android:layout_gravity="left|center_vertical"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Date"
+            android:id="@+id/dateButton" android:layout_gravity="left|center_vertical" android:onClick="dateClicked"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
     <Switch
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="You Lost This"
             android:id="@+id/lostSwitch" android:layout_gravity="left|center_vertical"/>
+
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
     <Button
             android:id="@+id/itemSubmitButton"
             android:layout_width="fill_parent"

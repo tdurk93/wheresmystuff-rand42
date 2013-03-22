@@ -9,6 +9,7 @@ import com.rand42.model.Item;
 import com.rand42.model.User;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class ItemsDataSource
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     private String[] allColumns = {MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NAME, MySQLiteHelper.COLUMN_DESC
-            , MySQLiteHelper.COLUMN_USER, MySQLiteHelper.COLUMN_LOST};
+            , MySQLiteHelper.COLUMN_USER, MySQLiteHelper.COLUMN_DATE, MySQLiteHelper.COLUMN_LOST};
 
 
     public ItemsDataSource(Context context)
@@ -40,13 +41,14 @@ public class ItemsDataSource
         dbHelper.close();
     }
 
-    public void createItem(String name, String description, User owner, boolean lost)
+    public void createItem(String name, String description, User owner, Date date, boolean lost)
     {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NAME, name);
         values.put(MySQLiteHelper.COLUMN_DESC, description);
         values.put(MySQLiteHelper.COLUMN_USER, owner.getID());
         values.put(MySQLiteHelper.COLUMN_LOST, lost?1:0);
+        values.put(MySQLiteHelper.COLUMN_DATE, date.getTime());
 
         long insertId = database.insert(MySQLiteHelper.TABLE_ITEMS, null,values);
 
@@ -103,8 +105,10 @@ public class ItemsDataSource
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ENABLED))==1);
 
+        Date date = new Date(cursor.getLong(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DATE)));
         Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)),
                 user,
+                date,
                 cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
                 (cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_LOST))==1)?true:false);
 

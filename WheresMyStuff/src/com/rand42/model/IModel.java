@@ -2,6 +2,7 @@ package com.rand42.model;
 
 import com.parse.SignUpCallback;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -71,8 +72,9 @@ public interface IModel
      * @param name
      * @param description
      * @param owner
+     * @param date
      */
-    void createItem(String name, String description, User owner, boolean lost);
+    void createItem(String name, String description, User owner, Date date, boolean lost);
 
     /**
      * Returns the items associated with a user

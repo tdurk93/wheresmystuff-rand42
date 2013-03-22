@@ -12,6 +12,7 @@ import com.rand42.factories.DialogFactory;
 import com.rand42.model.Item;
 import com.rand42.model.LocalModel;
 import com.rand42.presenters.ItemListFragmentPresenter;
+import com.rand42.views.adapters.ItemAdapter;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -24,7 +25,7 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
 {
     private ListView list;
     private ItemListFragmentPresenter presenter;
-    private ArrayAdapter<Item> adapter;
+    private ItemAdapter adapter;
     private AlertDialog progressDialog;
     //private int filter;
 
@@ -44,7 +45,6 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
         list.setOnItemClickListener(this);
         registerForContextMenu(list);
         presenter = new ItemListFragmentPresenter(LocalModel.getModel(),getArguments().getInt("filter"));
-        adapter = new ArrayAdapter<Item>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1);
         progressDialog = DialogFactory.createIndeterminateProgressDialog("Delete","Deleting", this.getActivity());
         return view;
     }
@@ -67,8 +67,7 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
         {
 
             Item[] itemsArr = Arrays.copyOf(items.toArray(), items.toArray().length, Item[].class);
-            adapter.clear();
-            adapter.addAll(itemsArr);
+            adapter = new ItemAdapter(this.getActivity(), R.layout.item_list_row, itemsArr);
             adapter.notifyDataSetChanged();
             list.setAdapter(adapter);
         }

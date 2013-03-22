@@ -4,6 +4,8 @@ import com.rand42.model.IModel;
 import com.rand42.model.User;
 import com.rand42.views.interfaces.INewItemView;
 
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alex
@@ -22,9 +24,9 @@ public class NewItemPresenter
         this.model = model;
     }
 
-    public void createItem(String name, String description, User owner, boolean lost)
+    public void createItem(String name, String description, User owner, Date date, boolean lost)
     {
-        model.createItem(name, description, owner,lost);
+        model.createItem(name, description, owner,date, lost);
     }
 
 }
