@@ -14,9 +14,9 @@ public class ItemFilter implements IFilter<Item>
     {
         dateFilter = new DateFilter(time,beforeTime);
     }
-    public void enableCategoryFilter()
+    public void enableCategoryFilter(String selectedItem)
     {
-        categoryFilter = new CategoryFilter();
+        categoryFilter = new CategoryFilter(selectedItem);
     }
     public void disableDateFilter()
     {
@@ -26,6 +26,34 @@ public class ItemFilter implements IFilter<Item>
     {
         categoryFilter = null;
     }
+    public boolean isDateFilter()
+    {
+        return dateFilter !=null;
+    }
+    public boolean isCategoryFilter()
+    {
+        return categoryFilter!=null;
+    }
+    public long getDateFilterTime()
+    {
+        if(dateFilter!=null)
+            return dateFilter.getFilterTime();
+        return -1;
+
+    }
+    public boolean getDateBefore()
+    {
+        if(dateFilter!=null)
+            return dateFilter.getBefore();
+        return false;
+    }
+    public String getCategoryFiterString()
+    {
+        if(categoryFilter!=null)
+            return categoryFilter.getFilterString();
+        return "";
+    }
+
     @Override
     public boolean filter(Item item)
     {

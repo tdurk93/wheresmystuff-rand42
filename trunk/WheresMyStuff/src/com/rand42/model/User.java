@@ -1,8 +1,5 @@
 package com.rand42.model;
 
-import android.util.Log;
-import com.parse.*;
-
 /**
  * 
  * Definition of a default user in the system.
@@ -19,6 +16,7 @@ public class User {
     private boolean isAdmin;
     private boolean active;
     private String password;
+    private String category;
 
 
     public User(String name, String email, String password, boolean admin,  long id, boolean active )

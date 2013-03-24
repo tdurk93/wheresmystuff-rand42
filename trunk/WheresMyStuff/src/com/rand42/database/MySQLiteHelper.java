@@ -28,9 +28,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     public static final String COLUMN_ENABLED="enabled";
     public static final String COLUMN_LOST = "lost";
     public static final String COLUMN_DATE="date";
+    public static final String COLUMN_CATEGORY="category";
 
     private static final String DATABASE_MAKE = "create table "+TABLE_ITEMS+"("+COLUMN_ID
-            +" integer primary key autoincrement, "+COLUMN_NAME+" text not null, "+COLUMN_DESC+" text not null, "+COLUMN_LOST+" integer not null, "+COLUMN_DATE+" integer not null, "+COLUMN_USER+" integer not null, " +
+            +" integer primary key autoincrement, "+COLUMN_NAME+" text not null, "+COLUMN_DESC+" text not null, "+COLUMN_CATEGORY+" text not null, "+COLUMN_LOST+" integer not null, "+COLUMN_DATE+" integer not null, "+COLUMN_USER+" integer not null, " +
             "foreign key("+COLUMN_USER+") references "+TABLE_USERS+"("+COLUMN_ID+") on delete cascade);";
 
     private static final String USERS_MAKE =  "create table "+TABLE_USERS+"("+COLUMN_ID

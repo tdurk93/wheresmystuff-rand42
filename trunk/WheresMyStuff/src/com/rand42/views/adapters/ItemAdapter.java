@@ -35,7 +35,7 @@ public class ItemAdapter extends ArrayAdapter<Item>
     public View getView(int position, View convertView, ViewGroup parent)
     {
        View row = convertView;
-        ItemHolder holder = null;
+        ItemHolder holder;
        if(row==null)
        {
            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
@@ -52,7 +52,10 @@ public class ItemAdapter extends ArrayAdapter<Item>
         }
         Item item = data[position];
         holder.titleView.setText(item.getName());
-        holder.detailView.setText(item.getDate().toString());
+        String detailString="";
+        detailString+=item.getDate().toString();
+        detailString +=" "+item.getCategory();
+        holder.detailView.setText(detailString);
 
         return row;
     }

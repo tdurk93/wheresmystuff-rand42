@@ -18,12 +18,13 @@ public class Item
     private String description;
     private Location location;
     private boolean lost;
+    private String category;
 
 
 
     private Date date;
 
-    public Item(String name, String description, User owner, Date date, long id, boolean lost)
+    public Item(String name, String description, User owner, Date date, long id, boolean lost, String category)
     {
         this.description = description;
         this.owner = owner;
@@ -31,6 +32,17 @@ public class Item
         this.id = id;
         this.lost = lost;
         this.date=date;
+        this.category = category;
+    }
+
+    public String getCategory()
+    {
+        return category;
+    }
+
+    public void setCategory(String category)
+    {
+        this.category = category;
     }
 
     public String getName()

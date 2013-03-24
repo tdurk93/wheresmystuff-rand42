@@ -43,7 +43,7 @@ public class NewUserPresenter
     public void createUser(String email, String name, String password, String confirm, boolean isAdmin)
     {
         String errorMsg;
-        if((errorMsg=verify(email, password, confirm))!="")
+        if(!(errorMsg=verify(email, password, confirm)).equals(""))
         {
             view.createFail(errorMsg);
         }

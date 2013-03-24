@@ -36,7 +36,6 @@ public class ItemListFragmentPresenter
             return getFilterItems();
 
        List<Item> items = model.getUserItems(model.getCurrentUser());
-        List<Item> toRemove = new ArrayList();
         List<Item> filteredItems = new ArrayList<Item>();
 
         for(Item i:items)
@@ -66,7 +65,6 @@ public class ItemListFragmentPresenter
     {
         // currentFilter = filter;
         List<Item> items = model.getUserItems(model.getCurrentUser());
-        List<Item> toRemove = new ArrayList();
         List<Item> filteredItems = new ArrayList<Item>();
         ItemFilter itemFilter = model.getFilter();
 
