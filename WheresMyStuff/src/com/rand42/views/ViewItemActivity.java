@@ -23,7 +23,9 @@ public class ViewItemActivity extends Activity
         long id = bundle.getLong("item");
         Item i = LocalModel.getModel().getItemById(id);
         TextView uidView = (TextView)findViewById(R.id.textView);
+        TextView detailView = (TextView)findViewById(R.id.textView1);
         uidView.setText(i.getName());
+        detailView.setText(i.getCategory());
 
     }
 }

@@ -9,9 +9,21 @@ package com.rand42.model;
  */
 public class CategoryFilter implements IFilter<Item>
 {
+    private String filterString;
+    public CategoryFilter(String selectedItem)
+    {
+        filterString=selectedItem;
+    }
+
     @Override
     public boolean filter(Item item)
     {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        if(item.getCategory().equals(filterString))
+            return true;
+        return false;
+    }
+    public String getFilterString()
+    {
+        return filterString;
     }
 }

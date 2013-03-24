@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
@@ -40,12 +42,33 @@
     <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
-    <Switch
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="You Lost This"
-            android:id="@+id/lostSwitch" android:layout_gravity="left|center_vertical"/>
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You Lost"
+                android:id="@+id/lostRadioButton" android:layout_gravity="center_horizontal|top"
+                android:layout_weight="0.50"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You Found"
+                android:id="@+id/foundRadioButton" android:layout_gravity="center_horizontal|bottom"
+                android:layout_weight="0.50"/>
+    </RadioGroup>
+
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+    <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="34dp"
+            android:id="@+id/categorySpinner" android:layout_gravity="left|center_vertical"/>
     <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
@@ -63,3 +86,4 @@
 
 
 </LinearLayout>
+</ScrollView>

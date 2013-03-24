@@ -24,7 +24,7 @@ public class ItemsDataSource
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     private String[] allColumns = {MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NAME, MySQLiteHelper.COLUMN_DESC
-            , MySQLiteHelper.COLUMN_USER, MySQLiteHelper.COLUMN_DATE, MySQLiteHelper.COLUMN_LOST};
+            , MySQLiteHelper.COLUMN_USER, MySQLiteHelper.COLUMN_DATE, MySQLiteHelper.COLUMN_LOST, MySQLiteHelper.COLUMN_CATEGORY};
 
 
     public ItemsDataSource(Context context)
@@ -41,7 +41,7 @@ public class ItemsDataSource
         dbHelper.close();
     }
 
-    public void createItem(String name, String description, User owner, Date date, boolean lost)
+    public void createItem(String name, String description, User owner, Date date, boolean lost, String category)
     {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NAME, name);
@@ -49,6 +49,7 @@ public class ItemsDataSource
         values.put(MySQLiteHelper.COLUMN_USER, owner.getID());
         values.put(MySQLiteHelper.COLUMN_LOST, lost?1:0);
         values.put(MySQLiteHelper.COLUMN_DATE, date.getTime());
+        values.put(MySQLiteHelper.COLUMN_CATEGORY, category);
 
         long insertId = database.insert(MySQLiteHelper.TABLE_ITEMS, null,values);
 
@@ -110,7 +111,7 @@ public class ItemsDataSource
                 user,
                 date,
                 cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
-                (cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_LOST))==1)?true:false);
+                (cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_LOST))==1), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_CATEGORY)));
 
         return item;
 

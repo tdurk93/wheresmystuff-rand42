@@ -74,7 +74,7 @@ public interface IModel
      * @param owner
      * @param date
      */
-    void createItem(String name, String description, User owner, Date date, boolean lost);
+    void createItem(String name, String description, User owner, Date date, boolean lost, String category);
 
     /**
      * Returns the items associated with a user

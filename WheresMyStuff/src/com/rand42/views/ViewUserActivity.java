@@ -49,7 +49,7 @@ public class ViewUserActivity extends Activity implements IViewUserView, Compoun
         nameView.setText(u.getName());
         emailView.setText(u.getEmail());
         adminView.setText(u.isAdmin()?"Administrator":"Standard User");
-        lockSwitch.setChecked(!u.isActive());
+        lockSwitch.setChecked(u.isActive());
         lockSwitch.setOnCheckedChangeListener(this);
     }
 

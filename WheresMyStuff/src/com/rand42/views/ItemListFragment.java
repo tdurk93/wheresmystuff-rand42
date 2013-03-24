@@ -26,10 +26,10 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
     private ListView list;
     private ItemListFragmentPresenter presenter;
     private ItemAdapter adapter;
-    private AlertDialog progressDialog;
+
     //private int filter;
 
-    public static final ItemListFragment newInstance(int filter)
+    public static ItemListFragment newInstance(int filter)
     {
         ItemListFragment fragment = new ItemListFragment();
         Bundle bdl = new Bundle(1);
@@ -45,7 +45,6 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
         list.setOnItemClickListener(this);
         registerForContextMenu(list);
         presenter = new ItemListFragmentPresenter(LocalModel.getModel(),getArguments().getInt("filter"));
-        progressDialog = DialogFactory.createIndeterminateProgressDialog("Delete","Deleting", this.getActivity());
         return view;
     }
 

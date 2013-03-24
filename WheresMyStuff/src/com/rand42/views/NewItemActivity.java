@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.TextView;
+import android.widget.*;
 import com.rand42.model.LocalModel;
 import com.rand42.presenters.NewItemPresenter;
 import com.rand42.views.interfaces.INewItemView;
@@ -26,9 +23,12 @@ public class NewItemActivity extends Activity implements INewItemView
 {
     private NewItemPresenter presenter;
     private EditText nameField, descField;
-    private Switch lostSwitch;
+    private RadioButton lostButton;
     private Date itemDate;
     private TextView dateView;
+    private Spinner categorySpinner;
+    String[] categories = {"Keepsake", "Valuable", "Vital", "Others"};
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -36,17 +36,28 @@ public class NewItemActivity extends Activity implements INewItemView
         presenter = new NewItemPresenter(this, LocalModel.getModel());
         nameField = (EditText)findViewById(R.id.itemNameField);
         descField = (EditText)findViewById(R.id.itemDescField);
-        lostSwitch = (Switch)findViewById(R.id.lostSwitch);
+        lostButton = (RadioButton)findViewById(R.id.lostRadioButton);
         dateView = (TextView)findViewById(R.id.dateTextView);
+        categorySpinner = (Spinner)findViewById(R.id.categorySpinner);
+        setupSpinner();
+
         itemDate = new Date();
         Calendar c = Calendar.getInstance();
         setDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE));
 
     }
 
+    private void setupSpinner()
+    {
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(spinnerAdapter);
+    }
+
     public void createItem(View view)
     {
-        presenter.createItem(nameField.getText().toString(), descField.getText().toString(), LocalModel.getModel().getCurrentUser(),itemDate, lostSwitch.isChecked());
+        String category = (String)categorySpinner.getSelectedItem();
+        presenter.createItem(nameField.getText().toString(), descField.getText().toString(), LocalModel.getModel().getCurrentUser(),itemDate, lostButton.isChecked(),category);
         this.finish();
     }
     public void dateClicked(View view)

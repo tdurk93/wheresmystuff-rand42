@@ -33,4 +33,12 @@ public class DateFilter implements IFilter<Item>
         }
         return false;
     }
+    public long getFilterTime()
+    {
+        return filterTime;
+    }
+    public boolean getBefore()
+    {
+        return beforeTime;
+    }
 }

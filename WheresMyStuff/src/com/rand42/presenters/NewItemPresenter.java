@@ -24,9 +24,9 @@ public class NewItemPresenter
         this.model = model;
     }
 
-    public void createItem(String name, String description, User owner, Date date, boolean lost)
+    public void createItem(String name, String description, User owner, Date date, boolean lost, String category)
     {
-        model.createItem(name, description, owner,date, lost);
+        model.createItem(name, description, owner,date, lost, category);
     }
 
 }
