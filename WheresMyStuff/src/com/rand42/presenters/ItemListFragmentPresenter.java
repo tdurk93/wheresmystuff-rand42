@@ -32,17 +32,51 @@ public class ItemListFragmentPresenter
      */
     public List<Item> getUserItems()
     {
-       // currentFilter = filter;
+        if(model.getFilter()!=null)
+            return getFilterItems();
+
        List<Item> items = model.getUserItems(model.getCurrentUser());
         List<Item> toRemove = new ArrayList();
         List<Item> filteredItems = new ArrayList<Item>();
-        ItemFilter itemFilter = model.getFilter();
+
         for(Item i:items)
         {
             if(filter==LOST_ITEMS)
             {
                 if(i.isLost())
                 {
+                    //if(itemFilter.filter(i))
+                        filteredItems.add(i);
+                }
+            }
+
+            if(filter==FOUND_ITEMS)
+            {
+                if(!i.isLost())
+                {
+                    //if(itemFilter.filter(i))
+                        filteredItems.add(i);
+                }
+            }
+        }
+        return filteredItems;
+
+    }
+    public List<Item> getFilterItems()
+    {
+        // currentFilter = filter;
+        List<Item> items = model.getUserItems(model.getCurrentUser());
+        List<Item> toRemove = new ArrayList();
+        List<Item> filteredItems = new ArrayList<Item>();
+        ItemFilter itemFilter = model.getFilter();
+
+        for(Item i:items)
+        {
+            if(filter==LOST_ITEMS)
+            {
+                if(i.isLost())
+                {
+
                     if(itemFilter.filter(i))
                         filteredItems.add(i);
                 }

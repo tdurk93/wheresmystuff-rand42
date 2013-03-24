@@ -65,6 +65,10 @@ public class HomeActivity extends Activity
             Intent i = new Intent(this, NewItemActivity.class);
             startActivity(i);
             return true;
+        case R.id.menu_filter:
+            Intent i2 = new Intent(this, NewFilterActivity.class);
+            startActivity(i2);
+            return true;
 		default:
 			return true;
 		}
