@@ -101,6 +101,7 @@ public interface IModel
 
     void lockUser(User currentUser);
     void unlockUser(User currentUser);
-
+    void setFilter(ItemFilter filter);
+    ItemFilter getFilter();
     boolean deleteUser(User user);
 }

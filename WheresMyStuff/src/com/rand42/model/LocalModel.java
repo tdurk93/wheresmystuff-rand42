@@ -23,6 +23,7 @@ public class LocalModel implements IModel
 	private User currentUser;
 	private static IModel model;
 	private SecurityManager sm;
+    private ItemFilter currentFilter;
 	
 	/**
 	 * The local model is a singleton.
@@ -105,6 +106,14 @@ public class LocalModel implements IModel
     {
         uds.unlockUser(currentUser.getID());
 
+    }
+    public ItemFilter getFilter()
+    {
+        return currentFilter;
+    }
+    public void setFilter(ItemFilter filter)
+    {
+        currentFilter = filter;
     }
 
 

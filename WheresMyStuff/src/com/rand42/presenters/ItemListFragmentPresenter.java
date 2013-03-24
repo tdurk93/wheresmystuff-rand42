@@ -2,6 +2,7 @@ package com.rand42.presenters;
 
 import com.rand42.model.IModel;
 import com.rand42.model.Item;
+import com.rand42.model.ItemFilter;
 import com.rand42.model.Requestor;
 
 import java.util.ArrayList;
@@ -35,14 +36,26 @@ public class ItemListFragmentPresenter
        List<Item> items = model.getUserItems(model.getCurrentUser());
         List<Item> toRemove = new ArrayList();
         List<Item> filteredItems = new ArrayList<Item>();
+        ItemFilter itemFilter = model.getFilter();
         for(Item i:items)
         {
             if(filter==LOST_ITEMS)
+            {
                 if(i.isLost())
-                    filteredItems.add(i);
+                {
+                    if(itemFilter.filter(i))
+                        filteredItems.add(i);
+                }
+            }
+
             if(filter==FOUND_ITEMS)
+            {
                 if(!i.isLost())
-                    filteredItems.add(i);
+                {
+                    if(itemFilter.filter(i))
+                        filteredItems.add(i);
+                }
+            }
         }
         return filteredItems;
 
