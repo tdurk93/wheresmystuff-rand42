@@ -36,6 +36,7 @@
         <activity android:name=".AdminActivity"/>
         <activity android:name=".UserListActivity"/>
         <activity android:name=".ViewUserActivity"/>
+        <activity android:name=".NewFilterActivity"/>
     </application>
 
 </manifest>
