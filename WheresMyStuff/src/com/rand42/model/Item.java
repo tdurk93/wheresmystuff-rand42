@@ -1,8 +1,5 @@
 package com.rand42.model;
 
-import com.parse.*;
-
-
 import java.util.Date;
 import java.util.UUID;
 

@@ -1,7 +1,5 @@
 package com.rand42.model;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
+
 
 import java.util.*;
 
@@ -17,8 +15,6 @@ public class SecurityManager {
 	//TODO: Lockout users based on locked status
 	
 	private HashMap<String, Integer> lockouts = new HashMap<String,Integer>();
-    private HashMap<String, ParseObject> lockedUsers = new HashMap<String, ParseObject>();
-    private HashMap<String, ParseObject> queuedDelete = new HashMap<String, ParseObject>();
 	private static SecurityManager defaultInstance;
 	private final int LOCK = 3; //three attempts at login
 	

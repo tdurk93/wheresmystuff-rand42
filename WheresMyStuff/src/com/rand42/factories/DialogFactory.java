@@ -1,8 +1,6 @@
 package com.rand42.factories;
 
 import android.widget.ProgressBar;
-import com.parse.ParseException;
-import com.parse.RequestPasswordResetCallback;
 //import com.rand42.model.DatabaseHandler;
 
 import android.app.Activity;

@@ -1,7 +1,5 @@
 package com.rand42.model;
 
-import com.parse.SignUpCallback;
-
 import java.util.Date;
 import java.util.List;
 
