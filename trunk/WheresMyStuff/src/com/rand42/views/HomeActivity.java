@@ -29,7 +29,7 @@ public class HomeActivity extends Activity
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setDisplayUseLogoEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setTitle("Welcome ");
+        actionBar.setTitle("Welcome");
 
         ActionBar.Tab tab = actionBar.newTab().setText("Lost").setTabListener(new MyTabListener<ItemListFragment>(this,"lost",ItemListFragmentPresenter.LOST_ITEMS,ItemListFragment.class));
         actionBar.addTab(tab);
@@ -57,10 +57,10 @@ public class HomeActivity extends Activity
 		//TODO: Stefano really doesn't like looking at this. Like for real.
 		switch(item.getItemId())
 		{
-		case R.id.menu_logout:
+		/*case R.id.menu_logout:
 			presenter.logOut();
 			this.finish();
-			return true;
+			return true;*/
         case R.id.menu_addItem:
             Intent i = new Intent(this, NewItemActivity.class);
             startActivity(i);

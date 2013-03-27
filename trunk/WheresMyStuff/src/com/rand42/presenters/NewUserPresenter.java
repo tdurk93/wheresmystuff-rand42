@@ -47,6 +47,10 @@ public class NewUserPresenter
         {
             view.createFail(errorMsg);
         }
+        else if(password.length()==0)
+        {
+            view.createFail("Uh, I don't see a password");
+        }
         else
         {
             if(model.addUser(email, name, password, isAdmin))
