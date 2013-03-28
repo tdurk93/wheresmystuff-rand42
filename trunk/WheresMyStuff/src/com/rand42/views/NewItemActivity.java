@@ -45,6 +45,8 @@ public class NewItemActivity extends Activity implements INewItemView
         Calendar c = Calendar.getInstance();
         setDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE));
 
+        getActionBar().setTitle("New Item");
+
     }
 
     private void setupSpinner()
@@ -79,7 +81,7 @@ public class NewItemActivity extends Activity implements INewItemView
     private void setDate(int y, int m, int d)
     {
         Calendar c = Calendar.getInstance();
-        c.set(y,m,d);
+        c.set(y,m,d,0,0,0);
         itemDate.setTime(c.getTimeInMillis());
         dateView.setText((m+1)+"/"+d+"/"+y); //months are apparently zero indexed
 

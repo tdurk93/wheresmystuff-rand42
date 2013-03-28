@@ -16,5 +16,10 @@
             android:layout_height="37dp"
             android:text="New Text"
             android:id="@+id/textView1" android:layout_gravity="left|center_vertical"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="37dp"
+            android:text="New Text"
+            android:id="@+id/textView2" android:layout_gravity="left|center_vertical"/>
 
 </LinearLayout>

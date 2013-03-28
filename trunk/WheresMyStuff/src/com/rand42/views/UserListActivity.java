@@ -11,6 +11,8 @@ import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.presenters.UserListPresenter;
 import com.rand42.views.interfaces.IUserListView;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -23,9 +25,10 @@ import java.util.List;
  * Time: 9:58 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserListActivity extends Activity implements IUserListView, AdapterView.OnItemClickListener
+public class UserListActivity extends RoboActivity implements IUserListView, AdapterView.OnItemClickListener
 {
-    private ListView list;
+    @InjectView(R.id.userListView) private ListView list;
+
     private UserListPresenter presenter;
     private ArrayAdapter<User> adapter;
     public void onCreate(Bundle savedInstanceState)
@@ -36,6 +39,8 @@ public class UserListActivity extends Activity implements IUserListView, Adapter
         list = (ListView)findViewById(R.id.userListView);
         list.setOnItemClickListener(this);
         adapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
+
+        getActionBar().setTitle("Current Users");
     }
     public void onStart()
     {
