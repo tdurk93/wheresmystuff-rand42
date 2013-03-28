@@ -11,20 +11,23 @@ import android.view.View;
 import android.widget.EditText;
 import com.rand42.presenters.NewUserPresenter;
 import com.rand42.views.interfaces.INewUserView;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 /**
  * Activity to create a new user in the system
  * @author Rand-42
  *TODO: Consolidate callbacks
  */
-public class NewUserActivity extends Activity implements INewUserView
+public class NewUserActivity extends RoboActivity implements INewUserView
 {
 
-	private EditText nameField;
-	private EditText emailField;
-	private EditText passwordField;
-	private EditText confirmField;
-	private NewUserPresenter presenter;
+	@InjectView(R.id.nameField) private EditText nameField;
+	@InjectView(R.id.emailField)private EditText emailField;
+	@InjectView(R.id.passwordField) private EditText passwordField;
+	@InjectView(R.id.confirmField) private EditText confirmField;
+
+    private NewUserPresenter presenter;
     private boolean adminCreation;
 	
 
@@ -40,6 +43,8 @@ public class NewUserActivity extends Activity implements INewUserView
         confirmField = (EditText)findViewById(R.id.confirmField);
 	    presenter = new NewUserPresenter(this, LocalModel.getModel());
         adminCreation = getIntent().getBooleanExtra("isAdmin",false);
+
+        getActionBar().setTitle("New User");
 	}
 
 	@Override

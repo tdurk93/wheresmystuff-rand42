@@ -8,6 +8,8 @@ import android.widget.*;
 import com.rand42.model.ItemFilter;
 import com.rand42.model.LocalModel;
 import com.rand42.views.R;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,30 +23,25 @@ import java.util.List;
  * Time: 10:40 PM
  * To change this template use File | Settings | File Templates.
  */
-public class NewFilterActivity extends Activity
+public class NewFilterActivity extends RoboActivity
 {
-    RadioButton beforeButton, afterButton;
-    Date date;
-    TextView dateView;
-    Spinner spinner;
-    Switch dateSwitch, categorySwitch;
+    @InjectView(R.id.beforeRadioButton) RadioButton beforeButton;
+    @InjectView(R.id.afterRadioButton)  RadioButton afterButton;
+    @InjectView(R.id.dateFilterView) TextView dateView;
+    @InjectView(R.id.categorySpinner) Spinner spinner;
+    @InjectView(R.id.dateFilterSwitch) Switch dateSwitch;
+    @InjectView(R.id.categoryFilterSwitch) Switch categorySwitch;
+
     List<String> categories;
+    Date date;
     ArrayAdapter<String> spinnerAdapter;
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_filter);
-        beforeButton = (RadioButton)findViewById(R.id.beforeRadioButton);
-        afterButton = (RadioButton)findViewById(R.id.afterRadioButton);
-        spinner = (Spinner)findViewById(R.id.spinner);
-        dateView = (TextView)findViewById(R.id.dateFilterView);
-        dateSwitch = (Switch)findViewById(R.id.dateFilterSwitch);
-        categorySwitch = (Switch)findViewById(R.id.categoryFilterSwitch);
         date=new Date();
         Calendar c = Calendar.getInstance();
         setDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE));
-
-
         setupSpinner();
         setupFilter();
     }
@@ -80,6 +77,8 @@ public class NewFilterActivity extends Activity
         spinnerAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
+
+        getActionBar().setTitle("New Filter");
     }
 
     public void createFilter(View view)
@@ -110,7 +109,7 @@ public class NewFilterActivity extends Activity
     private void setDate(int y, int m, int d)
     {
         Calendar c = Calendar.getInstance();
-        c.set(y,m,d);
+        c.set(y,m,d,0,0,0);
         date.setTime(c.getTimeInMillis());
         dateView.setText((m + 1) + "/" + d + "/" + y); //months are apparently zero indexed
 

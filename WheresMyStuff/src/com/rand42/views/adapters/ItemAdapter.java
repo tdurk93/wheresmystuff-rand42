@@ -43,6 +43,7 @@ public class ItemAdapter extends ArrayAdapter<Item>
            holder = new ItemHolder();
            holder.titleView = (TextView)row.findViewById(R.id.itemTitle);
            holder.detailView = (TextView)row.findViewById(R.id.itemDetail1);
+           holder.detailView2 = (TextView)row.findViewById(R.id.itemDetail12);
            row.setTag(holder);
 
        }
@@ -53,9 +54,9 @@ public class ItemAdapter extends ArrayAdapter<Item>
         Item item = data[position];
         holder.titleView.setText(item.getName());
         String detailString="";
-        detailString+=item.getDate().toString();
-        detailString +=" "+item.getCategory();
+        detailString+=item.getDate().toString().substring(0,10);
         holder.detailView.setText(detailString);
+        holder.detailView2.setText(item.getCategory());
 
         return row;
     }
@@ -63,5 +64,6 @@ public class ItemAdapter extends ArrayAdapter<Item>
     {
         TextView titleView;
         TextView detailView;
+        TextView detailView2;
     }
 }

@@ -18,6 +18,7 @@ public class AdminActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        getActionBar().setTitle("Admin Home");
     }
     public void createClick(View v)
     {

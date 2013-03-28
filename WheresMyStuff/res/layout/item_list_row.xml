@@ -20,5 +20,12 @@
               android:textSize="12dp"
               android:textStyle="normal"
               />
+    <TextView android:id="@+id/itemDetail12"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:gravity="left"
+              android:textSize="12dp"
+              android:textStyle="normal"
+            />
 
 </LinearLayout>

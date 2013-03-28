@@ -12,6 +12,8 @@ import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.presenters.ViewUserPresenter;
 import com.rand42.views.interfaces.IViewUserView;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,26 +22,23 @@ import com.rand42.views.interfaces.IViewUserView;
  * Time: 11:29 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ViewUserActivity extends Activity implements IViewUserView, CompoundButton.OnCheckedChangeListener
+public class ViewUserActivity extends RoboActivity implements IViewUserView, CompoundButton.OnCheckedChangeListener
 {
-    private TextView nameView,emailView,adminView;
-    private Switch lockSwitch;
+    @InjectView(R.id.nameView) TextView nameView;
+    @InjectView(R.id.emailView) TextView emailView;
+    @InjectView(R.id.adminView) TextView adminView;
+    @InjectView(R.id.lockSwitch) private Switch lockSwitch;
+
     private User currentUser;
     private ViewUserPresenter presenter;
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_user);
-
-        nameView = (TextView)findViewById(R.id.nameView);
-        emailView = (TextView)findViewById(R.id.emailView);
-        adminView = (TextView)findViewById(R.id.adminView);
-        lockSwitch = (Switch)findViewById(R.id.lockSwitch);
-
-
         presenter = new ViewUserPresenter(LocalModel.getModel(), this);
         long id = getIntent().getExtras().getLong("id");
         loadUser(id);
+
     }
 
     private void loadUser(long id)
@@ -51,6 +50,8 @@ public class ViewUserActivity extends Activity implements IViewUserView, Compoun
         adminView.setText(u.isAdmin()?"Administrator":"Standard User");
         lockSwitch.setChecked(u.isActive());
         lockSwitch.setOnCheckedChangeListener(this);
+
+        getActionBar().setTitle(u.getName());
     }
 
     public void deleteClick(View view)

@@ -24,8 +24,12 @@ public class ViewItemActivity extends Activity
         Item i = LocalModel.getModel().getItemById(id);
         TextView uidView = (TextView)findViewById(R.id.textView);
         TextView detailView = (TextView)findViewById(R.id.textView1);
+        TextView descView = (TextView)findViewById(R.id.textView2);
         uidView.setText(i.getName());
         detailView.setText(i.getCategory());
+        descView.setText(i.getDescription());
+
+        getActionBar().setTitle(i.getName());
 
     }
 }
