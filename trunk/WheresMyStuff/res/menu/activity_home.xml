@@ -2,15 +2,18 @@
 
     <item android:id="@+id/menu_filter"
           android:icon="@drawable/sort"
-          android:showAsAction="ifRoom"
+          android:showAsAction="always"
           android:title="Filter"
             />
     <item android:id="@+id/menu_addItem"
           android:title="Add Item"
           android:icon="@drawable/addicon"
-          android:showAsAction="ifRoom"
+          android:showAsAction="always"
             />
-
+    <item android:id="@+id/menu_search"
+          android:title="Search"
+          android:icon="@android:drawable/ic_menu_search"
+          android:showAsAction="always"/>
 
 
 </menu>
