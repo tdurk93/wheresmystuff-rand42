@@ -28,7 +28,7 @@ public class NewFilterActivity extends RoboActivity
     @InjectView(R.id.beforeRadioButton) RadioButton beforeButton;
     @InjectView(R.id.afterRadioButton)  RadioButton afterButton;
     @InjectView(R.id.dateFilterView) TextView dateView;
-    @InjectView(R.id.categorySpinner) Spinner spinner;
+    Spinner spinner;
     @InjectView(R.id.dateFilterSwitch) Switch dateSwitch;
     @InjectView(R.id.categoryFilterSwitch) Switch categorySwitch;
 
@@ -42,6 +42,7 @@ public class NewFilterActivity extends RoboActivity
         date=new Date();
         Calendar c = Calendar.getInstance();
         setDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE));
+        spinner = (Spinner)findViewById(R.id.spinner);
         setupSpinner();
         setupFilter();
     }

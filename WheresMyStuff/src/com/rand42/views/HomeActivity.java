@@ -1,14 +1,13 @@
 package com.rand42.views;
 
-import android.app.ActionBar;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.app.*;
+import android.content.Context;
 import android.content.Intent;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import com.rand42.presenters.HomePresenter;
 import com.rand42.presenters.ItemListFragmentPresenter;
 
@@ -44,7 +43,13 @@ public class HomeActivity extends Activity
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_home, menu);
-		return true;
+        return true;
+
+        /**SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView)menu.findItem(R.id.menu_search).getActionView() ;
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false);
+		return true;   **/
 	}
 
     /**
@@ -69,8 +74,12 @@ public class HomeActivity extends Activity
             Intent i2 = new Intent(this, NewFilterActivity.class);
             startActivity(i2);
             return true;
+        case R.id.menu_search:
+            super.onSearchRequested();
+            return true;
 		default:
 			return true;
+
 		}
 	}
 	@Override

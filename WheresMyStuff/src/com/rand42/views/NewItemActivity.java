@@ -8,6 +8,8 @@ import android.widget.*;
 import com.rand42.model.LocalModel;
 import com.rand42.presenters.NewItemPresenter;
 import com.rand42.views.interfaces.INewItemView;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,10 +21,10 @@ import java.util.Date;
  * Time: 8:21 PM
  * To change this template use File | Settings | File Templates.
  */
-public class NewItemActivity extends Activity implements INewItemView
+public class NewItemActivity extends RoboActivity implements INewItemView
 {
     private NewItemPresenter presenter;
-    private EditText nameField, descField;
+    @InjectView(R.id.itemNameField) private EditText nameField, descField;
     private RadioButton lostButton;
     private Date itemDate;
     private TextView dateView;

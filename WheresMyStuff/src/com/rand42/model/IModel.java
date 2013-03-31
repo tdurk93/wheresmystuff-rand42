@@ -1,5 +1,7 @@
 package com.rand42.model;
 
+import android.widget.AdapterView;
+
 import java.util.Date;
 import java.util.List;
 
@@ -102,4 +104,7 @@ public interface IModel
     void setFilter(ItemFilter filter);
     ItemFilter getFilter();
     boolean deleteUser(User user);
+
+    List<Item> searchItems(String query);
+
 }

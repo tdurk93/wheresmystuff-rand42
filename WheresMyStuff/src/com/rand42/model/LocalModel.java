@@ -124,6 +124,12 @@ public class LocalModel implements IModel
          return uds.deleteUser(user.getID());
     }
 
+    @Override
+    public List<Item> searchItems(String query)
+    {
+        return ids.search(query);
+    }
+
 
     public List<User> getAllUsers()
     {

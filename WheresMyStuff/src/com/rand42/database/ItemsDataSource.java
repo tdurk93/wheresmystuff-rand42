@@ -106,6 +106,8 @@ public class ItemsDataSource
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
                 userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ENABLED))==1);
 
+        userCursor.close();
+
         Date date = new Date(cursor.getLong(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DATE)));
         Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)),
                 user,
@@ -116,5 +118,20 @@ public class ItemsDataSource
         return item;
 
 
+    }
+
+    public List<Item> search(String query)
+    {
+        Cursor cursor = database.rawQuery("select * from "+MySQLiteHelper.TABLE_ITEMS+" where "+MySQLiteHelper.COLUMN_NAME+" like '%"+query+"%' or "+MySQLiteHelper.COLUMN_CATEGORY+" like '%"+query+"%' ",null);
+        //Cursor cursor = database.query(MySQLiteHelper.TABLE_ITEMS, allColumns, MySQLiteHelper.COLUMN_NAME+"=?", new String[]{query}, null,null,null);
+        cursor.moveToFirst();
+        List<Item> items = new ArrayList<Item>();
+        while(!cursor.isAfterLast())
+        {
+            items.add(cursorToItem(cursor));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return items;
     }
 }

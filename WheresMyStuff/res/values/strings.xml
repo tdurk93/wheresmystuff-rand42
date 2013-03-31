@@ -8,5 +8,6 @@
     <string name="menu_logout">Logout</string>
     <string name="newUser">No account? Sign Up!</string>
     <string name="title_activity_new_user">NewUserActivity</string>
+    <string name="search">Items</string>
 
 </resources>
