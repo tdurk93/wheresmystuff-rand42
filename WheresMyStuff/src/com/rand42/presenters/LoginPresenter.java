@@ -4,6 +4,8 @@ import com.rand42.model.IModel;
 import com.rand42.model.LocalModel;
 import com.rand42.views.interfaces.ILoginView;
 
+import java.util.regex.Pattern;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alex
@@ -16,6 +18,7 @@ public class LoginPresenter
     private final ILoginView view;
     private final IModel model;
 
+
     /**
      * Creates a new presenter with view and model
      * @param view Associated view
@@ -24,6 +27,8 @@ public class LoginPresenter
     {
         this.view=view;
         model = LocalModel.getModel();
+
+
     }
 
     /**
@@ -49,6 +54,7 @@ public class LoginPresenter
         else
             view.loginFail("You have attempted to login too many times. Try again later");
     }
+
 
 
 }

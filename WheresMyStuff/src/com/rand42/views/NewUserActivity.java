@@ -34,13 +34,14 @@ public class NewUserActivity extends RoboActivity implements INewUserView
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_user);
 		
-		nameField = (EditText)findViewById(R.id.nameField);
-		emailField = (EditText)findViewById(R.id.emailField);
-		passwordField = (EditText)findViewById(R.id.passwordField);
-        confirmField = (EditText)findViewById(R.id.confirmField);
+
 	    presenter = new NewUserPresenter(this);
         adminCreation = getIntent().getBooleanExtra("isAdmin",false);
 
+        nameField.addTextChangedListener(new EmptyTextWatcher(nameField));
+        passwordField.addTextChangedListener(new EmptyTextWatcher(passwordField));
+        confirmField.addTextChangedListener(new EmptyTextWatcher(confirmField));
+        emailField.addTextChangedListener(new EmailTextWatcher(emailField));
         getActionBar().setTitle("New User");
 	}
 
