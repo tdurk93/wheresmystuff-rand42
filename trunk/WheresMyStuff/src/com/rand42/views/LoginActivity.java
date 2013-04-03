@@ -3,6 +3,8 @@ package com.rand42.views;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -33,6 +35,10 @@ public class LoginActivity extends RoboActivity implements ILoginView
 		presenter = new LoginPresenter(this);
         progressDialog = DialogFactory.createIndeterminateProgressDialog("Login","Logging in", this);
         getActionBar().setTitle("Login");
+
+
+        emailField.addTextChangedListener(new EmailTextWatcher(emailField));
+
 
 	}
 	
