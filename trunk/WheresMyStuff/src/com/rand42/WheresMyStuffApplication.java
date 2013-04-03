@@ -1,8 +1,7 @@
-package com.rand42.views;
-
-import android.content.Context;
+package com.rand42;
 
 import android.app.Application;
+import android.content.Context;
 import com.rand42.model.LocalModel;
 
 

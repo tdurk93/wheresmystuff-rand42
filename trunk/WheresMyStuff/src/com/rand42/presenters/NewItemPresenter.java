@@ -1,6 +1,7 @@
 package com.rand42.presenters;
 
 import com.rand42.model.IModel;
+import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.views.interfaces.INewItemView;
 
@@ -18,15 +19,15 @@ public class NewItemPresenter
     private final INewItemView view;
     private final IModel model;
 
-    public NewItemPresenter(INewItemView view, IModel model)
+    public NewItemPresenter(INewItemView view)
     {
         this.view=view;
-        this.model = model;
+        this.model = LocalModel.getModel();
     }
 
-    public void createItem(String name, String description, User owner, Date date, boolean lost, String category)
+    public void createItem(String name, String description, Date date, boolean lost, String category)
     {
-        model.createItem(name, description, owner,date, lost, category);
+        model.createItem(name, description, model.getCurrentUser(),date, lost, category);
     }
 
 }

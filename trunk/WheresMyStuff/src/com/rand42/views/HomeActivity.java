@@ -1,13 +1,13 @@
 package com.rand42.views;
 
-import android.app.*;
-import android.content.Context;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SearchView;
 import com.rand42.presenters.HomePresenter;
 import com.rand42.presenters.ItemListFragmentPresenter;
 

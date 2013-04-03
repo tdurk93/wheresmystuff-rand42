@@ -1,7 +1,6 @@
 package com.rand42.model;
 
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * The item class is used to contain details about lost stuff

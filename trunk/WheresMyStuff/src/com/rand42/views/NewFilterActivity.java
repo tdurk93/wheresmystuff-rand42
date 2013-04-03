@@ -1,13 +1,11 @@
 package com.rand42.views;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import com.rand42.model.ItemFilter;
-import com.rand42.model.LocalModel;
-import com.rand42.views.R;
+import com.rand42.presenters.NewFilterPresenter;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
@@ -35,10 +33,12 @@ public class NewFilterActivity extends RoboActivity
     List<String> categories;
     Date date;
     ArrayAdapter<String> spinnerAdapter;
+    NewFilterPresenter presenter;
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_filter);
+        presenter = new NewFilterPresenter();
         date=new Date();
         Calendar c = Calendar.getInstance();
         setDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE));
@@ -49,7 +49,7 @@ public class NewFilterActivity extends RoboActivity
 
     private void setupFilter()
     {
-        ItemFilter currentFilter = LocalModel.getModel().getFilter();
+        ItemFilter currentFilter = presenter.getFilter();
         if(currentFilter!=null)
         {
             if(currentFilter.isDateFilter())
@@ -89,7 +89,7 @@ public class NewFilterActivity extends RoboActivity
             itemFilter.enableDateFilter(date.getTime(), beforeButton.isChecked());
         if(categorySwitch.isChecked())
             itemFilter.enableCategoryFilter((String)spinner.getSelectedItem());
-        LocalModel.getModel().setFilter(itemFilter);
+        presenter.setFilter(itemFilter);
         this.finish();
     }
     public void dateClicked(View view)

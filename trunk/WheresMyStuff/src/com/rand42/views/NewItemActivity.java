@@ -1,6 +1,5 @@
 package com.rand42.views;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +34,7 @@ public class NewItemActivity extends RoboActivity implements INewItemView
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_item);
-        presenter = new NewItemPresenter(this, LocalModel.getModel());
+        presenter = new NewItemPresenter(this);
         nameField = (EditText)findViewById(R.id.itemNameField);
         descField = (EditText)findViewById(R.id.itemDescField);
         lostButton = (RadioButton)findViewById(R.id.lostRadioButton);
@@ -61,7 +60,7 @@ public class NewItemActivity extends RoboActivity implements INewItemView
     public void createItem(View view)
     {
         String category = (String)categorySpinner.getSelectedItem();
-        presenter.createItem(nameField.getText().toString(), descField.getText().toString(), LocalModel.getModel().getCurrentUser(),itemDate, lostButton.isChecked(),category);
+        presenter.createItem(nameField.getText().toString(), descField.getText().toString(), itemDate, lostButton.isChecked(),category);
         this.finish();
     }
     public void dateClicked(View view)

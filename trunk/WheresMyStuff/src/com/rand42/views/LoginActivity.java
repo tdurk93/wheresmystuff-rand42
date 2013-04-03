@@ -1,16 +1,12 @@
 package com.rand42.views;
 
-import com.google.inject.Inject;
-import com.rand42.factories.DialogFactory;
-import com.rand42.model.LocalModel;
-
-import android.os.Bundle;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import com.rand42.factories.DialogFactory;
 import com.rand42.presenters.LoginPresenter;
 import com.rand42.views.interfaces.ILoginView;
 import roboguice.activity.RoboActivity;
@@ -34,7 +30,7 @@ public class LoginActivity extends RoboActivity implements ILoginView
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
-		presenter = new LoginPresenter(this, LocalModel.getModel());
+		presenter = new LoginPresenter(this);
         progressDialog = DialogFactory.createIndeterminateProgressDialog("Login","Logging in", this);
         getActionBar().setTitle("Login");
 

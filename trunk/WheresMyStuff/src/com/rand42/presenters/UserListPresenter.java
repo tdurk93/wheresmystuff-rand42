@@ -1,12 +1,10 @@
 package com.rand42.presenters;
 
 import com.rand42.model.IModel;
-import com.rand42.model.Requestor;
+import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.views.interfaces.IUserListView;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -21,9 +19,9 @@ public class UserListPresenter
     private final IModel model;
     private final IUserListView view;
 
-    public UserListPresenter(IModel model, IUserListView view)
+    public UserListPresenter(IUserListView view)
     {
-        this.model = model;
+        model = LocalModel.getModel();
         this.view = view;
     }
 

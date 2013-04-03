@@ -1,7 +1,5 @@
 package com.rand42.model;
 
-import android.widget.AdapterView;
-
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +26,7 @@ public interface IModel
      * @return
 	 */
 	boolean logIn(String email, String password);
+
 	
 	/**
 	 * In this manner, the uninitiated man of given

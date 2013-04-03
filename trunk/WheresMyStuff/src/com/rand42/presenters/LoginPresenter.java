@@ -1,6 +1,7 @@
 package com.rand42.presenters;
 
 import com.rand42.model.IModel;
+import com.rand42.model.LocalModel;
 import com.rand42.views.interfaces.ILoginView;
 
 /**
@@ -18,12 +19,11 @@ public class LoginPresenter
     /**
      * Creates a new presenter with view and model
      * @param view Associated view
-* @param model  Associated model
      */
-    public LoginPresenter(ILoginView view, IModel model)
+    public LoginPresenter(ILoginView view)
     {
         this.view=view;
-        this.model=model;
+        model = LocalModel.getModel();
     }
 
     /**

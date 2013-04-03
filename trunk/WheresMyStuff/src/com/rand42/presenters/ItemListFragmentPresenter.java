@@ -3,10 +3,9 @@ package com.rand42.presenters;
 import com.rand42.model.IModel;
 import com.rand42.model.Item;
 import com.rand42.model.ItemFilter;
-import com.rand42.model.Requestor;
+import com.rand42.model.LocalModel;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -21,9 +20,9 @@ public class ItemListFragmentPresenter
     public static final int ALL_ITEMS=2;
     private int filter;
     
-    public ItemListFragmentPresenter(IModel model, int filter)
+    public ItemListFragmentPresenter(int filter)
     {
-        this.model=model;
+        this.model= LocalModel.getModel();
         this.filter=filter;
     }
 

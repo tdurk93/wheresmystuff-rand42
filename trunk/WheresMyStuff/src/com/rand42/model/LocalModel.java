@@ -1,10 +1,11 @@
 package com.rand42.model;
 
+import com.rand42.WheresMyStuffApplication;
 import com.rand42.database.ItemsDataSource;
 import com.rand42.database.UsersDataSource;
-import com.rand42.views.WheresMyStuffApplication;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 
