@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.HomePresenter;
 import com.rand42.presenters.ItemListFragmentPresenter;
 
@@ -85,6 +86,7 @@ public class HomeActivity extends Activity
 	@Override
 	public void onBackPressed()
 	{
+        if(!LocalModel.getModel().getCurrentUser().isAdmin())
 	    presenter.logOut();
 		this.finish();
 	}
