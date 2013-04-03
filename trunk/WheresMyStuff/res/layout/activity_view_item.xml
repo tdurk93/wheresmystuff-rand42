@@ -5,21 +5,55 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="18dp"
+            android:layout_gravity="left|center_vertical"/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="37dp"
             android:text="New Text"
-            android:id="@+id/textView" android:layout_gravity="left|center_vertical"/>
+            android:textSize="16dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/textView" android:layout_gravity="left|center_vertical"
+            android:textColor="#33B5E5"/>
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            android:textSize="18dp"
+            android:layout_gravity="left|center_vertical"/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="37dp"
             android:text="New Text"
-            android:id="@+id/textView1" android:layout_gravity="left|center_vertical"/>
+            android:id="@+id/textView1" android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textColor="#33B5E5"
+            android:textSize="16dp"/>
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="18dp"
+            android:layout_gravity="left|center_vertical"/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="37dp"
             android:text="New Text"
-            android:id="@+id/textView2" android:layout_gravity="left|center_vertical"/>
+            android:id="@+id/textView2" android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textColor="#33B5E5"
+            android:textSize="16dp"/>
 
 </LinearLayout>
