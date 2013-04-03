@@ -1,12 +1,11 @@
 package com.rand42.factories;
 
-import android.widget.ProgressBar;
-//import com.rand42.model.DatabaseHandler;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.widget.EditText;
+import android.widget.ProgressBar;
+
+//import com.rand42.model.DatabaseHandler;
 
 /**
  * Class with methods to aid in the creation of Dialog popups

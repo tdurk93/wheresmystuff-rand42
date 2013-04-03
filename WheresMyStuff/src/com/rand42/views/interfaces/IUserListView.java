@@ -1,9 +1,5 @@
 package com.rand42.views.interfaces;
 
-import com.rand42.model.User;
-
-import java.util.Collection;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Alex

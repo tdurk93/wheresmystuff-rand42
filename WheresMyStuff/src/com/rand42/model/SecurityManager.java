@@ -1,7 +1,7 @@
 package com.rand42.model;
 
 
-import java.util.*;
+import java.util.HashMap;
 
 /**
  * 

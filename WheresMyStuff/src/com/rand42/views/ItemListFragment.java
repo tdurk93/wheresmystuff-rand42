@@ -1,22 +1,17 @@
 package com.rand42.views;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.rand42.factories.DialogFactory;
 import com.rand42.model.Item;
-import com.rand42.model.LocalModel;
 import com.rand42.presenters.ItemListFragmentPresenter;
 import com.rand42.views.adapters.ItemAdapter;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -45,7 +40,7 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
         list = (ListView)view.findViewById(R.id.itemlist);
         list.setOnItemClickListener(this);
         registerForContextMenu(list);
-        presenter = new ItemListFragmentPresenter(LocalModel.getModel(),getArguments().getInt("filter"));
+        presenter = new ItemListFragmentPresenter(getArguments().getInt("filter"));
         return view;
     }
 

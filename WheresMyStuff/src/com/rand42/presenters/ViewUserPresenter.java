@@ -1,12 +1,9 @@
 package com.rand42.presenters;
 
 import com.rand42.model.IModel;
-import com.rand42.model.Requestor;
+import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.views.interfaces.IViewUserView;
-
-import java.util.Arrays;
-import java.util.Collection;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,9 +17,9 @@ public class ViewUserPresenter
     private final IModel model;
     private final IViewUserView view;
 
-    public ViewUserPresenter(IModel model, IViewUserView view)
+    public ViewUserPresenter(IViewUserView view)
     {
-        this.model = model;
+        this.model = LocalModel.getModel();
         this.view = view;
     }
 

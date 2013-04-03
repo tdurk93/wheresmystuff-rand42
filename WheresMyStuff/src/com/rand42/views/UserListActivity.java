@@ -1,6 +1,5 @@
 package com.rand42.views;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +14,6 @@ import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -35,7 +33,7 @@ public class UserListActivity extends RoboActivity implements IUserListView, Ada
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
-        presenter = new UserListPresenter(LocalModel.getModel(), this);
+        presenter = new UserListPresenter( this);
         list = (ListView)findViewById(R.id.userListView);
         list.setOnItemClickListener(this);
         adapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1, android.R.id.text1);

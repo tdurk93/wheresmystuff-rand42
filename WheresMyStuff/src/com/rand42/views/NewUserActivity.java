@@ -1,14 +1,11 @@
 package com.rand42.views;
 
-import com.rand42.factories.DialogFactory;
-import com.rand42.model.LocalModel;
-
-import android.os.Bundle;
-import android.app.Activity;
 import android.app.AlertDialog;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import com.rand42.factories.DialogFactory;
 import com.rand42.presenters.NewUserPresenter;
 import com.rand42.views.interfaces.INewUserView;
 import roboguice.activity.RoboActivity;
@@ -41,7 +38,7 @@ public class NewUserActivity extends RoboActivity implements INewUserView
 		emailField = (EditText)findViewById(R.id.emailField);
 		passwordField = (EditText)findViewById(R.id.passwordField);
         confirmField = (EditText)findViewById(R.id.confirmField);
-	    presenter = new NewUserPresenter(this, LocalModel.getModel());
+	    presenter = new NewUserPresenter(this);
         adminCreation = getIntent().getBooleanExtra("isAdmin",false);
 
         getActionBar().setTitle("New User");
@@ -87,7 +84,6 @@ public class NewUserActivity extends RoboActivity implements INewUserView
 	}
 	/**
 	 * Called when created a new user failed
-	 * @param e Exception, details included
 	 */
 	public void createFail(String message)
 	{

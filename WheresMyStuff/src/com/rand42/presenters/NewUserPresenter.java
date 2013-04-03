@@ -1,6 +1,7 @@
 package com.rand42.presenters;
 
 import com.rand42.model.IModel;
+import com.rand42.model.LocalModel;
 import com.rand42.views.interfaces.INewUserView;
 
 import java.util.regex.Pattern;
@@ -24,12 +25,12 @@ public class NewUserPresenter
     /**
      * Creates a new presenter
      * @param view Associated view
-     * @param model Associated model
+
      */
-    public NewUserPresenter(INewUserView view, IModel model)
+    public NewUserPresenter(INewUserView view )
     {
        this.view=view;
-       this.model=model;
+       this.model= LocalModel.getModel();
        pattern = Pattern.compile(EMAIL_PATTERN);
     }
 
