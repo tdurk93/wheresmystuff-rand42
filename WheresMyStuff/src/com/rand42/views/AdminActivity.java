@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.rand42.model.LocalModel;
 
 /**
  * Created with IntelliJ IDEA.
@@ -35,5 +36,10 @@ public class AdminActivity extends Activity
     {
         Intent i = new Intent(this, HomeActivity.class);
         startActivity(i);
+    }
+    public void onBackPressed()
+    {
+        LocalModel.getModel().logOut();
+        this.finish();
     }
 }
