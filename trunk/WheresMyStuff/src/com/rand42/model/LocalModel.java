@@ -1,6 +1,8 @@
 package com.rand42.model;
 
 import com.rand42.WheresMyStuffApplication;
+import com.rand42.database.IItemsDataSource;
+import com.rand42.database.IUsersDataSource;
 import com.rand42.database.ItemsDataSource;
 import com.rand42.database.UsersDataSource;
 
@@ -18,8 +20,8 @@ import java.util.List;
 public class LocalModel implements IModel
 {
 	
-	private ItemsDataSource ids;
-    private UsersDataSource
+	private IItemsDataSource ids;
+    private IUsersDataSource
             uds;
 	private User currentUser;
 	private static IModel model;
