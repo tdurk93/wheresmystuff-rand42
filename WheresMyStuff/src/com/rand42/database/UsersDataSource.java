@@ -17,7 +17,7 @@ import java.util.List;
  * Time: 12:52 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UsersDataSource
+public class UsersDataSource implements IUsersDataSource
 {
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
@@ -30,6 +30,7 @@ public class UsersDataSource
        dbHelper = new MySQLiteHelper(context);
     }
 
+    @Override
     public void open() throws SQLiteException
     {
         database = dbHelper.getWritableDatabase();
@@ -38,12 +39,14 @@ public class UsersDataSource
             database.execSQL("pragma foreign_keys = on;");
         }
     }
+    @Override
     public void close()
     {
         dbHelper.close();
     }
 
 
+    @Override
     public boolean createUser(String name, String email, String password, boolean isAdmin)
     {
         ContentValues values = new ContentValues();
@@ -59,17 +62,20 @@ public class UsersDataSource
 
 
     }
+    @Override
     public User getUserById(long id)
     {
         Cursor cursor = database.query(MySQLiteHelper.TABLE_USERS, allColumns, MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""}, null,null,null);
         return cursorToUser(cursor);
     }
+    @Override
     public User getUserByEmail(String email)
     {
         Cursor cursor = database.query(MySQLiteHelper.TABLE_USERS, allColumns, MySQLiteHelper.COLUMN_EMAIL+"=?", new String[]{email}, null,null,null);
         return cursorToUser(cursor);
     }
 
+    @Override
     public User loginUser(String email, String password)
     {
         Cursor cursor = database.query(MySQLiteHelper.TABLE_USERS,  allColumns,  "email=? and password=?", new String[]{email,password}, null,null,null);
@@ -77,11 +83,13 @@ public class UsersDataSource
             return null;
         return cursorToUser(cursor);
     }
+    @Override
     public boolean deleteUser(long id)
     {
         int rowsAffected = database.delete(MySQLiteHelper.TABLE_USERS,  MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""});
         return rowsAffected !=0;
     }
+    @Override
     public List<User> getAllUsers()
     {
         List<User> users = new ArrayList<User>();
@@ -119,12 +127,14 @@ public class UsersDataSource
         return user;
     }
 
+    @Override
     public void lockUser(long id)
     {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_ENABLED, 0);
         database.update(MySQLiteHelper.TABLE_USERS, values, MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""} );
     }
+    @Override
     public void unlockUser(long id)
     {
         ContentValues values = new ContentValues();

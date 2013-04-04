@@ -19,7 +19,7 @@ import java.util.List;
  * Time: 12:52 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ItemsDataSource
+public class ItemsDataSource implements IItemsDataSource
 {
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
@@ -32,15 +32,18 @@ public class ItemsDataSource
         dbHelper = new MySQLiteHelper(context);
     }
 
+    @Override
     public void open() throws SQLiteException
     {
         database = dbHelper.getWritableDatabase();
     }
+    @Override
     public void close()
     {
         dbHelper.close();
     }
 
+    @Override
     public void createItem(String name, String description, User owner, Date date, boolean lost, String category)
     {
         ContentValues values = new ContentValues();
@@ -56,11 +59,13 @@ public class ItemsDataSource
 
 
     }
+    @Override
     public boolean deleteItem(long id)
     {
         int rowsAffected = database.delete(MySQLiteHelper.TABLE_ITEMS,  MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""});
         return rowsAffected != 0;
     }
+    @Override
     public List<Item> getAllUserItems(User user)
     {
         List<Item> items = new ArrayList<Item>();
@@ -75,6 +80,7 @@ public class ItemsDataSource
         cursor.close();
         return items;
     }
+    @Override
     public Item getItemById(long id)
     {
         Cursor cursor = database.query(MySQLiteHelper.TABLE_ITEMS, allColumns, MySQLiteHelper.COLUMN_ID+"=?", new String[]{id+""},null,null,null);
@@ -120,6 +126,7 @@ public class ItemsDataSource
 
     }
 
+    @Override
     public List<Item> search(String query)
     {
         Cursor cursor = database.rawQuery("select * from "+MySQLiteHelper.TABLE_ITEMS+" where "+MySQLiteHelper.COLUMN_NAME+" like '%"+query+"%' or "+MySQLiteHelper.COLUMN_CATEGORY+" like '%"+query+"%' ",null);
