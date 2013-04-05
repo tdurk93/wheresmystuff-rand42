@@ -50,7 +50,7 @@ public class NewUserPresenter
         }
         else if(password.length()==0)
         {
-            view.createFail("Uh, I don't see a password");
+            view.createFail("You must complete the password field");
         }
         else
         {

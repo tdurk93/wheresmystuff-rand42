@@ -15,6 +15,7 @@ import com.rand42.model.LocalModel;
  */
 public class AdminActivity extends Activity
 {
+    @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class AdminActivity extends Activity
         Intent i = new Intent(this, HomeActivity.class);
         startActivity(i);
     }
+    @Override
     public void onBackPressed()
     {
         LocalModel.getModel().logOut();

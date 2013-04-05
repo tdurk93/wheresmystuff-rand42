@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * A Fragment to view Items in a list. Can populate itself
+ * @author Rand-42
  */
 public class ItemListFragment extends Fragment implements  AdapterView.OnItemClickListener
 {
@@ -71,10 +72,10 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
 
     /**
      * Navigates to the detail view of the clicked item
-     * @param adapterView
-     * @param view
-     * @param i
-     * @param l
+     * @param adapterView The adapter associated with the view
+     * @param view The view
+     * @param i Selected item index
+     * @param l Selected item index
      */
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
     {

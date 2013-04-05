@@ -38,6 +38,14 @@ public class DialogFactory {
 		alertDialogBuilder.setCancelable(false);
 		return alertDialogBuilder.create();
 	}
+
+    /**
+     * Create a dialog with a progress wheel
+     * @param title Title
+     * @param message Message to display
+     * @param caller Parent activity
+     * @return
+     */
     public static AlertDialog createIndeterminateProgressDialog(String title, String message, Activity caller)
     {
         AlertDialog.Builder aDB = new AlertDialog.Builder(caller);
