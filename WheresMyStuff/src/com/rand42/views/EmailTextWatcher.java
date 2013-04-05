@@ -8,11 +8,7 @@ import android.widget.TextView;
 import java.util.regex.Pattern;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Alex
- * Date: 4/3/13
- * Time: 12:43 PM
- * To change this template use File | Settings | File Templates.
+ * For use with EditText. Checks for valid email strings
  */
 public class EmailTextWatcher implements TextWatcher
 {
@@ -33,6 +29,9 @@ public class EmailTextWatcher implements TextWatcher
     }
 
     @Override
+    /**
+     * Checks to make sure that an email is valid. If not, sets the error on the EditText
+     */
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3)
     {
 

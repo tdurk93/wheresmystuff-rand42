@@ -4,6 +4,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
+/**
+ * For use with EditText fields. Checks for empty EditText fields.
+ */
 public class EmptyTextWatcher implements TextWatcher
 {
         EditText field;
@@ -20,6 +23,9 @@ public class EmptyTextWatcher implements TextWatcher
         }
 
         @Override
+        /**
+         * Checks the empty status of the field. Sets error otherwise.
+         */
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3)
         {
             if (charSequence.toString().length() == 0)

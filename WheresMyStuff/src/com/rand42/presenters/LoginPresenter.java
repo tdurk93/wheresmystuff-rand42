@@ -49,7 +49,7 @@ public class LoginPresenter
                    view.loginSuccess(model.getCurrentUser().isAdmin());
            }
            else
-               view.loginFail("Invalid Creds");
+               view.loginFail("Invalid Credentials");
         }
         else
             view.loginFail("You have attempted to login too many times. Try again later");
