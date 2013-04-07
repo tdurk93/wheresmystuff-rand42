@@ -9,7 +9,15 @@ package com.rand42.views.interfaces;
  */
 public interface INewItemView
 {
+    /**
+     * Called when the creation of a new item is successful.
+     */
     void createSuccess();
+    
+    /**
+     * Called when the creation of a new item fails
+     * @param message the failure message
+     */
     void createFail(String message);
 
 }
