@@ -20,8 +20,12 @@ import com.rand42.presenters.ItemListFragmentPresenter;
 public class HomeActivity extends Activity
 {
     private HomePresenter presenter;
-
-    @Override
+    
+        /**
+         * Called on creation of a HomeActivity view
+         * @param savedInstanceState The "bundle" passed to this object
+         */
+        @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
@@ -37,10 +41,12 @@ public class HomeActivity extends Activity
         ActionBar.Tab tab2 = actionBar.newTab().setText("Found").setTabListener(new MyTabListener<ItemListFragment>(this,"lost",ItemListFragmentPresenter.FOUND_ITEMS,ItemListFragment.class));
         actionBar.addTab(tab2);
 	}
-
-
-
-
+    
+        /**
+         * Called when the options menu is created
+         * @param menu The menu to display ("inflate")
+         * @return true (if the operation was successful)
+         */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -48,10 +54,9 @@ public class HomeActivity extends Activity
         return true;
 	}
 
-    /**
-     * Starts the process of populating the listview
-     */
-	
+        /**
+        * Starts the process of populating the listview
+        */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
@@ -78,6 +83,9 @@ public class HomeActivity extends Activity
 
 		}
 	}
+        /**
+         * Called when the back button on the device is pressed.
+         */
 	@Override
 	public void onBackPressed()
 	{
@@ -98,6 +106,14 @@ public class HomeActivity extends Activity
         private final String mTag;
         private final Class<T> mClass;
         private final int filter;
+        
+        /**
+         * Creates a MyTabListener with the specified parameters
+         * @param activity
+         * @param tag
+         * @param filter
+         * @param clazz 
+         */
         public MyTabListener(Activity activity, String tag, int filter, Class<T> clazz)
         {
             mActivity =   activity;
@@ -105,6 +121,12 @@ public class HomeActivity extends Activity
             mClass = clazz;
             this.filter=filter;
         }
+        
+        /**
+         * Called when a tab is selected
+         * @param tab the tab that is now selected
+         * @param fragmentTransaction The FragmentTransaction associated with this view change
+         */
         @Override
         public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction)
         {
@@ -120,7 +142,12 @@ public class HomeActivity extends Activity
                 fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out );
             }
         }
-
+        
+        /**
+         * Called when a tab is unselected
+         * @param tab the tab that is unselected
+         * @param fragmentTransaction The FramgentTransaction associated with this view change
+         */
         @Override
         public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction)
         {
@@ -129,8 +156,13 @@ public class HomeActivity extends Activity
                 fragmentTransaction.detach(mFragment);
             }
         }
-
-
+        
+        /**
+         * Called when a tab is re-selected
+         * Method is not used in this implementation
+         * @param tab The tab that is re-selected
+         * @param fragmentTransaction The FragmentTransaction associated with this view change
+         */
         @Override
         public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction)
         {
