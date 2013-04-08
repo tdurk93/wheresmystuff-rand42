@@ -38,14 +38,14 @@ public interface IItemsDataSource
     /**
      * Deletes an item by id
      * @param id The id param of the item
-     * @return
+     * @return true if deletion was successful
      */
     boolean deleteItem(long id);
 
     /**
      * Gets all items associated with a user
      * @param user The associated user
-     * @return
+     * @return list of items associated with user
      */
     List<Item> getAllUserItems(User user);
 
@@ -59,7 +59,7 @@ public interface IItemsDataSource
     /**
      * Searches categories and names for items
      * @param query The search query
-     * @return Results
+     * @return  Search Results
      */
     List<Item> search(String query);
 }
