@@ -6,7 +6,7 @@ import com.rand42.model.User;
 import java.util.List;
 
 /**
- * Class that interfaces with the database for items
+ * Class that interfaces with the database for users
  * @author Rand-42
  */
 public interface IUsersDataSource
