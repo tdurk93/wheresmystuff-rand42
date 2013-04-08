@@ -29,6 +29,12 @@ public class ViewUserActivity extends RoboActivity implements IViewUserView, Com
 
     private User currentUser;
     private ViewUserPresenter presenter;
+    
+    /**
+     * Called when a ViewUserActivity is created
+     * @param savedInstanceState a previously saved state, if applicable
+     */
+    @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -38,7 +44,12 @@ public class ViewUserActivity extends RoboActivity implements IViewUserView, Com
         loadUser(id);
 
     }
-
+    
+    /**
+     * Load a user based on their user id and set the action bar text 
+     * based on whether or not the specified user is an admin
+     * @param id 
+     */
     private void loadUser(long id)
     {
         User u = presenter.loadUser(id);
@@ -51,13 +62,22 @@ public class ViewUserActivity extends RoboActivity implements IViewUserView, Com
 
         getActionBar().setTitle(u.getName());
     }
-
+    
+    /**
+     * Called when the delete user button is pressed
+     * @param view the View context
+     */
     public void deleteClick(View view)
     {
         if(presenter.deleteUser(currentUser));
         DialogFactory.createFinishDialog("Success", "User deleted", this).show();
     }
-
+    
+    /**
+     * Called when the "lock user" checkbox state changes
+     * @param compoundButton the Checkbox
+     * @param b whether the checkbox is now checked or unchecked.
+     */
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b)
     {

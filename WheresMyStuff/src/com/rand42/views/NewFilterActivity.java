@@ -34,6 +34,11 @@ public class NewFilterActivity extends RoboActivity
     Date date;
     ArrayAdapter<String> spinnerAdapter;
     NewFilterPresenter presenter;
+    
+    /**
+     * Called when this NewFilterActivity is created
+     * @param savedInstanceState a previously saved state of this, if applicable
+     */
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -46,7 +51,10 @@ public class NewFilterActivity extends RoboActivity
         setupSpinner();
         setupFilter();
     }
-
+    
+    /**
+     * Restores the state of the filter based on what was previously being filtered
+     */
     private void setupFilter()
     {
         ItemFilter currentFilter = presenter.getFilter();
@@ -67,7 +75,10 @@ public class NewFilterActivity extends RoboActivity
         }
 
     }
-
+    
+    /**
+     * Creates the spinner for displaying the various item categories
+     */
     private void setupSpinner()
     {
         categories = new ArrayList<String>();
@@ -81,7 +92,11 @@ public class NewFilterActivity extends RoboActivity
 
         getActionBar().setTitle("New Filter");
     }
-
+    
+    /**
+     * Initializes a new filter with the specified view
+     * @param view the View context in which to create this filter
+     */
     public void createFilter(View view)
     {
         ItemFilter itemFilter = new ItemFilter();
@@ -92,10 +107,15 @@ public class NewFilterActivity extends RoboActivity
         presenter.setFilter(itemFilter);
         this.finish();
     }
+    
+    /**
+     * Shows the calendar when the date button is pressed
+     * @param view the View context
+     */
     public void dateClicked(View view)
     {
         Calendar c = Calendar.getInstance();
-        DatePickerDialog dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener()
+        DatePickerDialog dpd = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() //anonymous class
         {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i2, int i3)
@@ -107,15 +127,24 @@ public class NewFilterActivity extends RoboActivity
         dpd.show();
     }
 
+    /**
+     * Sets the date for the date field in a standardized way
+     * @param y year (4 digits)
+     * @param m month
+     * @param d day
+     */
     private void setDate(int y, int m, int d)
     {
         Calendar c = Calendar.getInstance();
         c.set(y,m,d,0,0,0);
         date.setTime(c.getTimeInMillis());
         dateView.setText((m + 1) + "/" + d + "/" + y); //months are apparently zero indexed
-
-
     }
+    
+    /**
+     * Set the date with seconds from January 1, 1970
+     * @param seconds Seconds from Jan. 1, 1970
+     */
     private void setDate(long seconds)
     {
         Calendar c = Calendar.getInstance();

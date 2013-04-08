@@ -20,6 +20,11 @@ public class ViewItemActivity extends RoboActivity
     @InjectView(R.id.textView1) TextView detailView;
     @InjectView(R.id.textView2) TextView descView;
     ViewItemPresenter presenter;
+    
+    /**
+     * Called when a ViewItemActivity is created
+     * @param savedInstanceState a previously saved state, if applicable
+     */
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

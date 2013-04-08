@@ -29,6 +29,11 @@ public class NewItemActivity extends RoboActivity implements INewItemView
     private Spinner categorySpinner;
     String[] categories = {"Keepsake", "Valuable", "Vital", "Others"};
 
+    /**
+     * Called when this Activity is created
+     * @param savedInstanceState a previously saved state, if applicable
+     */
+    @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -49,19 +54,31 @@ public class NewItemActivity extends RoboActivity implements INewItemView
 
     }
 
+    /**
+     * Sets up the spinner to select the category of the item
+     */
     private void setupSpinner()
     {
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(spinnerAdapter);
     }
-
+    
+    /**
+     * Called to create the item based on the parameters selected by the user
+     * @param view the View context
+     */
     public void createItem(View view)
     {
         String category = (String)categorySpinner.getSelectedItem();
         presenter.createItem(nameField.getText().toString(), descField.getText().toString(), itemDate, lostButton.isChecked(),category);
         this.finish();
     }
+    
+    /**
+     * Shows a calendar when the "Date" button is pressed
+     * @param view the View context
+     */
     public void dateClicked(View view)
     {
        Calendar c = Calendar.getInstance();
@@ -77,7 +94,13 @@ public class NewItemActivity extends RoboActivity implements INewItemView
         dpd.show();
 
     }
-
+    
+    /**
+     * Sets the date based on the year/month/day specified
+     * @param y year (4 digits)
+     * @param m month
+     * @param d day
+     */
     private void setDate(int y, int m, int d)
     {
         Calendar c = Calendar.getInstance();
@@ -87,13 +110,20 @@ public class NewItemActivity extends RoboActivity implements INewItemView
 
 
     }
-
+    
+    /**
+     * Currently not supported
+     */
     @Override
     public void createSuccess()
     {
 
     }
-
+    
+    /**
+     * Currently not supported
+     * @param message 
+     */
     @Override
     public void createFail(String message)
     {
