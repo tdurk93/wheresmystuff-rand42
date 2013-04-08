@@ -13,11 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Alex
- * Date: 3/15/13
- * Time: 12:52 PM
- * To change this template use File | Settings | File Templates.
+ * Interfaces with database for items
  */
 public class ItemsDataSource implements IItemsDataSource
 {
@@ -27,10 +23,15 @@ public class ItemsDataSource implements IItemsDataSource
             , MySQLiteHelper.COLUMN_USER, MySQLiteHelper.COLUMN_DATE, MySQLiteHelper.COLUMN_LOST, MySQLiteHelper.COLUMN_CATEGORY};
 
 
+    /**
+    * constructs ItemsDataSource object
+    * @param context application context
+    */
     public ItemsDataSource(Context context)
     {
         dbHelper = new MySQLiteHelper(context);
     }
+    
 
     @Override
     public void open() throws SQLiteException
@@ -88,10 +89,10 @@ public class ItemsDataSource implements IItemsDataSource
     }
 
     /**
-     * Makes a user from a database cursor
+     * Makes an item from a database cursor
      * @param cursor The database cursor
      *
-     * @return The created user
+     * @return The created item
      */
     private Item cursorToItem(Cursor cursor)
     {

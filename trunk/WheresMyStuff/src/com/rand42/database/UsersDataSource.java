@@ -11,11 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Alex
- * Date: 3/15/13
- * Time: 12:52 PM
- * To change this template use File | Settings | File Templates.
+ *Class that interfaces with the database for users
+ * @author Rand-42
  */
 public class UsersDataSource implements IUsersDataSource
 {

@@ -39,11 +39,19 @@ public class MySQLiteHelper extends SQLiteOpenHelper
 
 
 
-
+    /**
+     * Constructs MySQLiteHelper
+     * @param context application context
+     */
     public MySQLiteHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+    
+    /**
+     * Creates database
+     * @param sqLiteDatabase is database IO object
+     */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase)
     {
@@ -51,6 +59,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper
         sqLiteDatabase.execSQL(USERS_MAKE);
     }
 
+    /**
+     * Recreates database for certain database modifications
+     * @param sqLiteDatabase is database IO object
+     * @param i not used
+     * @param i2 not used
+     */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2)
     {
