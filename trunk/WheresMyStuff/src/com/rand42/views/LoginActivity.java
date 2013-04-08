@@ -25,22 +25,26 @@ public class LoginActivity extends RoboActivity implements ILoginView
     private AlertDialog progressDialog;
     private LoginPresenter presenter;
 	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-
-		presenter = new LoginPresenter(this);
+    /**
+     * Called when the LoginActivity is created
+     * @param savedInstanceState a previously saved state, if applicable
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        presenter = new LoginPresenter(this);
         progressDialog = DialogFactory.createIndeterminateProgressDialog("Login","Logging in", this);
         getActionBar().setTitle("Login");
-
-
         emailField.addTextChangedListener(new EmailTextWatcher(emailField));
-
-
-	}
+    }
 	
-
+        /**
+         * Called when the options menu is created
+         * @param menu the menu to build on
+         * @return true
+         */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -66,10 +70,11 @@ public class LoginActivity extends RoboActivity implements ILoginView
         progressDialog.show();
 		presenter.logIn(emailField.getText().toString(), passwordField.getText().toString());
 	}
+        
 	/**
 	 * Called when the user successfully logs in. Starts a new Activity for the logged in user
-     * @param isAdmin
-     */
+         * @param isAdmin
+         */
 	public void loginSuccess(boolean isAdmin)
 	{
 
@@ -79,16 +84,18 @@ public class LoginActivity extends RoboActivity implements ILoginView
             progressDialog.hide();
 			startActivity(i);
 	}
+        
 	/**
 	 * Called when the user fails to log in. Displays Dialog box informing user of error
-     * @param message
-     */
+         * @param message
+         */
 	public void loginFail(String message)
 	{
 			AlertDialog dialog = DialogFactory.createStandardDialog("Login Failed", message,this);
 			dialog.show();
             progressDialog.hide();
 	}
+        
 	/**
 	 * Called when the reset button is clicked. Spawns a dialog that asks for email address. 
 	 * @param view The clicked view

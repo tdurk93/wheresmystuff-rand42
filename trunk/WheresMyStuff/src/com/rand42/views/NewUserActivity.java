@@ -28,7 +28,10 @@ public class NewUserActivity extends RoboActivity implements INewUserView
     private boolean adminCreation;
 	
 
-
+        /**
+         * Called when a NewUserActivity is created
+         * @param savedInstanceState a previously saved state, if applicable
+         */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,7 +47,12 @@ public class NewUserActivity extends RoboActivity implements INewUserView
         emailField.addTextChangedListener(new EmailTextWatcher(emailField));
         getActionBar().setTitle("New User");
 	}
-
+        
+        /**
+         * Called to create the options menu when creating a user
+         * @param menu the menu to build on
+         * @return 
+         */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

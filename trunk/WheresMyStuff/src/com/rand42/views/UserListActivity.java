@@ -28,6 +28,11 @@ public class UserListActivity extends RoboActivity implements IUserListView, Ada
 
     private UserListPresenter presenter;
     private ArrayAdapter<User> adapter;
+    
+    /**
+     * Called when a UserListActivity is created
+     * @param savedInstanceState a previous state, if applicable
+     */
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -39,13 +44,19 @@ public class UserListActivity extends RoboActivity implements IUserListView, Ada
 
         getActionBar().setTitle("Current Users");
     }
+    
+    /**
+     * Called when this activity is started
+     */
     public void onStart()
     {
         super.onStart();
         populateList();
     }
 
-
+    /**
+     * Creates and populates a list of users
+     */
     public void populateList()
     {
        List<User> users= presenter.getUsers();
@@ -59,7 +70,14 @@ public class UserListActivity extends RoboActivity implements IUserListView, Ada
             list.setAdapter(adapter);
         }
     }
-
+    
+    /**
+     * Called when an item is clicked
+     * @param adapterView
+     * @param view
+     * @param i
+     * @param l 
+     */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
     {
