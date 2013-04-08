@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
-import com.rand42.model.LocalModel;
 import com.rand42.presenters.NewItemPresenter;
 import com.rand42.views.interfaces.INewItemView;
 import roboguice.activity.RoboActivity;

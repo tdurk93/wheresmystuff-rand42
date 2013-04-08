@@ -4,8 +4,6 @@ import com.rand42.model.IModel;
 import com.rand42.model.LocalModel;
 import com.rand42.views.interfaces.ILoginView;
 
-import java.util.regex.Pattern;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Alex

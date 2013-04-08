@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.presenters.UserListPresenter;
 import com.rand42.views.interfaces.IUserListView;

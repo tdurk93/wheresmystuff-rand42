@@ -2,7 +2,6 @@ package com.rand42.presenters;
 
 import com.rand42.model.IModel;
 import com.rand42.model.LocalModel;
-import com.rand42.model.User;
 import com.rand42.views.interfaces.INewItemView;
 
 import java.util.Date;
