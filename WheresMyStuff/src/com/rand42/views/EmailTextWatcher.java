@@ -3,7 +3,6 @@ package com.rand42.views;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.regex.Pattern;
 
