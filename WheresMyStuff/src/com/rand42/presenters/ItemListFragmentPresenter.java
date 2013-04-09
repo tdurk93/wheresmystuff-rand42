@@ -28,6 +28,7 @@ public class ItemListFragmentPresenter
 
     /**
      * Makes the query to get the items associated with the current user
+     * @return items associated with the current user
      */
     public List<Item> getUserItems()
     {
@@ -60,6 +61,11 @@ public class ItemListFragmentPresenter
         return filteredItems;
 
     }
+    
+    /**
+     * Makes the query to get the items that match a given filter
+     * @return list of items that match a given filter
+     */
     public List<Item> getFilterItems()
     {
         // currentFilter = filter;
@@ -91,6 +97,12 @@ public class ItemListFragmentPresenter
         return filteredItems;
 
     }
+    
+   /**
+    * Deletes an item in an item list 
+    * @param item to delete
+    * @return whether the item was deleted
+    */
     public boolean deleteItem(Item item)
     {
         return model.deleteItem(item);
