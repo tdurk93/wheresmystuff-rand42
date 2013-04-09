@@ -19,12 +19,13 @@ public class LoginPresenter
 
     /**
      * Creates a new presenter with view and model
+     * @param model
      * @param view Associated view
      */
-    public LoginPresenter(ILoginView view)
+    public LoginPresenter(IModel model, ILoginView view)
     {
         this.view=view;
-        model = LocalModel.getModel();
+        this.model = model;
 
 
     }

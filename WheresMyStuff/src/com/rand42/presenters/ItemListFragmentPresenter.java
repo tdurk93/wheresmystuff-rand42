@@ -20,9 +20,9 @@ public class ItemListFragmentPresenter
     public static final int ALL_ITEMS=2;
     private int filter;
     
-    public ItemListFragmentPresenter(int filter)
+    public ItemListFragmentPresenter(IModel model, int filter)
     {
-        this.model= LocalModel.getModel();
+        this.model= model;
         this.filter=filter;
     }
 

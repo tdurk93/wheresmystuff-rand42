@@ -15,9 +15,9 @@ public class NewFilterPresenter
 {
     private final IModel model;
 
-    public NewFilterPresenter()
+    public NewFilterPresenter(IModel model)
     {
-        model = LocalModel.getModel();
+        this.model=model;
     }
     public void setFilter(ItemFilter filter)
     {

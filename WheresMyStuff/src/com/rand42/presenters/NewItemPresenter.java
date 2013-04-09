@@ -18,10 +18,10 @@ public class NewItemPresenter
     private final INewItemView view;
     private final IModel model;
 
-    public NewItemPresenter(INewItemView view)
+    public NewItemPresenter(IModel model, INewItemView view)
     {
         this.view=view;
-        this.model = LocalModel.getModel();
+        this.model = model;
     }
 
     public void createItem(String name, String description, Date date, boolean lost, String category)

@@ -3,6 +3,7 @@ package com.rand42.views;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.rand42.model.Item;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.ViewItemPresenter;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
@@ -31,7 +32,7 @@ public class ViewItemActivity extends RoboActivity
         setContentView(R.layout.activity_view_item);
         Bundle bundle = getIntent().getExtras();
         long id = bundle.getLong("item");
-        presenter = new ViewItemPresenter();
+        presenter = new ViewItemPresenter(LocalModel.getModel());
         Item i = presenter.getItem(id);
 
         nameView.setText(i.getName());

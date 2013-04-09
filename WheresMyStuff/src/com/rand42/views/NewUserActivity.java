@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import com.rand42.factories.DialogFactory;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.NewUserPresenter;
 import com.rand42.views.interfaces.INewUserView;
 import roboguice.activity.RoboActivity;
@@ -38,7 +39,7 @@ public class NewUserActivity extends RoboActivity implements INewUserView
 		setContentView(R.layout.activity_new_user);
 		
 
-	    presenter = new NewUserPresenter(this);
+	    presenter = new NewUserPresenter(LocalModel.getModel(),this);
         adminCreation = getIntent().getBooleanExtra("isAdmin",false);
 
         nameField.addTextChangedListener(new EmptyTextWatcher(nameField));

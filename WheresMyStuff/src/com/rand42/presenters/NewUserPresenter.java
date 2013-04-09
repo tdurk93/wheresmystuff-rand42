@@ -27,10 +27,10 @@ public class NewUserPresenter
      * @param view Associated view
 
      */
-    public NewUserPresenter(INewUserView view )
+    public NewUserPresenter(IModel model,INewUserView view )
     {
        this.view=view;
-       this.model= LocalModel.getModel();
+       this.model= model;
        pattern = Pattern.compile(EMAIL_PATTERN);
     }
 

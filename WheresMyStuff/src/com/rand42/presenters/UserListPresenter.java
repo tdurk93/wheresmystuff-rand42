@@ -19,9 +19,9 @@ public class UserListPresenter
     private final IModel model;
     private final IUserListView view;
 
-    public UserListPresenter(IUserListView view)
+    public UserListPresenter(IModel model, IUserListView view)
     {
-        model = LocalModel.getModel();
+        this.model = model;
         this.view = view;
     }
 

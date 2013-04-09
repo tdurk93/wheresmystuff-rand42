@@ -13,9 +13,9 @@ import com.rand42.model.LocalModel;
 public class HomePresenter
 {
     private IModel model;
-    public HomePresenter()
+    public HomePresenter(IModel model)
     {
-        model = LocalModel.getModel();
+        this.model=model;
     }
 
     /**

@@ -14,6 +14,7 @@ public class LoginPresenterTest
     @Test(timeout=200)
     public void testA()
     {
+        LoginTestView view = new LoginTestView();
 
     }
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import com.rand42.model.Item;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.SearchPresenter;
 import com.rand42.views.adapters.ItemAdapter;
 import roboguice.activity.RoboActivity;
@@ -35,7 +36,7 @@ public class SearchableActivity extends RoboActivity implements AdapterView.OnIt
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        presenter = new SearchPresenter();
+        presenter = new SearchPresenter(LocalModel.getModel());
         Intent intent = getIntent();
         if(Intent.ACTION_SEARCH.equals(intent.getAction()))
         {
