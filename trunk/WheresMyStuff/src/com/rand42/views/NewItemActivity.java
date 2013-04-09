@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.NewItemPresenter;
 import com.rand42.views.interfaces.INewItemView;
 import roboguice.activity.RoboActivity;
@@ -38,7 +39,7 @@ public class NewItemActivity extends RoboActivity implements INewItemView
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_item);
-        presenter = new NewItemPresenter(this);
+        presenter = new NewItemPresenter(LocalModel.getModel(),this);
         nameField = (EditText)findViewById(R.id.itemNameField);
         descField = (EditText)findViewById(R.id.itemDescField);
         lostButton = (RadioButton)findViewById(R.id.lostRadioButton);

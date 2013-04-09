@@ -15,9 +15,9 @@ public class ViewItemPresenter
 {
     private final IModel model;
 
-    public ViewItemPresenter()
+    public ViewItemPresenter(IModel model)
     {
-        model = LocalModel.getModel();
+        this.model = model;
     }
 
     public Item getItem(long id)

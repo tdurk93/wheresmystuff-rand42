@@ -16,9 +16,9 @@ import java.util.List;
 public class SearchPresenter
 {
     private final IModel model;
-    public SearchPresenter()
+    public SearchPresenter(IModel model)
     {
-        model = LocalModel.getModel();
+        this.model = model;
     }
     public List<Item> searchItems(String query)
     {

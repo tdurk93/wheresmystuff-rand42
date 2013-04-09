@@ -17,9 +17,9 @@ public class ViewUserPresenter
     private final IModel model;
     private final IViewUserView view;
 
-    public ViewUserPresenter(IViewUserView view)
+    public ViewUserPresenter(IModel model, IViewUserView view)
     {
-        this.model = LocalModel.getModel();
+        this.model = model;
         this.view = view;
     }
 

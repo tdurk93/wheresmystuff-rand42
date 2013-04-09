@@ -7,6 +7,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.rand42.factories.DialogFactory;
+import com.rand42.model.LocalModel;
 import com.rand42.model.User;
 import com.rand42.presenters.ViewUserPresenter;
 import com.rand42.views.interfaces.IViewUserView;
@@ -39,7 +40,7 @@ public class ViewUserActivity extends RoboActivity implements IViewUserView, Com
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_user);
-        presenter = new ViewUserPresenter(this);
+        presenter = new ViewUserPresenter(LocalModel.getModel(),this);
         long id = getIntent().getExtras().getLong("id");
         loadUser(id);
 

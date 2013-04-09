@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.rand42.factories.DialogFactory;
 import com.rand42.model.Item;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.ItemListFragmentPresenter;
 import com.rand42.views.adapters.ItemAdapter;
 
@@ -54,7 +55,7 @@ public class ItemListFragment extends Fragment implements  AdapterView.OnItemCli
         list = (ListView)view.findViewById(R.id.itemlist);
         list.setOnItemClickListener(this);
         registerForContextMenu(list);
-        presenter = new ItemListFragmentPresenter(getArguments().getInt("filter"));
+        presenter = new ItemListFragmentPresenter(LocalModel.getModel(),getArguments().getInt("filter"));
         return view;
     }
 

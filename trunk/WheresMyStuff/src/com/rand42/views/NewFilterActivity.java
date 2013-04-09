@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import com.rand42.model.ItemFilter;
+import com.rand42.model.LocalModel;
 import com.rand42.presenters.NewFilterPresenter;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
@@ -43,7 +44,7 @@ public class NewFilterActivity extends RoboActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_filter);
-        presenter = new NewFilterPresenter();
+        presenter = new NewFilterPresenter(LocalModel.getModel());
         date=new Date();
         Calendar c = Calendar.getInstance();
         setDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE));
