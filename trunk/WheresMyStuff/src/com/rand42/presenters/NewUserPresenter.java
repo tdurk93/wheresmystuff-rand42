@@ -63,6 +63,14 @@ public class NewUserPresenter
         }
 
     }
+    
+    /**
+     * Returns a message reflecting whether or not the input matched the registration requirements
+     * @param new user's desired email
+     * @param new user's desired password
+     * @param new user's password confirmation
+     * @return
+     */
     private String verify(String email, String password, String confirm){
 
 
