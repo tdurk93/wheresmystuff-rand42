@@ -15,11 +15,20 @@ public class ViewItemPresenter
 {
     private final IModel model;
 
+    /**
+     * creates an item presenter for the model
+     * @param model
+     */
     public ViewItemPresenter(IModel model)
     {
         this.model = model;
     }
 
+    /**
+     * Gets an item with the given id.
+     * @param id
+     * @return the item with this id
+     */
     public Item getItem(long id)
     {
         return model.getItemById(id);
