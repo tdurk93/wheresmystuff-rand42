@@ -17,10 +17,22 @@ import java.util.List;
  */
 public class LoginTestModel implements IModel
 {
+    User user;
     @Override
     public boolean logIn(String email, String password)
     {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        if(email.equals("correct")&&password.equals("correct"))
+        {
+            user = new User("","","",false,1,true);
+            return true;
+        }
+        if(email.equals("locked")&&password.equals("locked"))
+        {
+             user = new User("","","",false,1,false);
+            return true;
+        }
+
+        return false;
     }
 
     @Override
@@ -38,7 +50,7 @@ public class LoginTestModel implements IModel
     @Override
     public User getCurrentUser()
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return user;
     }
 
     @Override
@@ -56,7 +68,9 @@ public class LoginTestModel implements IModel
     @Override
     public boolean checkUserAttempts(String string)
     {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        if(string.equals("attempts"))
+            return false;
+        return true;
     }
 
     @Override
