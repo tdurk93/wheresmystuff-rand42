@@ -19,6 +19,11 @@ public class UserListPresenter
     private final IModel model;
     private final IUserListView view;
 
+    /**
+     * A presenter for a list of users
+     * @param model
+     * @param view
+     */
     public UserListPresenter(IModel model, IUserListView view)
     {
         this.model = model;
@@ -26,6 +31,10 @@ public class UserListPresenter
     }
 
 
+    /**
+     * Gets the list of all users
+     * @return a list of all users
+     */
     public List<User> getUsers()
     {
        return model.getAllUsers();
