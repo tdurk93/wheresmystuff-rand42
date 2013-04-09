@@ -28,7 +28,7 @@ public class HomePresenter
 
     /**
      * Gets the name of the current user
-     * @return
+     * @return username
      */
     public String getUserName()
     {
