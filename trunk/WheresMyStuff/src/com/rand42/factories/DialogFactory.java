@@ -82,58 +82,5 @@ public class DialogFactory {
 		alertDialogBuilder.setCancelable(false);
 		return alertDialogBuilder.create();
 	}
-	/**
-	 * Creates a dialog to aid in password reset. Contains an input box, resets user passwords, and creates a message dialog on close
-	 * @param c The calling activity
-	 * @return The created dialog
-	 */
-	/*public static AlertDialog createResetDialog(Activity c)
-	{
-		final Activity caller = c;
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(caller);
-		final EditText input = new EditText(caller);
-		alertDialogBuilder.setView(input);
-		alertDialogBuilder.setTitle("Enter Email");
-		//TODO: Check if all these anonymous clicklisteners can be consolidated or parametrized
-		//TODO: Get this callback stuff the hell outta here.
-		alertDialogBuilder.setPositiveButton("Ok",
-                 new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface dialog, int which) {
-                    	 DatabaseHandler db = DatabaseHandler.getHandler();
-                    	 dialog.dismiss();
-                    	 db.resetPassword(input.getText().toString(), new RequestPasswordResetCallback()
-                    	 {
-                    		 public void done(ParseException e)
-                    		 {
-                    			 if(e==null)
-                    			 {
-                    				 AlertDialog infoDialog = createStandardDialog("","You will recieve an email shortly",caller);
-                                	 infoDialog.show();
-                                     
-                    			 }
-                    			 else
-                    			 {
-                    				 AlertDialog infoDialog = createStandardDialog("","A problem occured",caller);
-                                	 infoDialog.show();
-                    			 }
-                    		 }
-                    	 });
-                    	
-                     }
-                 });
-		alertDialogBuilder.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog,
-                            int which) {
-                  
-                        dialog.dismiss();
-                    }
-                });
-		alertDialogBuilder.setMessage("Enter your email");
-		alertDialogBuilder.setCancelable(true);
-		return alertDialogBuilder.create();
-	}
-*/
+
 }

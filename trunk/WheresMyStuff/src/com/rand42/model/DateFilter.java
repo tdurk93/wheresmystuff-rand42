@@ -23,15 +23,12 @@ public class DateFilter implements IFilter<Item>
     {
         if(beforeTime)
         {
-            if(item.getDate().getTime()<filterTime)
-                return true;
+            return item.getDate().getTime()<filterTime;
         }
-        if(!beforeTime)
+        else
         {
-            if(item.getDate().getTime()>filterTime)
-                return true;
+            return item.getDate().getTime()>filterTime;
         }
-        return false;
     }
     public long getFilterTime()
     {
