@@ -18,9 +18,7 @@ public class CategoryFilter implements IFilter<Item>
     @Override
     public boolean filter(Item item)
     {
-        if(item.getCategory().equals(filterString))
-            return true;
-        return false;
+        return item.getCategory().equals(filterString);
     }
     public String getFilterString()
     {

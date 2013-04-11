@@ -107,7 +107,7 @@ public class UsersDataSource implements IUsersDataSource
      * @param cursor The database cursor
      * @return The created user
      */
-    private User cursorToUser(Cursor cursor)
+    public static User cursorToUser(Cursor cursor)
     {
         if(cursor.isAfterLast())
             return null;

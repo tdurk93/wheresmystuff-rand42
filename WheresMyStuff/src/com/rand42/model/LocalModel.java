@@ -110,10 +110,12 @@ public class LocalModel implements IModel
         uds.unlockUser(currentUser.getID());
 
     }
+    @Override
     public ItemFilter getFilter()
     {
         return currentFilter;
     }
+    @Override
     public void setFilter(ItemFilter filter)
     {
         currentFilter = filter;
@@ -133,7 +135,7 @@ public class LocalModel implements IModel
         return ids.search(query);
     }
 
-
+    @Override
     public List<User> getAllUsers()
     {
         return uds.getAllUsers();

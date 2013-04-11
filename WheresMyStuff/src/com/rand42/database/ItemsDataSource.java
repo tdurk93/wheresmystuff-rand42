@@ -13,25 +13,24 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Interfaces with database for items
+ * Created with IntelliJ IDEA.
+ * User: Alex
+ * Date: 3/15/13
+ * Time: 12:52 PM
+ * To change this template use File | Settings | File Templates.
  */
 public class ItemsDataSource implements IItemsDataSource
 {
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
-    private String[] allColumns = {MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NAME, MySQLiteHelper.COLUMN_DESC
+    private String[] allColumns = {MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NAME, MySQLiteHelper.COLUMN_DESCRIPTION
             , MySQLiteHelper.COLUMN_USER, MySQLiteHelper.COLUMN_DATE, MySQLiteHelper.COLUMN_LOST, MySQLiteHelper.COLUMN_CATEGORY};
 
 
-    /**
-    * constructs ItemsDataSource object
-    * @param context application context
-    */
     public ItemsDataSource(Context context)
     {
         dbHelper = new MySQLiteHelper(context);
     }
-    
 
     @Override
     public void open() throws SQLiteException
@@ -49,13 +48,13 @@ public class ItemsDataSource implements IItemsDataSource
     {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NAME, name);
-        values.put(MySQLiteHelper.COLUMN_DESC, description);
+        values.put(MySQLiteHelper.COLUMN_DESCRIPTION, description);
         values.put(MySQLiteHelper.COLUMN_USER, owner.getID());
         values.put(MySQLiteHelper.COLUMN_LOST, lost?1:0);
         values.put(MySQLiteHelper.COLUMN_DATE, date.getTime());
         values.put(MySQLiteHelper.COLUMN_CATEGORY, category);
 
-        long insertId = database.insert(MySQLiteHelper.TABLE_ITEMS, null,values);
+        database.insert(MySQLiteHelper.TABLE_ITEMS, null,values);
 
 
 
@@ -88,12 +87,6 @@ public class ItemsDataSource implements IItemsDataSource
         return cursorToItem(cursor);
     }
 
-    /**
-     * Makes an item from a database cursor
-     * @param cursor The database cursor
-     *
-     * @return The created item
-     */
     private Item cursorToItem(Cursor cursor)
     {
         if(cursor.isAfterLast())
@@ -106,17 +99,11 @@ public class ItemsDataSource implements IItemsDataSource
                 , MySQLiteHelper.COLUMN_ENABLED, MySQLiteHelper.COLUMN_ADMIN}, MySQLiteHelper.COLUMN_ID+"=?", new String[]{userId+""}, null,null,null);
 
         userCursor.moveToFirst();
-        User user = new User(userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)),
-                userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_EMAIL)),
-                userCursor.getString(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_PASSWORD)),
-                userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ADMIN))==1,
-                userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
-                userCursor.getInt(userCursor.getColumnIndex(MySQLiteHelper.COLUMN_ENABLED))==1);
-
+        User user = UsersDataSource.cursorToUser(userCursor);
         userCursor.close();
 
         Date date = new Date(cursor.getLong(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DATE)));
-        Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESC)),
+        Item item = new Item(cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_NAME)), cursor.getString(cursor.getColumnIndex(MySQLiteHelper.COLUMN_DESCRIPTION)),
                 user,
                 date,
                 cursor.getInt(cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID)),
@@ -131,7 +118,6 @@ public class ItemsDataSource implements IItemsDataSource
     public List<Item> search(String query)
     {
         Cursor cursor = database.rawQuery("select * from "+MySQLiteHelper.TABLE_ITEMS+" where "+MySQLiteHelper.COLUMN_NAME+" like '%"+query+"%' or "+MySQLiteHelper.COLUMN_CATEGORY+" like '%"+query+"%' ",null);
-        //Cursor cursor = database.query(MySQLiteHelper.TABLE_ITEMS, allColumns, MySQLiteHelper.COLUMN_NAME+"=?", new String[]{query}, null,null,null);
         cursor.moveToFirst();
         List<Item> items = new ArrayList<Item>();
         while(!cursor.isAfterLast())
