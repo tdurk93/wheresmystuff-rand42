@@ -1,0 +1,9 @@
+com.rand42
+com.rand42.database
+com.rand42.factories
+com.rand42.model
+com.rand42.presenters
+com.rand42.tests
+com.rand42.views
+com.rand42.views.adapters
+com.rand42.views.interfaces
