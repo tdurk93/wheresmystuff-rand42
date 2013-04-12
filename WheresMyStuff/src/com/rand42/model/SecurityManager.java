@@ -12,12 +12,13 @@ import java.util.HashMap;
  */
 public class SecurityManager {
 
-	//TODO: Lockout users based on locked status
-	
 	private HashMap<String, Integer> lockouts = new HashMap<String,Integer>();
 	private static SecurityManager defaultInstance;
-	private final int LOCK = 3; //three attempts at login
+	private final int LOCK = 3; 
 	
+	/**
+	 * Can't be having this class instantiated anywhere else.
+	 */
 	private SecurityManager(){}
 	
 	/**
@@ -45,13 +46,18 @@ public class SecurityManager {
 		lockouts.put(username,lockouts.get(username)+1);
 		return lockouts.get(username) < LOCK;
 	}
+	
+	/**
+	 * Resets a user's login attempt count.
+	 * @param username
+	 */
     public void reset(String username)
     {
         lockouts.put(username,0);
     }
 	
 	/**
-	 * Deletes logs of user activity
+	 * Deletes all logs of user activity
 	 */
 	public void reset()
     {

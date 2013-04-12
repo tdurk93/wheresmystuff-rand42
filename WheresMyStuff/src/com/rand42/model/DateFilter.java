@@ -30,10 +30,20 @@ public class DateFilter implements IFilter<Item>
             return item.getDate().getTime()>filterTime;
         }
     }
+    
+    /**
+     * Accessor for the time of the filter
+     * @return
+     */
     public long getFilterTime()
     {
         return filterTime;
     }
+    
+    /**
+     * Are we looking backwards or forwards
+     * @return
+     */
     public boolean getBefore()
     {
         return beforeTime;
