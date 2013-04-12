@@ -51,6 +51,11 @@ public interface IModel
 	 * @return
 	 */
 	User getCurrentUser();
+	
+	/**
+	 * Find me a list of all men.
+	 * @return
+	 */
     List<User> getAllUsers();
 
     /**
@@ -91,19 +96,71 @@ public interface IModel
      */
     Item getItemById(long id);
 
+    /**
+     * The item shall be cast into the void.
+     * @param item
+     * @return
+     */
     boolean deleteItem(Item item);
 
+    /**
+     * The user has been pardoned his errors.
+     * @param email
+     */
     void resetAttempts(String email);
 
+    /**
+     * Accessor for a user,
+     * Simply pass in the email.
+     * @param email
+     * @return
+     */
     User getUser(String email);
+    
+    /**
+     * Accessor for a user,
+     * Simply pass in the ID#
+     * @param id
+     * @return
+     */
     User getUser(long id);
 
+    /**
+     * Prevent a user from logging in.
+     * @param currentUser
+     */
     void lockUser(User currentUser);
+    
+    /**
+     * Allow a user to log in.
+     * @param currentUser
+     */
     void unlockUser(User currentUser);
+    
+    /**
+     * Enable the given filter.
+     * @param filter
+     */
     void setFilter(ItemFilter filter);
+    
+    /**
+     * Accessor for the chosen filter.
+     * @return
+     */
     ItemFilter getFilter();
+    
+    /**
+     *	Permanently remove a user from the system 
+     * @param user
+     * @return
+     */
     boolean deleteUser(User user);
 
+    /**
+     * Apply a query.
+     * @param query
+     * @return
+     */
     List<Item> searchItems(String query);
 
 }

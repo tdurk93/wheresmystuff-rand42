@@ -21,8 +21,7 @@ public class LocalModel implements IModel
 {
 	
 	private IItemsDataSource ids;
-    private IUsersDataSource
-            uds;
+    private IUsersDataSource uds;
 	private User currentUser;
 	private static IModel model;
 	private SecurityManager sm;
@@ -39,8 +38,8 @@ public class LocalModel implements IModel
 	}
 	
 	/**
-	 * We really need to have less of these
-	 */
+	 *	No other class can instantiate this.
+	 **/
 	private LocalModel(){
 		ids = new ItemsDataSource(WheresMyStuffApplication.getAppContext());
         uds = new UsersDataSource(WheresMyStuffApplication.getAppContext());
@@ -93,6 +92,8 @@ public class LocalModel implements IModel
     {
         return uds.getUserByEmail(email);
     }
+    
+    @Override
     public User getUser(long id)
     {
         return uds.getUserById(id);
@@ -115,13 +116,12 @@ public class LocalModel implements IModel
     {
         return currentFilter;
     }
+    
     @Override
     public void setFilter(ItemFilter filter)
     {
         currentFilter = filter;
     }
-
-
 
     @Override
     public boolean deleteUser(User user)
@@ -146,19 +146,18 @@ public class LocalModel implements IModel
         return ids.getAllUserItems(user);
     }
 
-
     @Override
 	public boolean addUser(String email, String name, String password, boolean isAdmin)
     {
 		return uds.createUser(name,email,password, isAdmin);
 	}
 
-
 	@Override
 	public User getCurrentUser() {
 		return currentUser;
 	}
-    @Override
+
+	@Override
     public void setCurrentUser(User user)
     {
         currentUser = user;
@@ -168,8 +167,5 @@ public class LocalModel implements IModel
 	public void logOut() {
       currentUser = null;
 	}
-
-
 	
-
 }

@@ -19,6 +19,20 @@ public class User {
     private String category;
 
 
+    /**
+     * Construct a user.
+     * 
+     * All parameters are self-explanatory.
+     * 
+     * A user is active if he's logged in.
+     * 
+     * @param name
+     * @param email
+     * @param password
+     * @param admin
+     * @param id
+     * @param active
+     */
     public User(String name, String email, String password, boolean admin,  long id, boolean active )
     {
         isAdmin = admin;
@@ -59,6 +73,11 @@ public class User {
 	public String toString(){
 		return email;
 	}
+	
+	/**
+	 * Return true if user is an admin
+	 * @return
+	 */
     public boolean isAdmin()
     {
         return isAdmin;
@@ -74,6 +93,10 @@ public class User {
     }
 
 
+    /**
+     * Return the user's login status
+     * @return
+     */
     public boolean isActive()
     {
         return active;
