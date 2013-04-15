@@ -68,8 +68,14 @@ public class ItemsListFragmentPresenterTest {
     public void testGetFilterItems()
     {
         ItemFilter filter = new ItemFilter();
-        filter.enableCategoryFilter("test");
+        filter.enableCategoryFilter("body parts");
         myModel.setFilter(filter);
+        List<Item> items = presenter.getFilterItems();
+        assertTrue(items.size() == 1);
+        assertTrue(items.get(0).getName().equals("My heart"));
+        filter.enableCategoryFilter("collectibles");
+        items = presenter.getFilterItems();
+        assertTrue(items.size() == 2);
     }
     
     
