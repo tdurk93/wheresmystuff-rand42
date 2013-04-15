@@ -38,7 +38,9 @@ public class LoginTestModel implements IModel
     @Override
     public boolean addUser(String email, String name, String password, boolean isAdmin)
     {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        if(email.equals("exists@exists.com"))
+            return false;
+        return true;
     }
 
     @Override
