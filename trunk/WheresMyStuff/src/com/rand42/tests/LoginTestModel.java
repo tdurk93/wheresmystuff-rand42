@@ -5,6 +5,7 @@ import com.rand42.model.Item;
 import com.rand42.model.ItemFilter;
 import com.rand42.model.User;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -84,7 +85,10 @@ public class LoginTestModel implements IModel
     @Override
     public List<Item> getUserItems(User user)
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("LostItem","LostItem",new User("","","",false,1,false),new Date(),1,false,"" ));
+        items.add(new Item("FoundItem","FoundItem",new User("","","",false,1,false),new Date(),1,true,"" ));
+        return items;
     }
 
     @Override

@@ -23,7 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="3542ddf8-9f5e-4559-940e-9d908c36335e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/tests/SecurityManagerTest.java" afterPath="$PROJECT_DIR$/src/com/rand42/tests/SecurityManagerTest.java" />
+      <change type="DELETED" beforePath="C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\tests\ItemsListTestModel.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/tests/ItemsListFragmentPresenterTest.java" afterPath="$PROJECT_DIR$/src/com/rand42/tests/ItemsListFragmentPresenterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java" afterPath="$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WheresMyStuff.iws" />
@@ -40,7 +42,7 @@
     <file path="/Item.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1364347835146" ignored="false" />
     <file path="/Location.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362344559735" ignored="false" />
     <file path="/NewItem.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362187363748" ignored="false" />
-    <file path="/Dummy.txt" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365993100951" ignored="false" />
+    <file path="/Dummy.txt" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1366001585844" ignored="false" />
     <file path="/activity_new_item.xml" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1364145875579" ignored="false" />
     <file path="/ILoginPresenter.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362250070262" ignored="false" />
     <file path="/ILoginView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1362254908626" ignored="false" />
@@ -106,7 +108,7 @@
     <file path="/IItemsDataSource.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365193087082" ignored="false" />
     <file path="/IUsersDataSource.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365193022403" ignored="false" />
     <file path="$PROJECT_DIR$/../JavaWorkspace/HW10/src/Main.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365381783943" ignored="false" />
-    <file path="/LoginTestModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365992917658" ignored="false" />
+    <file path="/LoginTestModel.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1366029614351" ignored="false" />
     <file path="$PROJECT_DIR$/src/com/rand42/views/interfaces/ICreateAdminView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365382375784" ignored="false" />
     <file path="/LoginPresenterTest.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365479651474" ignored="false" />
     <file path="/LoginTestView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365478232056" ignored="false" />
@@ -114,6 +116,7 @@
     <file path="$PROJECT_DIR$/gen/com/rand42/views/Manifest.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365784862625" ignored="false" />
     <file path="/CreateUserTest.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365993067799" ignored="false" />
     <file path="/UserTestView.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1365992193492" ignored="false" />
+    <file path="/ItemsListFragmentPresenterTest.java" changelist="3542ddf8-9f5e-4559-940e-9d908c36335e" time="1366029955910" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +131,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -196,29 +200,9 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
-    <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
-  </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="SecurityManagerTest.java" pinned="false" current="true" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/SecurityManagerTest.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="28" column="10" selection-start="649" selection-end="649" vertical-scroll-proportion="0.44409615">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -235,37 +219,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewUserPresenter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/NewUserPresenter.java">
+      <file leaf-file-name="SecurityManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="33" selection-start="1583" selection-end="1606" vertical-scroll-proportion="0.0">
+            <state line="45" column="0" selection-start="946" selection-end="946" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateUserTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/CreateUserTest.java">
+      <file leaf-file-name="ItemsListFragmentPresenterTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/ItemsListFragmentPresenterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="40" column="50" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.5421903">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginPresenterTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginPresenterTest.java">
+      <file leaf-file-name="DateFilterTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/DateFilterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="45" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
+            <state line="11" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginTestModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java">
+      <file leaf-file-name="ItemListFragmentPresenter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="0" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0">
+            <state line="82" column="0" selection-start="2148" selection-end="2148" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -280,28 +264,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemListFragmentPresenter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
+      <file leaf-file-name="LoginTestModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
+            <state line="90" column="21" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityManager.java" pinned="false" current="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java">
+      <file leaf-file-name="LoginPresenterTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginPresenterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="0" selection-start="946" selection-end="946" vertical-scroll-proportion="0.70242214">
+            <state line="16" column="45" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DateFilterTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/DateFilterTest.java">
+      <file leaf-file-name="CreateUserTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/CreateUserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewUserPresenter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/NewUserPresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="33" selection-start="1583" selection-end="1606" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -317,7 +310,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/rand42/views/SearchableActivity.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/views/UserListActivity.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/tests/LoginPresenterTest.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/database/UsersDataSource.java" />
@@ -330,9 +322,10 @@
         <option value="$PROJECT_DIR$/src/com/rand42/factories/DialogFactory.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/model/Item.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/tests/UserTestView.java" />
-        <option value="$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/tests/CreateUserTest.java" />
         <option value="$PROJECT_DIR$/src/com/rand42/tests/SecurityManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java" />
+        <option value="$PROJECT_DIR$/src/com/rand42/tests/ItemsListFragmentPresenterTest.java" />
       </list>
     </option>
   </component>
@@ -391,6 +384,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -553,20 +548,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="75" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="75" />
     <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="75" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="75" />
-    <property name="OverrideImplement.combined" value="false" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="75" />
-    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
@@ -583,28 +576,28 @@
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="75" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="75" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth5" value="75" />
+    <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/com/rand42" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/com/rand42" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder5" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
-    <property name="AndroidLayoutSelectedEditor" value="text-editor" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="AndroidLayoutSelectedEditor" value="text-editor" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -649,8 +642,9 @@
             <option name="mySupportsDeletion" value="false" />
             <option name="myCanBeAbsent" value="false" />
             <option name="myId" value="CREATED" />
-            <PATH vcs="svn" revision="96">C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\tests\SecurityManagerTest.java</PATH>
-            <PATH vcs="svn" revision="96">C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\tests\DateFilterTest.java</PATH>
+            <PATH vcs="svn" revision="98">C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\tests\ItemsListTestView.java</PATH>
+            <PATH vcs="svn" revision="98">C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\tests\ItemsListFragmentPresenterTest.java</PATH>
+            <PATH vcs="svn" revision="98">C:\Users\Alex\SkyDrive\WheresMyStuff\src\com\rand42\tests\ItemsListTestModel.java</PATH>
           </FILE-GROUP>
           <FILE-GROUP>
             <option name="myUpdateName" value="Deleted" />
@@ -740,7 +734,7 @@
       </UpdatedFiles>
     </UpdateInfo>
   </component>
-  <component name="RunManager" selected="JUnit.SecurityManagerTest">
+  <component name="RunManager" selected="JUnit.ItemsListFragmentPresenterTest">
     <configuration default="false" name="LoginPresenterTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -871,6 +865,34 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="ItemsListFragmentPresenterTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.rand42.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="WheresMyStuff" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.rand42.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.rand42.tests.ItemsListFragmentPresenterTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -980,19 +1002,21 @@
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Android Application.WhereUAt" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.LoginPresenterTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.CreateUserTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.DateFilterTest" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.SecurityManagerTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.ItemsListFragmentPresenterTest" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SecurityManagerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DateFilterTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CreateUserTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.LoginPresenterTest" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ItemsListFragmentPresenterTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SecurityManagerTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DateFilterTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CreateUserTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.LoginPresenterTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1192,7 +1216,11 @@
       <created>1365993159119</created>
       <updated>1365993159119</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fixed stefano's junit tests&#10;">
+      <created>1366001593135</created>
+      <updated>1366001593135</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1272,7 +1300,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nolan's junit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed stefano's junit tests&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1286,7 +1314,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Added fun icons to the app" />
     <MESSAGE value="Fixed an issue where dates incorporated system time. Set to 00:00:00 for easier filtering. Also, added third row to listview" />
     <MESSAGE value="RoboGuice for extracredit working this time!" />
     <MESSAGE value="Roboguice for extracredit working this time!" />
@@ -1311,6 +1338,7 @@
     <MESSAGE value="generated documentation&#10;" />
     <MESSAGE value="junit&#10;" />
     <MESSAGE value="Nolan's junit test" />
+    <MESSAGE value="Fixed stefano's junit tests&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1320,13 +1348,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/model/CategoryFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/model/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="122" column="5" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0">
@@ -1336,9 +1357,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginTestView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="2" selection-start="280" selection-end="457" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="2" selection-start="280" selection-end="457" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginPresenterTest.java">
@@ -1351,13 +1370,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/UserListPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="13" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1398,13 +1410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/DateFilterTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
@@ -1414,14 +1419,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/model/SecurityManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="946" selection-end="946" vertical-scroll-proportion="0.70242214">
+        <state line="45" column="0" selection-start="946" selection-end="946" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/SecurityManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="10" selection-start="649" selection-end="649" vertical-scroll-proportion="0.44409615">
+        <state line="28" column="10" selection-start="658" selection-end="658" vertical-scroll-proportion="0.6287979">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/LoginTestModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="21" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/presenters/ItemListFragmentPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="0" selection-start="2148" selection-end="2148" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/rand42/tests/ItemsListFragmentPresenterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="50" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.5421903">
           <folding />
         </state>
       </provider>
