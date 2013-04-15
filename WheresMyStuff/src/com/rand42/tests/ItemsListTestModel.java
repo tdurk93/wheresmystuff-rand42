@@ -8,6 +8,8 @@ import com.rand42.model.Item;
 import com.rand42.model.ItemFilter;
 import com.rand42.model.LocalModel;
 import com.rand42.model.User;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,54 +18,56 @@ import java.util.List;
  * @author Tyler
  */
 public class ItemsListTestModel implements IModel{
-    
-    IModel testLocalModel = LocalModel.getModel();
 
+       List<Item> items = new ArrayList<>();
+    ItemFilter filter = new ItemFilter();
     public boolean logIn(String email, String password) {
-        return testLocalModel.logIn(email, password);
+        return false;
     }
 
     public boolean addUser(String email, String name, String password, boolean isAdmin) {
-        return testLocalModel.addUser(email, name, password, isAdmin);
+        return false;
     }
 
     public User getCurrentUser() {
-        return testLocalModel.getCurrentUser();
+        return null ;
     }
 
 
     public void setCurrentUser(User user) {
-        testLocalModel.setCurrentUser(user);
+
     }
 
-    public void createItem(String name, String description, User owner, Date date, boolean lost, String category) {
-        testLocalModel.createItem(name, description, owner, date, lost, category);
+    public void createItem(String name, String description, User owner, Date date, boolean lost, String category)
+    {
+         items.add(new Item(name,description,owner,date,1,lost,category));
     }
 
     public List<Item> getUserItems(User user) {
-        return testLocalModel.getUserItems(user);
+        return items;
     }
 
 
     public boolean deleteItem(Item item) {
-        return testLocalModel.deleteItem(item);
+        items.remove(item);
+        return true;
     }
 
 
     public User getUser(String email) {
-        return testLocalModel.getUser(email);
+        return null;
     }
 
     public void setFilter(ItemFilter filter) {
-        testLocalModel.setFilter(filter);
+        this.filter=filter;
     }
 
     public ItemFilter getFilter() {
-        return testLocalModel.getFilter();
+        return filter;
     }
 
     public List<Item> searchItems(String query) {
-        return testLocalModel.searchItems(query);
+        return null;
     }
 
     public void logOut() {

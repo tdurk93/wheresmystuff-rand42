@@ -27,15 +27,15 @@ public class ItemsListFragmentPresenterTest {
     public ItemsListFragmentPresenterTest()
     {
             //populate model with users and set the current user
-            myModel.addUser("admin@example.com", "testAdmin", "password", USER_IS_ADMIN);
+           /* myModel.addUser("admin@example.com", "testAdmin", "password", USER_IS_ADMIN);
             myModel.addUser("normalUser@example.com", "testUser", "password", !USER_IS_ADMIN);
-            User adminUser = myModel.getUser("admin@example.com");
+
             User normalUser = myModel.getUser("normalUser@example.com");
-            myModel.setCurrentUser(normalUser);
-            
+            myModel.setCurrentUser(normalUser);   */
+            User adminUser = new User("Admin","admin@email.com","password",true,1, true);
             //populate model with items
             myModel.createItem("Batman figurine", "about 6\" tall", adminUser, new Date(), ITEM_IS_LOST, "collectibles");
-            myModel.createItem("mobile home", "i lost it. it is white.", normalUser, new Date(), ITEM_IS_LOST, "collectibles");
+            myModel.createItem("mobile home", "i lost it. it is white.", adminUser,  new Date(), ITEM_IS_LOST, "collectibles");
             myModel.createItem("My heart", "You stole it", adminUser, new Date(), ITEM_IS_LOST, "body parts");
     }
 //=======
@@ -53,13 +53,6 @@ public class ItemsListFragmentPresenterTest {
     public void presenterShouldBeNonNull()
     {
         assertTrue(lostPresenter != null);
-    }
-//<<<<<<< .mine
-    
-    @Test(timeout=200)
-    public void currentUserShouldNotBeNull()
-    {
-        assertTrue(myModel.getCurrentUser() != null);
     }
     
     //public void 
